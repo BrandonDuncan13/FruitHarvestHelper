@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+// npx react-native run-android
 import React from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
@@ -8,6 +9,7 @@ import AnotherScreen from '../screens/anotherScreen';
 
 const Stack = createNativeStackNavigator();
 
+// no StyleSheet becuase the styling is done within navigation Component(s) properties
 const HomeStack = () => {
   return (
     <NavigationContainer>
