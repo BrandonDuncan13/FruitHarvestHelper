@@ -1,7 +1,7 @@
 /* eslint-disable prettier/prettier */
 // npx react-native run-android
 import React from 'react';
-import { View, StyleSheet, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { Dimensions, View, StyleSheet, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
 import BottomSheet from 'reanimated-bottom-sheet';
 import Animated from 'react-native-reanimated';
 import ImagePicker from 'react-native-image-crop-picker';
@@ -75,35 +75,37 @@ const AnotherScreen = () => {
 
   return (
       <View style={styles.container}>
-       <BottomSheet
+        {/* If an ImageBackground is wrapped in a View the height and width must be defined (at least I think so) */}
+        <Animated.View style={[styles.imgContainer,
+        { opacity: Animated.add(0.4, Animated.multiply(fall, 1.0)) },
+    ]}>
+          <TouchableWithoutFeedback onPress={() => bs.current.snapTo(1)}>
+            <ImageBackground
+              style={styles.backgroundImage}
+              resizeMode="cover"
+              source={myImage}
+            >
+              <TouchableOpacity
+              style={styles.textBox}
+              activeOpacity={0.8}
+              onPress={() => bs.current.snapTo(0)}
+              >
+                <Text style={styles.text}>Blossoming Apple Tree</Text>
+              </TouchableOpacity>
+            </ImageBackground>
+          </TouchableWithoutFeedback>
+        </Animated.View>
+        <BottomSheet
           ref={bs}
-          snapPoints={[445, 0]}
-          renderContent={renderInner}
-          renderHeader={renderHeader}
+          snapPoints={[445, 0]} // 575 for tablet and 445 for phone, 50% for tablet and 58% for phone
+          renderContent={renderInner} // first 355 pixels and the first 30% don't show up on the tablet
+          renderHeader={renderHeader} // percentages cause the screen to shake in the emulator but not on an actual device
           initialSnap={1}
           callbackNode={fall}
           enabledGestureInteraction={true}
           enabledContentTapInteraction={false}
+          enabledHeaderGestureInteraction={true}
         />
-        <TouchableWithoutFeedback onPress={() => bs.current.snapTo(1)}>
-        <Animated.View style={{opacity: Animated.add(0.4, Animated.multiply(fall, 1.0))}}>
-          <View style={styles.bgWrapper}>
-          <ImageBackground
-            style={styles.backgroundImage}
-            resizeMode="cover"
-            source={myImage}
-          >
-            <TouchableOpacity
-            style={styles.textBox}
-            activeOpacity={0.8}
-            onPress={() => bs.current.snapTo(0)}
-            >
-              <Text style={styles.text}>Blossoming Apple Tree</Text>
-            </TouchableOpacity>
-          </ImageBackground>
-          </View>
-        </Animated.View>
-        </TouchableWithoutFeedback>
       </View>
   );
 };
@@ -117,7 +119,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
     },
     backgroundImage: {
-      flex: 1,
+      marginLeft: 0,
       width: '100%',
       height: '100%',
     },
@@ -193,5 +195,9 @@ const styles = StyleSheet.create({
     },
     bgWrapper: {
       margin: 0,
+    },
+    imgContainer: {
+      width: Dimensions.get('window').width,
+      height: Dimensions.get('window').height,
     },
   });
