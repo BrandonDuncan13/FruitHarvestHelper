@@ -1,116 +1,86 @@
 /* eslint-disable prettier/prettier */
 // npx react-native run-android
-import React from 'react';
-import { Dimensions, View, StyleSheet, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
-import BottomSheet from 'reanimated-bottom-sheet';
-import Animated from 'react-native-reanimated';
+import React, { useRef } from 'react';
+import { useWindowDimensions, Dimensions, View, StyleSheet, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { PanGestureHandler, PanGestureHandlerEvent, GestureHandlerRootView, GestureDetector, Gesture } from 'react-native-gesture-handler';
+import Animated, { useAnimatedGestureHandler, useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import ImagePicker from 'react-native-image-crop-picker';
+import BottomSheet from '../components/BottomSheet';
 
-const AnotherScreen = () => {
+export default function AnotherScreen() {
+  {/* const SPRING_CONFIG = {
+    damping: 80,
+    overshootClamping: true,
+    restDisplacementThreshold: 0.1,
+    restSpeedThreshold: 0.1,
+    stiffness: 500,
+  };
+
+  const dimensions = useWindowDimensions();
+
+  const top = useSharedValue(
+    dimensions.height
+  );
+
+  const style = useAnimatedStyle(() => {
+    return {
+      top: withSpring(top.value, SPRING_CONFIG),
+    };
+  });
+
+  const gestureHandler = useAnimatedGestureHandler<PanGestureHandlerEvent>({
+    onStart(_, context) {
+      context.startTop = top.value;
+    },
+    onActive(event, context) {
+      top.value = context.startTop + event.translationY;
+    },
+    onEnd() {
+      // Dismissing snap point
+      if (top.value > ((dimensions.height / 2) + 200)) {
+        top.value = dimensions.height;
+      } else {
+        top.value = dimensions.height / 2;
+      }
+    },
+  });
+*/}
 
   const myImage = require('../images/bigblossoms.jpg');
-
-  const takePhotoFromCamera = () => {
-    ImagePicker.openCamera({
-      width: 300,
-      height: 400,
-      cropping: true,
-    }).then(image => {
-      console.log(image);
-      bs.current.snapTo(1);
-    });
-  };
-
-  const choosePhotoFromLibrary = () => {
-    ImagePicker.openPicker({
-      width: 300,
-      height: 400,
-      cropping: true,
-    }).then(image => {
-      console.log(image);
-      bs.current.snapTo(1);
-    });
-  };
-
-  const renderInner = () => (
-    <View style={styles.panel}>
-      <View style={styles.centerTitle}>
-        <Text style={styles.panelTitle}>Upload Photo</Text>
-        <Text style={styles.panelSubtitle}>Choose a background photo</Text>
-      </View>
-      <TouchableOpacity
-        style={styles.panelButton}
-        onPress={takePhotoFromCamera}
-        activeOpacity={0.45}
-      >
-        <Text style={styles.panelButtonTitle}>Take Photo</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.panelButton}
-        onPress={choosePhotoFromLibrary}
-        activeOpacity={0.45}
-      >
-        <Text style={styles.panelButtonTitle}>Choose From Library</Text>
-      </TouchableOpacity>
-      <TouchableOpacity
-        style={styles.panelButton}
-        onPress={() => bs.current.snapTo(1)}
-        activeOpacity={0.45}
-      >
-        <Text style={styles.panelButtonTitle}>Cancel</Text>
-      </TouchableOpacity>
-    </View>
-  );
-
-  const renderHeader = () => (
-    <View style={styles.header}>
-      <View style={styles.panelHeader}>
-        <View style={styles.panelHandle} />
-      </View>
-    </View>
-  );
 
   let bs = React.createRef();
   let fall = new Animated.Value(1);
 
   return (
+    <GestureHandlerRootView
+    style={{flex: 1}}
+    >
       <View style={styles.container}>
         {/* If an ImageBackground is wrapped in a View the height and width must be defined (at least I think so) */}
         <Animated.View style={[styles.imgContainer,
-        { opacity: Animated.add(0.4, Animated.multiply(fall, 1.0)) },
-    ]}>
-          <TouchableWithoutFeedback onPress={() => bs.current.snapTo(1)}>
+        { opacity: Animated.add(0.4, Animated.multiply(fall, 1.0)) }]}
+        >
+          <TouchableWithoutFeedback onPress={() => {}}>
             <ImageBackground
               style={styles.backgroundImage}
               resizeMode="cover"
               source={myImage}
             >
               <TouchableOpacity
-              style={styles.textBox}
-              activeOpacity={0.8}
-              onPress={() => bs.current.snapTo(0)}
+                style={styles.textBox}
+                activeOpacity={0.8}
+                onPress={() => {}}
               >
                 <Text style={styles.text}>Blossoming Apple Tree</Text>
               </TouchableOpacity>
             </ImageBackground>
           </TouchableWithoutFeedback>
         </Animated.View>
-        <BottomSheet
-          ref={bs}
-          snapPoints={[445, 0]} // 575 for tablet and 445 for phone, 50% for tablet and 58% for phone
-          renderContent={renderInner} // first 355 pixels and the first 30% don't show up on the tablet
-          renderHeader={renderHeader} // percentages cause the screen to shake in the emulator but not on an actual device
-          initialSnap={1}
-          callbackNode={fall}
-          enabledGestureInteraction={true}
-          enabledContentTapInteraction={false}
-          enabledHeaderGestureInteraction={true}
-        />
+        <BottomSheet />
       </View>
+    </GestureHandlerRootView>
   );
-};
-
-export default AnotherScreen;
+}
 
 const styles = StyleSheet.create({
     container: {
@@ -192,9 +162,6 @@ const styles = StyleSheet.create({
     },
     centerTitle: {
       alignItems: 'center',
-    },
-    bgWrapper: {
-      margin: 0,
     },
     imgContainer: {
       width: Dimensions.get('window').width,
