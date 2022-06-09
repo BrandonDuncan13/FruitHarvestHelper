@@ -1,66 +1,67 @@
 /* eslint-disable prettier/prettier */
 // npx react-native run-android
-import React, { useRef } from 'react';
-import { useWindowDimensions, Dimensions, View, StyleSheet, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
-import { PanGestureHandler, PanGestureHandlerEvent, GestureHandlerRootView, GestureDetector, Gesture } from 'react-native-gesture-handler';
-import Animated, { useAnimatedGestureHandler, useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
-import ImagePicker from 'react-native-image-crop-picker';
+import React from 'react';
+import { Dimensions, View, StyleSheet, ImageBackground, Text, TouchableOpacity, TouchableWithoutFeedback } from 'react-native';
+import { GestureHandlerRootView, Gesture } from 'react-native-gesture-handler';
+import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import BottomSheet from '../components/BottomSheet';
 
-export default function AnotherScreen() {
-  {/* const SPRING_CONFIG = {
-    damping: 80,
-    overshootClamping: true,
-    restDisplacementThreshold: 0.1,
-    restSpeedThreshold: 0.1,
-    stiffness: 500,
-  };
-
-  const dimensions = useWindowDimensions();
-
-  const top = useSharedValue(
-    dimensions.height
-  );
-
-  const style = useAnimatedStyle(() => {
-    return {
-      top: withSpring(top.value, SPRING_CONFIG),
-    };
-  });
-
-  const gestureHandler = useAnimatedGestureHandler<PanGestureHandlerEvent>({
-    onStart(_, context) {
-      context.startTop = top.value;
-    },
-    onActive(event, context) {
-      top.value = context.startTop + event.translationY;
-    },
-    onEnd() {
-      // Dismissing snap point
-      if (top.value > ((dimensions.height / 2) + 200)) {
-        top.value = dimensions.height;
-      } else {
-        top.value = dimensions.height / 2;
-      }
-    },
-  });
-*/}
+export default function DetectBlossoms() {
 
   const myImage = require('../images/bigblossoms.jpg');
 
-  let bs = React.createRef();
   let fall = new Animated.Value(1);
+
+  // start
+  const { height: SCREEN_HEIGHT } = Dimensions.get('window');
+
+  const MAX_TRANSLATE_Y = (-SCREEN_HEIGHT + 75);
+
+  const translateY = useSharedValue(0);
+
+  const context = useSharedValue({ y: 0 });
+
+  const raiseSheet = () => {
+    translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 }); // change this line when editing the position height of the slider
+  };
+
+  const lowerSheet = () => {
+    translateY.value = withSpring(0, { damping: 50 });
+  };
+
+  const gesture = Gesture.Pan()
+  .onStart(() => {
+      context.value = { y: translateY.value };
+  })
+  .onUpdate((event) => {
+    translateY.value = event.translationY + context.value.y;
+    translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y);
+  })
+  .onEnd(() => {
+      if (translateY.value > -SCREEN_HEIGHT / 1.75) {
+        translateY.value = withSpring(0, { damping: 50 });
+      } else if (translateY.value < -SCREEN_HEIGHT / 1.75) {
+        translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 });
+      }
+  });
+
+  const rBottomSheetStyle = useAnimatedStyle(() => {
+    return {
+      transform: [{ translateY: translateY.value }],
+    };
+  });
+  // finish
 
   return (
     <GestureHandlerRootView
-    style={{flex: 1}}
+    style={styles.rootView}
     >
       <View style={styles.container}>
-        {/* If an ImageBackground is wrapped in a View the height and width must be defined (at least I think so) */}
+        {/* If an ImageBackground is wrapped in a View the height and width must be defined (this is my guess why this works) */}
         <Animated.View style={[styles.imgContainer,
         { opacity: Animated.add(0.4, Animated.multiply(fall, 1.0)) }]}
         >
-          <TouchableWithoutFeedback onPress={() => {}}>
+          <TouchableWithoutFeedback onPress={lowerSheet}>
             <ImageBackground
               style={styles.backgroundImage}
               resizeMode="cover"
@@ -69,20 +70,28 @@ export default function AnotherScreen() {
               <TouchableOpacity
                 style={styles.textBox}
                 activeOpacity={0.8}
-                onPress={() => {}}
-              >
+                onPress={raiseSheet}>
                 <Text style={styles.text}>Blossoming Apple Tree</Text>
               </TouchableOpacity>
             </ImageBackground>
           </TouchableWithoutFeedback>
         </Animated.View>
-        <BottomSheet />
+        <BottomSheet
+          SCREEN_HEIGHT={SCREEN_HEIGHT}
+          gesture={gesture}
+          rBottomSheetStyle={rBottomSheetStyle}
+          lowerSheet={lowerSheet}
+          translateY={translateY}
+        />
       </View>
     </GestureHandlerRootView>
   );
 }
 
 const styles = StyleSheet.create({
+    rootView: {
+      flex: 1,
+    },
     container: {
       flex: 1,
       justifyContent: 'center',

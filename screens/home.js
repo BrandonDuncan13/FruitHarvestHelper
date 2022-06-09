@@ -7,7 +7,7 @@ import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react
 export default function Home({ navigation }) {
 
     const image = require('../images/blossoms.jpg');
-    const pressHandler = () => navigation.navigate('Another Screen');
+    const pressHandler = () => navigation.navigate('Detect Blossoms');
 
     return (
         <View style={styles.container}>

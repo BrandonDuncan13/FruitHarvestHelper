@@ -5,7 +5,7 @@ import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
 import Home from '../screens/home';
-import AnotherScreen from '../screens/anotherScreen';
+import DetectBlossoms from '../screens/detectBlossoms';
 
 const Stack = createNativeStackNavigator();
 
@@ -33,8 +33,8 @@ const HomeStack = () => {
           }}
         />
         <Stack.Screen
-          name="Another Screen"
-          component={AnotherScreen}
+          name="Detect Blossoms"
+          component={DetectBlossoms}
           options={{
             headerBackTitle: 'Previous',
             headerBackTitleStyle: {

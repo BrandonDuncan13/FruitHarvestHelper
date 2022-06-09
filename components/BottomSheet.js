@@ -1,45 +1,11 @@
 /* eslint-disable prettier/prettier */
-import { StyleSheet, View, Dimensions, Text, TouchableOpacity } from 'react-native';
-import { GestureDetector, Gesture } from 'react-native-gesture-handler';
-import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
-import React, { useEffect } from 'react';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
+import { GestureDetector } from 'react-native-gesture-handler';
+import Animated, { withSpring } from 'react-native-reanimated';
+import React from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
 
-const { height: SCREEN_HEIGHT } = Dimensions.get('window');
-
-const MAX_TRANSLATE_Y = (-SCREEN_HEIGHT + 75);
-
-const BottomSheet = (() => {
-
-  const translateY = useSharedValue(0);
-
-  const context = useSharedValue({ y: 0 });
-
-  const gesture = Gesture.Pan()
-  .onStart(() => {
-      context.value = { y: translateY.value };
-  })
-  .onUpdate((event) => {
-    translateY.value = event.translationY + context.value.y;
-    translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y);
-  })
-  .onEnd(() => {
-      if (translateY.value > -SCREEN_HEIGHT / 3) {
-        translateY.value = withSpring(0, { damping: 50 });
-      } else if (translateY.value < -SCREEN_HEIGHT / 3) {
-        translateY.value = withSpring(-SCREEN_HEIGHT / 3, { damping: 50 });
-      }
-  });
-
-  useEffect(() => {
-    translateY.value = withSpring(-SCREEN_HEIGHT / 3, { damping: 50 });
-  });
-
-  const rBottomSheetStyle = useAnimatedStyle(() => {
-    return {
-      transform: [{ translateY: translateY.value }],
-    };
-  });
+const BottomSheet = (( props ) => {
 
   const takePhotoFromCamera = () => {
     ImagePicker.openCamera({
@@ -48,7 +14,7 @@ const BottomSheet = (() => {
       cropping: true,
     }).then(image => {
       console.log(image);
-      
+      props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from camera
     });
   };
 
@@ -59,13 +25,22 @@ const BottomSheet = (() => {
       cropping: true,
     }).then(image => {
       console.log(image);
-      
+      props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from library
     });
   };
 
   return (
-    <GestureDetector gesture={gesture}>
-        <Animated.View style={[styles.bottomSheetContainer, rBottomSheetStyle]}>
+    <GestureDetector gesture={props.gesture}>
+        <Animated.View
+          // eslint-disable-next-line react-native/no-inline-styles
+          style={[{
+            height: props.SCREEN_HEIGHT, // props aren't able to be passed to styles??
+            width: '100%',
+            backgroundColor: '#1a1a1c',
+            position: 'absolute',
+            top: props.SCREEN_HEIGHT,
+            borderRadius: 25,
+          }, props.rBottomSheetStyle]}>
             <View style={styles.line}/>
             <View style={styles.panel}>
                 <View style={styles.centerTitle}>
@@ -88,7 +63,7 @@ const BottomSheet = (() => {
                 </TouchableOpacity>
                 <TouchableOpacity
                     style={styles.panelButton}
-                    onPress={() => {}}
+                    onPress={props.lowerSheet}
                     activeOpacity={0.45}
                 >
                     <Text style={styles.panelButtonTitle}>Cancel</Text>
@@ -102,14 +77,6 @@ const BottomSheet = (() => {
 export default BottomSheet;
 
 const styles = StyleSheet.create({
-    bottomSheetContainer: {
-        height: SCREEN_HEIGHT,
-        width: '100%',
-        backgroundColor: '#1a1a1c',
-        position: 'absolute',
-        top: SCREEN_HEIGHT,
-        borderRadius: 25,
-    },
     line: {
         width: 75,
         height: 4,
