@@ -14,7 +14,9 @@ const BottomSheet = (( props ) => {
       cropping: true,
     }).then(image => {
       console.log(image);
+      console.log(image.path);
       props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from camera
+      props.setNewImage({ opacity: 0, path: image.path }); // opacity 0 will make the camera icon disappear
     });
   };
 
@@ -25,7 +27,9 @@ const BottomSheet = (( props ) => {
       cropping: true,
     }).then(image => {
       console.log(image);
+      console.log(image.path);
       props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from library
+      props.setNewImage({ opacity: 0, path: image.path });
     });
   };
 

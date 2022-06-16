@@ -1,13 +1,16 @@
 /* eslint-disable prettier/prettier */
 // npx react-native run-android
 import React from 'react';
-import { View, StyleSheet, ImageBackground, Text, TouchableOpacity } from 'react-native';
-
+import { View, StyleSheet, ImageBackground } from 'react-native';
+import CustomButton from '../components/CustomButton';
 
 export default function Home({ navigation }) {
 
     const image = require('../images/blossoms.jpg');
+
     const pressHandler = () => navigation.navigate('Detect Blossoms');
+
+    const buttonText = 'Detect Blossoms';
 
     return (
         <View style={styles.container}>
@@ -16,13 +19,10 @@ export default function Home({ navigation }) {
               resizeMode="cover"
               source={image}
             >
-              <TouchableOpacity
-                style={styles.button}
-                onPress={pressHandler}
-                activeOpacity={0.8}
-              >
-                <Text style={styles.text}>Navigate To Another Screen</Text>
-              </TouchableOpacity>
+              <CustomButton
+                pressHandler={pressHandler}
+                buttonText={buttonText}
+              />
             </ImageBackground>
         </View>
     );
@@ -39,19 +39,6 @@ const styles = StyleSheet.create({
       width: '100%',
       height: '100%',
       justifyContent: 'flex-end',
-    },
-    text: {
-      color: 'white',
-      fontSize: 20,
-      lineHeight: 40,
-      fontWeight: 'bold',
-      textAlign: 'center',
-    },
-    button: {
-      alignItems: 'center',
-      marginBottom: 120,
-      backgroundColor: '#1c1c1a',
-      padding: 10,
     },
     countContainer: {
       alignItems: 'center',
