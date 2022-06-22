@@ -1,5 +1,7 @@
 /* eslint-disable prettier/prettier */
-// npx react-native run-android
+/*
+npx react-native run-android
+*/
 import React, { useState } from 'react';
 import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { GestureHandlerRootView, Gesture } from 'react-native-gesture-handler';
@@ -9,22 +11,27 @@ import CustomButton from '../components/CustomButton';
 import ImageHolder from '../components/ImageHolder';
 
 export default function DetectBlossoms() {
-
+  /* although most of these consts and functions are used in BottomSheet they were created in this file since some of
+  them needed to be used here and it seems to make more sense when all of the code for the bottomSheet funcitonality is together. */
   const buttonText = 'Choose Picture';
 
+  // is used but doesn't actually do anything right now
   let fall = new Animated.Value(1);
 
   // bottom sheet functionality
   const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
+  // the max height the bottomSheet is allowed to translateY
   const MAX_TRANSLATE_Y = (-SCREEN_HEIGHT + 75);
 
+  // a const that stores where the bottomSheet is at on the Y axis
   const translateY = useSharedValue(0);
 
+  // a const used to store the previous position of the bottomSheet
   const context = useSharedValue({ y: 0 });
 
   const pressHandler = () => {
-    // this if statement makes it so the image buttons can be pressed to close the bottom sheet
+    // this if statement makes it so the image buttons can be pressed to close the bottomSheet even though they're buttons themselves
     if (translateY.value === (-SCREEN_HEIGHT / 1.75)) {
       translateY.value = withSpring(0, { damping: 50 });
     } else if (translateY.value === 0) {
@@ -65,12 +72,20 @@ export default function DetectBlossoms() {
     <GestureHandlerRootView
     style={styles.rootView}
     >
-      <TouchableWithoutFeedback onPress={lowerSheet}>
-        {/* If an ImageBackground is wrapped in a View the height and width must be defined (the code is gone but still may be helpful) */}
+    {/* The GestureHandlerRootView has to be wrapped around all Components in a file when you want to
+    be able to perform a gesture on some of the Components. This is required for gestures to work on Android devices. */}
+      <TouchableWithoutFeedback
+        // this TouchableWithoutFeedback calls a function that lowers the bottomSheet when you click any of the content inside of it
+        onPress={lowerSheet}
+      >
+        {/* If an ImageBackground is wrapped in a View the height and width of the ImageBackground must be defined
+        (the code for this is gone but still may be helpful) */}
         <Animated.View style={styles.mainContent}>
+          {/* Here an Animated View will be used to change the opacity of the content when the bottomSheet is up */}
           <View style={styles.formatItems}>
             <Text style={styles.captionText}>Original Image</Text>
             <ImageHolder
+              // the ImageHolder Component is used and pressHandler and newImage are passed to it as props
               pressHandler={pressHandler}
               newImage={newImage}
             />
@@ -84,13 +99,15 @@ export default function DetectBlossoms() {
         </Animated.View>
         </TouchableWithoutFeedback>
         <Animated.View style={[styles.subContent, { opacity: Animated.add(0.4, Animated.multiply(fall, 1.0)) }]}>
+          {/* Here an Animated View will be used to change the opacity of the content when the bottomSheet is up */}
             <CustomButton
+              // the CustomButton Component is used and props are passed to tell this button what to do
               pressHandler={pressHandler}
               buttonText={buttonText}
-              translateY={translateY}
-              SCREEN_HEIGHT={SCREEN_HEIGHT}
             />
         </Animated.View>
+        {/* The BottomSheet Component is used here which accepts a lot of props in order to handle the
+        functionaliy of the sheet, do the styling of the sheet, and set some new values after the image is taken */}
         <BottomSheet
           SCREEN_HEIGHT={SCREEN_HEIGHT}
           gesture={gesture}

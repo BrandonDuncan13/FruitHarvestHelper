@@ -1,4 +1,7 @@
 /* eslint-disable prettier/prettier */
+/*
+npx react-native run-android
+*/
 import { StyleSheet, View, TouchableOpacity, ImageBackground, Dimensions } from 'react-native';
 import React from 'react';
 
