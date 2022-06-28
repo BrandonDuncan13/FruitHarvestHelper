@@ -22,6 +22,9 @@ DerivedData
 *.xcuserstate
 ios/.xcode.env.local
 
+# This is temporary until we have an app logo
+ios/BlossomsCam/Images.xcassets
+
 # Android/IntelliJ
 #
 build/
