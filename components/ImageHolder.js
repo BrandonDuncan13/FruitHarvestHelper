@@ -4,13 +4,13 @@ import React from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-export default function ImageHolder({ pressHandler, newImage }) {
+export default function ImageHolder({ pressHandler, newImage, activeOpacity=0.65 }) {
 
   return (
     <View>
       <TouchableOpacity
       onPress={pressHandler}
-      activeOpacity={0.65}
+      activeOpacity={activeOpacity}// Changed activeOpacity to be able to be changed
       >
         <View style={styles.imageBox}>
             <ImageBackground

@@ -4,8 +4,21 @@ import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
 import React from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
+import ProcessImage from './ProcessImage';
 
 const BottomSheet = (( props ) => {
+
+  // Function for setting image
+  function setImage(props, image)
+  {
+    console.log(image);
+      console.log(image.path);
+      props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from camera
+      props.setNewImage({ opacity: 0, path: image.path }); // opacity 0 will make the camera icon disappear
+
+      // Process the image to find blossoms
+      ProcessImage(props.newImage, props.setProcessedImage, props.setNumBlossoms);
+  }
 
   const takePhotoFromCamera = () => {
     ImagePicker.openCamera({
@@ -13,10 +26,7 @@ const BottomSheet = (( props ) => {
       height: 400,
       cropping: true,
     }).then(image => {
-      console.log(image);
-      console.log(image.path);
-      props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from camera
-      props.setNewImage({ opacity: 0, path: image.path }); // opacity 0 will make the camera icon disappear
+      setImage(props, image);
     });
   };
 
@@ -26,10 +36,7 @@ const BottomSheet = (( props ) => {
       height: 400,
       cropping: true,
     }).then(image => {
-      console.log(image);
-      console.log(image.path);
-      props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from library
-      props.setNewImage({ opacity: 0, path: image.path });
+      setImage(props, image);
     });
   };
 
