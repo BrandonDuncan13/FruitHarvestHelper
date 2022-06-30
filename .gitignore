@@ -23,7 +23,11 @@ DerivedData
 ios/.xcode.env.local
 
 # This is temporary until we have an app logo
-ios/BlossomsCam/Images.xcassets
+ios/BlossomsCam/Images.xcassets/
+
+# Temp
+openCV/
+cCode/
 
 # Android/IntelliJ
 #
