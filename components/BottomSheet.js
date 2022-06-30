@@ -4,7 +4,7 @@ import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
 import React from 'react';
 import ImagePicker from 'react-native-image-crop-picker';
-import ProcessImage from 'ProcessImage';
+import ProcessImage from './ProcessImage';
 
 const BottomSheet = (( props ) => {
 
