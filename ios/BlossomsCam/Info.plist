@@ -36,11 +36,11 @@
 		</dict>
 	</dict>
 	<key>NSCameraUsageDescription</key>
-	<string>BlossomCam app requires camera access to take photo.</string>
+	<string>Blossom Cam app requires camera access to take photo.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Location access is required to run the app.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>BlossomCam app requires photo library access.</string>
+	<string>Blossom Cam app requires photo library access.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
