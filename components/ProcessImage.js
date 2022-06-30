@@ -14,7 +14,7 @@ export default function ProcessImage( originalImage, setProcessedImage, setNumBl
     setProcessedImage({ opacity: 0, path: originalImage.path });
 
     // This sets the number of blossoms
-    setNumBlossoms(Math.ceil(Math.random() * 99));
+    setNumBlossoms(404);//Math.ceil(Math.random() * 99));
 
     // setNumBlossoms(int_sqrt(28));
 }
