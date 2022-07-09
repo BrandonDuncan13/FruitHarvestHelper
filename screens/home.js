@@ -1,4 +1,5 @@
 /* eslint-disable prettier/prettier */
+// eslint was causing errors within the terminal so I disabled it
 /*
 npx react-native run-android
 */

@@ -13,10 +13,16 @@ export default function CustomButton({ pressHandler, buttonText }) {
     <View style={styles.container}>
         <TouchableOpacity
             style={styles.button}
+            // uses the passed in pressHandler when button is pressed
             onPress={pressHandler}
             activeOpacity={0.8}
         >
-            <Text style={styles.buttonText}>{ buttonText }</Text>
+            <Text
+            style={styles.buttonText}
+            // the text inside the button is custom based on what is passed in
+            >
+              { buttonText }
+            </Text>
         </TouchableOpacity>
     </View>
   );

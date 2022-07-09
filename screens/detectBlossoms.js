@@ -2,6 +2,10 @@
 /*
 npx react-native run-android
 */
+/* This Custom BottomSheet was adapted from:
+https://www.youtube.com/watch?v=Xp0q8ZDOeyE&t=2s
+on June 19th, 2022 */
+
 import React, { useState } from 'react';
 import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { GestureHandlerRootView, Gesture } from 'react-native-gesture-handler';
@@ -12,53 +16,63 @@ import ImageHolder from '../components/ImageHolder';
 
 export default function DetectBlossoms() {
   /* although most of these consts and functions are used in BottomSheet they were created in this file since some of
-  them needed to be used here and it seems to make more sense when all of the code for the bottomSheet funcitonality is together. */
+  them needed to be used here and it seems to make more sense when the code for the bottomSheet's functionality is in one place. */
   const buttonText = 'Choose Picture';
 
   // is used but doesn't actually do anything right now
   let fall = new Animated.Value(1);
 
-  // bottom sheet functionality
+  /************ beginning of the bottom sheet's logic ************/
+  // here SCREEN_HEIGHT is assigned the height dimensions of the current device
   const { height: SCREEN_HEIGHT } = Dimensions.get('window');
 
-  // the max height the bottomSheet is allowed to translateY
+  // the bottom sheet is allowed to translate 75 units below the top of the screen (top of screen --> -SCREEN_HEIGHT)
   const MAX_TRANSLATE_Y = (-SCREEN_HEIGHT + 75);
 
   // a const that stores where the bottomSheet is at on the Y axis
   const translateY = useSharedValue(0);
 
-  // a const used to store the previous position of the bottomSheet
+  // a const used to store the initial top value of the bottomSheet when a gesture is initialized
   const context = useSharedValue({ y: 0 });
 
+  // this const will be used in the ImageHolder file to make the "image buttons" not work when sheet is up and work when sheet is down
   const pressHandler = () => {
     // this if statement makes it so the image buttons can be pressed to close the bottomSheet even though they're buttons themselves
     if (translateY.value === (-SCREEN_HEIGHT / 1.75)) {
       translateY.value = withSpring(0, { damping: 50 });
     } else if (translateY.value === 0) {
-      translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 }); // change this line when editing the position height of the slider
+      translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 }); // change this line when editing the height position of the slider
     }
   };
 
+  // uses an animated function withSpring to make the sheet translate to a Y-value of 0
   const lowerSheet = () => {
     translateY.value = withSpring(0, { damping: 50 });
   };
 
+  // handles the users gestures
   const gesture = Gesture.Pan()
+  // storing the bottomSheet's starting top value in context
   .onStart(() => {
       context.value = { y: translateY.value };
   })
+  // the amount the user gestured in the Y direction is added with the context value to create a new translateY value
   .onUpdate((event) => {
     translateY.value = event.translationY + context.value.y;
-    translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y);
+    translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y); // ensures the translateY value doens't exceed max value
   })
+  // at the end of the gesture we want to dismiss the bottomSheet or have it return to displayed position
   .onEnd(() => {
+      // dismiss the bottomSheet
       if (translateY.value > -SCREEN_HEIGHT / 1.75) {
         translateY.value = withSpring(0, { damping: 50 });
+      // return bottomSheet to displayed position
       } else if (translateY.value < -SCREEN_HEIGHT / 1.75) {
         translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 });
       }
   });
 
+  // this function returns animated styles based on shared values. In this case it returns a transformation (a translation) in the Y direction
   const rBottomSheetStyle = useAnimatedStyle(() => {
     return {
       transform: [{ translateY: translateY.value }],
@@ -106,8 +120,8 @@ export default function DetectBlossoms() {
               buttonText={buttonText}
             />
         </Animated.View>
-        {/* The BottomSheet Component is used here which accepts a lot of props in order to handle the
-        functionaliy of the sheet, do the styling of the sheet, and set some new values after the image is taken */}
+        {/* The BottomSheet Component is used here which accepts props in order to handle the
+        functionaliy of the sheet, the styling of the sheet, and set two new values after the image is taken */}
         <BottomSheet
           SCREEN_HEIGHT={SCREEN_HEIGHT}
           gesture={gesture}

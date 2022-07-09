@@ -65,7 +65,9 @@ const BottomSheet = (( props ) => {
             position: 'absolute',
             top: props.SCREEN_HEIGHT,
             borderRadius: 25,
-          }, props.rBottomSheetStyle]}>
+          }, props.rBottomSheetStyle,
+          // this Animated.View accepts styles from detectBlossoms as a prop. This style updates the translateY value of the sheet
+        ]}>
             <View style={styles.line}/>
             <View style={styles.panel}>
                 <View style={styles.centerTitle}>
