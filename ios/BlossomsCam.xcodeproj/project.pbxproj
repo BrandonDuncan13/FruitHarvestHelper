@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		267CDA21287E255300A4C68C /* process_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 267CDA1F287E255300A4C68C /* process_image.cpp */; };
 		2697CC8D287E0DDD00E6AC8E /* HWHelloWorld+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */; };
 		2697CC95287E0E3600E6AC8E /* DJIProxyCaches.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC8F287E0E3600E6AC8E /* DJIProxyCaches.mm */; };
 		2697CC96287E0E3600E6AC8E /* DJIError.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC92287E0E3600E6AC8E /* DJIError.mm */; };
@@ -58,6 +59,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BlossomsCam/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BlossomsCam/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam-BlossomsCamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		267CDA1F287E255300A4C68C /* process_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = process_image.cpp; path = ../src/cpp/process_image.cpp; sourceTree = "<group>"; };
+		267CDA20287E255300A4C68C /* process_image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = process_image.hpp; path = ../src/cpp/process_image.hpp; sourceTree = "<group>"; };
 		2697CC8A287E0DDD00E6AC8E /* HWHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWHelloWorld.h; path = ../djinni/objc/HWHelloWorld.h; sourceTree = "<group>"; };
 		2697CC8B287E0DDD00E6AC8E /* HWHelloWorld+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HWHelloWorld+Private.h"; path = "../djinni/objc/HWHelloWorld+Private.h"; sourceTree = "<group>"; };
 		2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "HWHelloWorld+Private.mm"; path = "../djinni/objc/HWHelloWorld+Private.mm"; sourceTree = "<group>"; };
@@ -179,6 +182,8 @@
 		2697CC89287E0D9700E6AC8E /* CppSrc */ = {
 			isa = PBXGroup;
 			children = (
+				267CDA1F287E255300A4C68C /* process_image.cpp */,
+				267CDA20287E255300A4C68C /* process_image.hpp */,
 				2697CC97287E0E5E00E6AC8E /* hello_world_impl.cpp */,
 				2697CC98287E0E5E00E6AC8E /* hello_world_impl.hpp */,
 			);
@@ -553,6 +558,7 @@
 				2697CC99287E0E5E00E6AC8E /* hello_world_impl.cpp in Sources */,
 				2697CC95287E0E3600E6AC8E /* DJIProxyCaches.mm in Sources */,
 				2697CC8D287E0DDD00E6AC8E /* HWHelloWorld+Private.mm in Sources */,
+				267CDA21287E255300A4C68C /* process_image.cpp in Sources */,
 				2697CC96287E0E3600E6AC8E /* DJIError.mm in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				26C56667287DF2600016F50B /* RCTHeloWorld.m in Sources */,

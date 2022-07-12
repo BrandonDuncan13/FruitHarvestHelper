@@ -1,5 +1,7 @@
 #include "hello_world_impl.hpp"
+#include "process_image.hpp"
 #include <string>
+
  
 namespace helloworld {
     
@@ -12,7 +14,8 @@ namespace helloworld {
     }
     
     std::string HelloWorldImpl::get_hello_world() {
-        std::string myString = "This will be\nthe number of blossoms!";
+        ProcessImage processedImage;
+        std::string myString = processedImage.get_processed_image();
         return myString;
     }   
 }
