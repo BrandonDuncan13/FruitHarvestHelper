@@ -5,6 +5,7 @@ import React, { Component } from "react";
 import { NativeModules, StyleSheet, Text, View } from "react-native";
 const { HelloWorld } = NativeModules;
 
+
 async function getMessage( setNumBlossoms )
 {
     try {
