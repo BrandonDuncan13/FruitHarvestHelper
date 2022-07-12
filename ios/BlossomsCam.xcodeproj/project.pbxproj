@@ -12,6 +12,7 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		26C56667287DF2600016F50B /* RCTHeloWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C56666287DF2600016F50B /* RCTHeloWorld.m */; };
 		26F72469286B972000D63D74 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43D285CF7C7008EE401 /* AntDesign.ttf */; };
 		26F7246A286B972000D63D74 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43B285CF7C7008EE401 /* Entypo.ttf */; };
 		26F7246B286B972000D63D74 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43A285CF7C7008EE401 /* EvilIcons.ttf */; };
@@ -53,6 +54,8 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BlossomsCam/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BlossomsCam/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam-BlossomsCamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26C56665287DF2600016F50B /* RCTHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTHelloWorld.h; path = ReactBridge/RCTHelloWorld.h; sourceTree = "<group>"; };
+		26C56666287DF2600016F50B /* RCTHeloWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTHeloWorld.m; path = ReactBridge/RCTHeloWorld.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-BlossomsCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -118,6 +121,7 @@
 		13B07FAE1A68108700A75B9A /* BlossomsCam */ = {
 			isa = PBXGroup;
 			children = (
+				26C56664287DF2450016F50B /* ReactBridge */,
 				BF52A434285CF711008EE401 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
@@ -127,6 +131,15 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = BlossomsCam;
+			sourceTree = "<group>";
+		};
+		26C56664287DF2450016F50B /* ReactBridge */ = {
+			isa = PBXGroup;
+			children = (
+				26C56665287DF2600016F50B /* RCTHelloWorld.h */,
+				26C56666287DF2600016F50B /* RCTHeloWorld.m */,
+			);
+			name = ReactBridge;
 			sourceTree = "<group>";
 		};
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
@@ -486,6 +499,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
+				26C56667287DF2600016F50B /* RCTHeloWorld.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

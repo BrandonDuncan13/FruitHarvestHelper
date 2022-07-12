@@ -17,7 +17,7 @@ const BottomSheet = (( props ) => {
     props.setNewImage({ opacity: 0, path: image.path }); // opacity 0 will make the camera icon disappear
 
     // Process the image to find blossoms
-    ProcessImage(image/*props.newImage*/, props.setProcessedImage, props.setNumBlossoms);
+    ProcessImage(image, props.setProcessedImage, props.setNumBlossoms);
   }
 
   const takePhotoFromCamera = () => {
