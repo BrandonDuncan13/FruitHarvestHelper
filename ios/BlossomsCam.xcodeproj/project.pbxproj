@@ -12,6 +12,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		2697CC8D287E0DDD00E6AC8E /* HWHelloWorld+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */; };
+		2697CC95287E0E3600E6AC8E /* DJIProxyCaches.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC8F287E0E3600E6AC8E /* DJIProxyCaches.mm */; };
+		2697CC96287E0E3600E6AC8E /* DJIError.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC92287E0E3600E6AC8E /* DJIError.mm */; };
+		2697CC99287E0E5E00E6AC8E /* hello_world_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC97287E0E5E00E6AC8E /* hello_world_impl.cpp */; };
 		26C56667287DF2600016F50B /* RCTHeloWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 26C56666287DF2600016F50B /* RCTHeloWorld.m */; };
 		26F72469286B972000D63D74 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43D285CF7C7008EE401 /* AntDesign.ttf */; };
 		26F7246A286B972000D63D74 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43B285CF7C7008EE401 /* Entypo.ttf */; };
@@ -54,6 +58,18 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BlossomsCam/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BlossomsCam/main.m; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam-BlossomsCamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		2697CC8A287E0DDD00E6AC8E /* HWHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWHelloWorld.h; path = ../djinni/objc/HWHelloWorld.h; sourceTree = "<group>"; };
+		2697CC8B287E0DDD00E6AC8E /* HWHelloWorld+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HWHelloWorld+Private.h"; path = "../djinni/objc/HWHelloWorld+Private.h"; sourceTree = "<group>"; };
+		2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "HWHelloWorld+Private.mm"; path = "../djinni/objc/HWHelloWorld+Private.mm"; sourceTree = "<group>"; };
+		2697CC8E287E0DF700E6AC8E /* hello_world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hello_world.hpp; path = ../djinni/cpp/hello_world.hpp; sourceTree = "<group>"; };
+		2697CC8F287E0E3600E6AC8E /* DJIProxyCaches.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DJIProxyCaches.mm; path = "../node_modules/djinni/support-lib/objc/DJIProxyCaches.mm"; sourceTree = "<group>"; };
+		2697CC90287E0E3600E6AC8E /* DJICppWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJICppWrapperCache+Private.h"; path = "../node_modules/djinni/support-lib/objc/DJICppWrapperCache+Private.h"; sourceTree = "<group>"; };
+		2697CC91287E0E3600E6AC8E /* DJIMarshal+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJIMarshal+Private.h"; path = "../node_modules/djinni/support-lib/objc/DJIMarshal+Private.h"; sourceTree = "<group>"; };
+		2697CC92287E0E3600E6AC8E /* DJIError.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DJIError.mm; path = "../node_modules/djinni/support-lib/objc/DJIError.mm"; sourceTree = "<group>"; };
+		2697CC93287E0E3600E6AC8E /* DJIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJIError.h; path = "../node_modules/djinni/support-lib/objc/DJIError.h"; sourceTree = "<group>"; };
+		2697CC94287E0E3600E6AC8E /* DJIObjcWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJIObjcWrapperCache+Private.h"; path = "../node_modules/djinni/support-lib/objc/DJIObjcWrapperCache+Private.h"; sourceTree = "<group>"; };
+		2697CC97287E0E5E00E6AC8E /* hello_world_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hello_world_impl.cpp; path = ../src/cpp/hello_world_impl.cpp; sourceTree = "<group>"; };
+		2697CC98287E0E5E00E6AC8E /* hello_world_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hello_world_impl.hpp; path = ../src/cpp/hello_world_impl.hpp; sourceTree = "<group>"; };
 		26C56665287DF2600016F50B /* RCTHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTHelloWorld.h; path = ReactBridge/RCTHelloWorld.h; sourceTree = "<group>"; };
 		26C56666287DF2600016F50B /* RCTHeloWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTHeloWorld.m; path = ReactBridge/RCTHeloWorld.m; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
@@ -121,6 +137,9 @@
 		13B07FAE1A68108700A75B9A /* BlossomsCam */ = {
 			isa = PBXGroup;
 			children = (
+				2697CC89287E0D9700E6AC8E /* CppSrc */,
+				2697CC88287E0D8A00E6AC8E /* Djinni */,
+				2697CC87287E0D7500E6AC8E /* ObjCBridge */,
 				26C56664287DF2450016F50B /* ReactBridge */,
 				BF52A434285CF711008EE401 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
@@ -131,6 +150,39 @@
 				13B07FB71A68108700A75B9A /* main.m */,
 			);
 			name = BlossomsCam;
+			sourceTree = "<group>";
+		};
+		2697CC87287E0D7500E6AC8E /* ObjCBridge */ = {
+			isa = PBXGroup;
+			children = (
+				2697CC8E287E0DF700E6AC8E /* hello_world.hpp */,
+				2697CC8A287E0DDD00E6AC8E /* HWHelloWorld.h */,
+				2697CC8B287E0DDD00E6AC8E /* HWHelloWorld+Private.h */,
+				2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */,
+			);
+			name = ObjCBridge;
+			sourceTree = "<group>";
+		};
+		2697CC88287E0D8A00E6AC8E /* Djinni */ = {
+			isa = PBXGroup;
+			children = (
+				2697CC90287E0E3600E6AC8E /* DJICppWrapperCache+Private.h */,
+				2697CC93287E0E3600E6AC8E /* DJIError.h */,
+				2697CC92287E0E3600E6AC8E /* DJIError.mm */,
+				2697CC91287E0E3600E6AC8E /* DJIMarshal+Private.h */,
+				2697CC94287E0E3600E6AC8E /* DJIObjcWrapperCache+Private.h */,
+				2697CC8F287E0E3600E6AC8E /* DJIProxyCaches.mm */,
+			);
+			name = Djinni;
+			sourceTree = "<group>";
+		};
+		2697CC89287E0D9700E6AC8E /* CppSrc */ = {
+			isa = PBXGroup;
+			children = (
+				2697CC97287E0E5E00E6AC8E /* hello_world_impl.cpp */,
+				2697CC98287E0E5E00E6AC8E /* hello_world_impl.hpp */,
+			);
+			name = CppSrc;
 			sourceTree = "<group>";
 		};
 		26C56664287DF2450016F50B /* ReactBridge */ = {
@@ -498,6 +550,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2697CC99287E0E5E00E6AC8E /* hello_world_impl.cpp in Sources */,
+				2697CC95287E0E3600E6AC8E /* DJIProxyCaches.mm in Sources */,
+				2697CC8D287E0DDD00E6AC8E /* HWHelloWorld+Private.mm in Sources */,
+				2697CC96287E0E3600E6AC8E /* DJIError.mm in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				26C56667287DF2600016F50B /* RCTHeloWorld.m in Sources */,
 				13B07FC11A68108700A75B9A /* main.m in Sources */,

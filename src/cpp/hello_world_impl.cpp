@@ -12,7 +12,7 @@ namespace helloworld {
     }
     
     std::string HelloWorldImpl::get_hello_world() {
-        std::string myString = "C++ says Hello World!";
+        std::string myString = "This will be\nthe number of blossoms!";
         return myString;
     }   
 }
