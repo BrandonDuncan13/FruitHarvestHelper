@@ -1,12 +1,10 @@
 // Here is where I will add the image processing to find blossoms
 
-// import int_sqrt from '../cCode/hello.cpp';
-// import React, { Component } from "react";
 import { NativeModules } from "react-native";
 const { HelloWorld } = NativeModules;
 
 
-export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )//getNumBlossoms( setNumBlossoms, originalImage )
+export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
 {
     // Will be path to the processed image
     let imagePath = originalImage.path;
@@ -42,13 +40,3 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     // This sets the processed image
     setProcessedImage({ opacity: 0, path: imagePath });
 }
-
-
-// export default function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
-// {
-//     // Call to the asynchronous function
-//     const processedImagePath = getNumBlossoms( setNumBlossoms, originalImage );
-
-//     // This sets the processed image
-//     setProcessedImage({ opacity: 0, path: processedImagePath });
-// }
