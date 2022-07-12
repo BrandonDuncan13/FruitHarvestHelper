@@ -6,8 +6,11 @@ import { NativeModules } from "react-native";
 const { HelloWorld } = NativeModules;
 
 
-async function getNumBlossoms( setNumBlossoms, originalImagePath )
+export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )//getNumBlossoms( setNumBlossoms, originalImage )
 {
+    // Will be path to the processed image
+    let imagePath = originalImage.path;
+
     try
     {
         /*
@@ -19,12 +22,13 @@ async function getNumBlossoms( setNumBlossoms, originalImagePath )
         */
         const message = await HelloWorld.sayHello();
 
-        let temp = message.toString();
+        const temp = message.toString();
 
         // This used '$$' as the delimiter
         const myArray = temp.split("$$");
 
         setNumBlossoms(myArray[0]);
+        path = myArray[1];
     }
     // Error catch
     catch(e)
@@ -33,15 +37,18 @@ async function getNumBlossoms( setNumBlossoms, originalImagePath )
     }
 
     // This will be the final processed image path
-    return originalImagePath;//myArray[1];
-}
-
-
-export default function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
-{
-    // Call to the asynchronous function
-    const processedImagePath = getNumBlossoms( setNumBlossoms, originalImage.path );
+    // return originalImage.path;//myArray[1];
 
     // This sets the processed image
-    setProcessedImage({ opacity: 0, path: originalImage.path });
+    setProcessedImage({ opacity: 0, path: imagePath });
 }
+
+
+// export default function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
+// {
+//     // Call to the asynchronous function
+//     const processedImagePath = getNumBlossoms( setNumBlossoms, originalImage );
+
+//     // This sets the processed image
+//     setProcessedImage({ opacity: 0, path: processedImagePath });
+// }

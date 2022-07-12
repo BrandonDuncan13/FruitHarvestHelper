@@ -11,6 +11,6 @@ int ProcessImage::ProcessImageImpl()
 std::string ProcessImage::get_processed_image()
 {
     int numBlossoms = 404;
-    std::string myString = std::to_string(numBlossoms) + "$$image path";
+    std::string myString = std::to_string(numBlossoms) + "$$image_path";
     return myString;
 }
