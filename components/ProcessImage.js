@@ -1,4 +1,4 @@
-// Here is where I will add the image processing to find blossoms
+// Here is where the cpp program is called
 
 import { NativeModules } from "react-native";
 const { HelloWorld } = NativeModules;
@@ -16,7 +16,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
             currently being used to count the number of blossoms because Josh
             cannot figure out how to change the function's name.
 
-            It is defined at BlossomCam/src/cpp/hello_world_impl.cpp
+            It is defined at src/cpp/hello_world_impl.cpp
         */
         const message = await HelloWorld.sayHello();
 
