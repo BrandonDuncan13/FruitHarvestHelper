@@ -72,7 +72,7 @@ const BottomSheet = (( props ) => {
             <View style={styles.panel}>
                 <View style={styles.centerTitle}>
                     <Text style={styles.panelTitle}>Upload Photo</Text>
-                    <Text style={styles.panelSubtitle}>Choose a background photo</Text>
+                    <Text style={styles.panelSubtitle}>Choose a photo to count blossoms</Text>
                 </View>
                 <TouchableOpacity
                     style={styles.panelButton}

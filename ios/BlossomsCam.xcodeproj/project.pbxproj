@@ -12,6 +12,22 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		26F72469286B972000D63D74 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43D285CF7C7008EE401 /* AntDesign.ttf */; };
+		26F7246A286B972000D63D74 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43B285CF7C7008EE401 /* Entypo.ttf */; };
+		26F7246B286B972000D63D74 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43A285CF7C7008EE401 /* EvilIcons.ttf */; };
+		26F7246C286B972000D63D74 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43E285CF7C7008EE401 /* Feather.ttf */; };
+		26F7246D286B972000D63D74 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43F285CF7C7008EE401 /* FontAwesome.ttf */; };
+		26F7246E286B972000D63D74 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A435285CF7C7008EE401 /* FontAwesome5_Brands.ttf */; };
+		26F7246F286B972000D63D74 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A440285CF7C7008EE401 /* FontAwesome5_Regular.ttf */; };
+		26F72470286B972000D63D74 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A436285CF7C7008EE401 /* FontAwesome5_Solid.ttf */; };
+		26F72471286B972000D63D74 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A438285CF7C7008EE401 /* Fontisto.ttf */; };
+		26F72472286B972000D63D74 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A442285CF7C7008EE401 /* Foundation.ttf */; };
+		26F72473286B972000D63D74 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A444285CF7C7008EE401 /* Ionicons.ttf */; };
+		26F72474286B972000D63D74 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A443285CF7C7008EE401 /* MaterialCommunityIcons.ttf */; };
+		26F72475286B972000D63D74 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A43C285CF7C7008EE401 /* MaterialIcons.ttf */; };
+		26F72476286B972000D63D74 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A437285CF7C7008EE401 /* Octicons.ttf */; };
+		26F72477286B972000D63D74 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A441285CF7C7008EE401 /* SimpleLineIcons.ttf */; };
+		26F72478286B972000D63D74 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A439285CF7C7008EE401 /* Zocial.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -240,7 +256,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1320;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -282,6 +298,22 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26F72469286B972000D63D74 /* AntDesign.ttf in Resources */,
+				26F7246A286B972000D63D74 /* Entypo.ttf in Resources */,
+				26F7246B286B972000D63D74 /* EvilIcons.ttf in Resources */,
+				26F7246C286B972000D63D74 /* Feather.ttf in Resources */,
+				26F7246D286B972000D63D74 /* FontAwesome.ttf in Resources */,
+				26F7246E286B972000D63D74 /* FontAwesome5_Brands.ttf in Resources */,
+				26F7246F286B972000D63D74 /* FontAwesome5_Regular.ttf in Resources */,
+				26F72470286B972000D63D74 /* FontAwesome5_Solid.ttf in Resources */,
+				26F72471286B972000D63D74 /* Fontisto.ttf in Resources */,
+				26F72472286B972000D63D74 /* Foundation.ttf in Resources */,
+				26F72473286B972000D63D74 /* Ionicons.ttf in Resources */,
+				26F72474286B972000D63D74 /* MaterialCommunityIcons.ttf in Resources */,
+				26F72475286B972000D63D74 /* MaterialIcons.ttf in Resources */,
+				26F72476286B972000D63D74 /* Octicons.ttf in Resources */,
+				26F72477286B972000D63D74 /* SimpleLineIcons.ttf in Resources */,
+				26F72478286B972000D63D74 /* Zocial.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
@@ -296,13 +328,15 @@
 			files = (
 			);
 			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
 			);
 			name = "Bundle React Native code and images";
 			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
 		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -470,13 +504,14 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = BlossomsCamTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -497,10 +532,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = BlossomsCamTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -618,7 +654,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -636,6 +672,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -682,7 +719,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -699,6 +736,7 @@
 					"-DFOLLY_MOBILE=1",
 					"-DFOLLY_USE_LIBCPP=1",
 				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
