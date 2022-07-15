@@ -1,28 +1,40 @@
 /* eslint-disable prettier/prettier */
+/*
+npx react-native run-android
+*/
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
 import React from 'react';
+// ImagePicker is one of the widely used React Native Camera libraries which was imported here
 import ImagePicker from 'react-native-image-crop-picker';
 import ProcessImage from './ProcessImage';
 
+// rather than destructuring a lot of different properties you can just pass props
 const BottomSheet = (( props ) => {
 
-  // Function for setting image
+  // Function for setting image, because the same thing is done twice
   function setImage(props, image)
   {
     console.log(image);
     console.log(image.path);
-    props.translateY.value = withSpring(0, { damping: 50 }); // lowers sheet on photo used from camera
-    props.setNewImage({ opacity: 0, path: image.path }); // opacity 0 will make the camera icon disappear
+    // once the image is used then the bottomSheet will be lowered by setting the translateY value to 0
+    props.translateY.value = withSpring(0, { damping: 50 });
+    /* here state passed from the detectBlossoms file is used to change some new values through the setNewImage function.
+      Here we are setting the opacity to 0 which is used in the ImageHolder file to have the opacity of the camera icon change
+      once an image is used. The value of path is also set to the path of the caputred image to change the BackgroundImage. */
+    props.setNewImage({ opacity: 0, path: image.path });
 
     // Process the image to find blossoms
     ProcessImage(image, props.setProcessedImage, props.setNumBlossoms);
   }
 
+  /* this function allows you to take a photo from the camera by using the ImagePicker library to open the device's camera
+  and then spitting out a bunch of data about the captured image. The data can be used to do things with the image... */
   const takePhotoFromCamera = () => {
     ImagePicker.openCamera({
-      width: 300,
+      // these height and width values are used to set the dimensions of the image that will be captured
+      width: 400,
       height: 400,
       cropping: true,
     }).then(image => {
@@ -30,9 +42,10 @@ const BottomSheet = (( props ) => {
     });
   };
 
+  // this function allows you to choose a photo from the device's photo library by using ImagePicker
   const choosePhotoFromLibrary = () => {
     ImagePicker.openPicker({
-      width: 300,
+      width: 400,
       height: 400,
       cropping: true,
     }).then(image => {
@@ -41,17 +54,27 @@ const BottomSheet = (( props ) => {
   };
 
   return (
-    <GestureDetector gesture={props.gesture}>
+    <GestureDetector
+     // GestureDetector is responsible for creating and updating native gesture handlers based on the gesture provided
+     // this gesture provided allows you to pan the bottomSheet (it holds it's previous position, and can close the bottomSheet)
+      gesture={props.gesture}
+    >
         <Animated.View
+          /* an Animated View is needed here since the content inside the bottomSheet has to be Animated to respond
+          according to the gesture the user makes. */
           // eslint-disable-next-line react-native/no-inline-styles
           style={[{
-            height: props.SCREEN_HEIGHT, // props aren't able to be passed to styles??
+            // props aren't able to be passed to styles so an inline style is required
+            height: props.SCREEN_HEIGHT,
             width: '100%',
             backgroundColor: '#1a1a1c',
+            // the position is absolute so the sheet doesn't get pushed down by each page's content
             position: 'absolute',
             top: props.SCREEN_HEIGHT,
             borderRadius: 25,
-          }, props.rBottomSheetStyle]}>
+          }, props.rBottomSheetStyle,
+          // this Animated.View accepts styles from detectBlossoms as a prop. This style updates the translateY value of the sheet
+        ]}>
             <View style={styles.line}/>
             <View style={styles.panel}>
                 <View style={styles.centerTitle}>
