@@ -7,7 +7,7 @@ const { HelloWorld } = NativeModules;
 export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
 {
     // Will be path to the processed image
-    let imagePath = originalImage.path;
+    let path = originalImage.path;
 
     try
     {
@@ -26,7 +26,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         const myArray = temp.split("$$");
 
         setNumBlossoms(myArray[0]);
-        path = myArray[1];
+        path = originalImage.path;//myArray[1];
     }
     // Error catch
     catch(e)
@@ -38,5 +38,5 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     // return originalImage.path;//myArray[1];
 
     // This sets the processed image
-    setProcessedImage({ opacity: 0, path: imagePath });
+    setProcessedImage({ opacity: 0, path: path });
 }
