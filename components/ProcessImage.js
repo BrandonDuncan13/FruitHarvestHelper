@@ -1,16 +1,17 @@
 // Here is where the cpp program is called
 
-import { NativeModules } from "react-native";
-const { HelloWorld } = NativeModules;
-
+import { NativeModules } from 'react-native';
 import { Dirs, FileSystem } from 'react-native-file-access';
+const { HelloWorld } = NativeModules;
 
 
 export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
 {
     // Will be path to the processed image
     let path = originalImage.path;
+    const dirPath = Dirs.CacheDir + '/images/';
     const imageName = 'image.jpg';
+    const fullPath = dirPath + imageName;
 
     try
     {
@@ -40,82 +41,76 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     // This will be the final processed image path
     // return originalImage.path;//myArray[1];
 
-    console.log(path);
-
     // FileSystem.mkdir(dirPath);
 
-    check_file_system(Dirs.CacheDir + '/images/');
-
-    // try
-    // {
-    //     FileSystem.exists(Dirs.LibraryDir).then((success) =>
-    //     {
-    //         if(success)
-    //         {
-    //             console.log("Good! #1");
-
-    //             FileSystem.exists(Dirs.CacheDir).then((success) =>
-    //             {
-    //                 if(success)
-    //                 {
-    //                     console.log("Good! #2");
-
-    //                     const dirPath = Dirs.CacheDir + '/images/';
-    //                     const fullPath = dirPath + imageName;
-
-    //                     FileSystem.exists(dirPath).then((success) =>
-    //                     {
-    //                         if(success)
-    //                         {
-    //                             console.log("Good! #3");
-
-    //                             FileSystem.cp(path, fullPath);
-    //                         }
-    //                         else
-    //                         {
-    //                             throw('err3')
-    //                         };
-    //                     });
-    //                 }
-    //                 else
-    //                 {
-    //                     throw('err2')
-    //                 };
-    //             });
-    //         }
-    //         else
-    //         {
-    //             throw('err1')
-    //         };
-    //     });
-    // }
-    // catch (err)
-    // {
-    //     console.error(err);
-    // }
-
-    // console.log(fullPath);
-
-    // This sets the processed image
-    setProcessedImage({ opacity: 0, path: path });
-}
-
-
-function check_file_system(path)
-{
     try
     {
-        if(FileSystem.exists(path) == true)
-        {
-            console.log("Good! #1");
-        }
-        else
-        {
-            throw('err1');
-        };
+        await check_file_path(Dirs.LibraryDir);
+        await check_file_path(Dirs.CacheDir);
+        // await check_file_path(dirPath);
     }
     catch (err)
     {
-        console.error(err);
+        console.error(err.name + ' ' + err.errno + ': ' + err.message);
+        return;
+    };
+
+    try
+    {
+        await check_file_path(dirPath);
+    }
+    catch (err)
+    {
+        console.log(err.message);
+
+        FileSystem.mkdir(dirPath)
+    };
+
+    try
+    {
+        await check_file_path(fullPath);
+
+        FileSystem.unlink(fullPath);
+    }
+    catch (err)
+    {
+        console.log(err.message);
+    };
+
+    FileSystem.cp(path, fullPath);
+
+    console.log(fullPath);
+
+    // This sets the processed image
+    setProcessedImage({ opacity: 0, path: fullPath });
+}
+
+
+async function check_file_path(path)
+{
+    var err2;
+
+    await FileSystem.exists(path).then((exists) =>
+    {
+        if(!exists)
+        {
+            var error = new Error("PathError, no such file or directory '" + path + "'");
+            error.errno = 404;
+            error.code = 'PathError';
+            error.path = 'InvalidFile';
+            // error.syscall = 'open';
+            // error.name = error.code;
+            // error.id = error.errno;
+
+            throw(error);
+        };
+    }).catch((err1) => 
+    {
+        err2 = err1;
+    });
+
+    if(typeof err2 !== 'undefined')
+    {
+        throw(err2);
     };
 }
