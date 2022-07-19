@@ -39,6 +39,8 @@ const BottomSheet = (( props ) => {
       cropping: true,
     }).then(image => {
       setImage(props, image);
+    }).catch((err) => {
+      console.log(err.message);
     });
   };
 
@@ -50,6 +52,8 @@ const BottomSheet = (( props ) => {
       cropping: true,
     }).then(image => {
       setImage(props, image);
+    }).catch((err) => {
+      console.log(err.message);
     });
   };
 
