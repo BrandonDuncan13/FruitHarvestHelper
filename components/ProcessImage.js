@@ -7,12 +7,53 @@ const { HelloWorld } = NativeModules;
 
 export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
 {
-    // Will be path to the processed image
+    // Paths
     let path = originalImage.path;
     const dirPath = Dirs.CacheDir + '/images/';
     const imageName = 'image.jpg';
     const fullPath = dirPath + imageName;
 
+    // Checking to make sure the cache directory exists
+    try
+    {
+        await check_file_path(Dirs.CacheDir);
+    }
+    catch (err)
+    {
+        console.error(err.name + ' ' + err.errno + ': ' + err.message);
+        return;
+    };
+
+    // Checking if the image directory exists, and if not creating it
+    try
+    {
+        await check_file_path(dirPath);
+    }
+    catch (err)
+    {
+        console.log(err.message);
+
+        FileSystem.mkdir(dirPath)
+    };
+
+    // Checking if the image file exists, and if so deleting it
+    try
+    {
+        await check_file_path(fullPath);
+
+        FileSystem.unlink(fullPath);
+    }
+    catch (err)
+    {
+        console.log(err.message);
+    };
+
+    // Copying the file from the temporary location to somewhere that can be accessed
+    FileSystem.cp(path, fullPath);
+
+    console.log(fullPath);
+
+    // Sending the image to be processed
     try
     {
         /*
@@ -30,70 +71,31 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         const myArray = temp.split("$$");
 
         setNumBlossoms(myArray[0]);
-        path = originalImage.path;//myArray[1];
+        path = myArray[1];
     }
     // Error catch
-    catch(e)
+    catch(err)
     {
-        alert(e);
+        alert(err);
     }
 
-    // This will be the final processed image path
-    // return originalImage.path;//myArray[1];
 
-    // FileSystem.mkdir(dirPath);
-
-    try
-    {
-        await check_file_path(Dirs.LibraryDir);
-        await check_file_path(Dirs.CacheDir);
-        // await check_file_path(dirPath);
-    }
-    catch (err)
-    {
-        console.error(err.name + ' ' + err.errno + ': ' + err.message);
-        return;
-    };
-
-    try
-    {
-        await check_file_path(dirPath);
-    }
-    catch (err)
-    {
-        console.log(err.message);
-
-        FileSystem.mkdir(dirPath)
-    };
-
-    try
-    {
-        await check_file_path(fullPath);
-
-        FileSystem.unlink(fullPath);
-    }
-    catch (err)
-    {
-        console.log(err.message);
-    };
-
-    FileSystem.cp(path, fullPath);
-
-    console.log(fullPath);
-
-    // This sets the processed image
+    // Setting the processed image
     setProcessedImage({ opacity: 0, path: fullPath });
 }
 
 
+// Function checks if a path exists, and if not throws an error
 async function check_file_path(path)
 {
     var err2;
 
+    // Checks if the path exists
     await FileSystem.exists(path).then((exists) =>
     {
         if(!exists)
         {
+            // Error information
             var error = new Error("PathError, no such file or directory '" + path + "'");
             error.errno = 404;
             error.code = 'PathError';
@@ -109,6 +111,7 @@ async function check_file_path(path)
         err2 = err1;
     });
 
+    // If err2 is not defined, then there is no error and the function exits
     if(typeof err2 !== 'undefined')
     {
         throw(err2);
