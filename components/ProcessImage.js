@@ -36,7 +36,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     {
         console.log(err.message);
 
-        FileSystem.mkdir(dirPath)
+        FileSystem.mkdir(dirPath);
     };
 
     // Checking if the image file exists, and if so deleting it

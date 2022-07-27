@@ -54,6 +54,9 @@ std::string ProcessImage::get_processed_image()
     cv::Mat copyImage = originalImage;
     int rows = copyImage.rows;
     int cols = copyImage.cols;
+    // cv::Size size = copyImage.size();
+    // int rows = size.height;
+    // int cols = size.width;
     // // // cv::Mat inputMat = cv::Mat::zeros(2, 2, CV_64F);
     // // // inputMat.at<unsigned char>(1,1) = 144;
     // // // cv::Mat greyMat;
