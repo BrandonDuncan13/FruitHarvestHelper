@@ -9,7 +9,6 @@
 
 #include "process_image.hpp"
 
-
 // Defines
 #define IMAGEPATH "images/image"
 #define EXTENSION ".jpg"
@@ -22,47 +21,43 @@ std::string getOsName();
 // Here is where the image gets processed
 std::string ProcessImage::get_processed_image()
 {
-    // Variables
+    // Counter to remember which photo it is using
     static int count = 0;
     count++;
+
+    // Paths
     std::string originalImagePath = IMAGEPATH + std::to_string(count) + EXTENSION;
     std::string processedImagePath = "images/processed_image" + std::to_string(count) + EXTENSION;
     std::string cachePath = std::filesystem::temp_directory_path().string();
 
+    // Finding cache path for different devices
     if (getOsName() == "Apple")
     {
+        // Make sure there is no '/' at the end of the path
         if (cachePath.at(cachePath.length() - 1) == '/')
         {
-            // cachePath += '/';// !=
-            cachePath = cachePath.substr(0, cachePath.find_last_of("/"));// ==
+            cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         }
     
         // Edit path to be cache directory
         cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         cachePath += "/Library/Caches/";
-        // return "error: Good";
     }
     else
     {
+        // This will be where the cache path is fixed for Android
         return "error: Android not yet supported";
     }
 
+    // Finishing path variables
     originalImagePath = cachePath + originalImagePath;
     processedImagePath = cachePath + processedImagePath;
 
+    // This just shows that openCV does something
     cv::Mat originalImage = cv::imread(originalImagePath);
     cv::Mat copyImage = originalImage;
     int rows = copyImage.rows;
     int cols = copyImage.cols;
-    // cv::Size size = copyImage.size();
-    // int rows = size.height;
-    // int cols = size.width;
-    // // // cv::Mat inputMat = cv::Mat::zeros(2, 2, CV_64F);
-    // // // inputMat.at<unsigned char>(1,1) = 144;
-    // // // cv::Mat greyMat;
-    // // // cv::cvtColor(inputMat, greyMat, cv::COLOR_BGR2GRAY);
-    // // // numBlossoms = originalImage.at<unsigned char>(1,1);
-
     for (int i = 50; i < rows - 50; i++)
     {
         for (int j = 50 * 3; j < (cols * 3) - 50 * 3; j += 2)
@@ -71,6 +66,7 @@ std::string ProcessImage::get_processed_image()
         }
     }
 
+    // Write to processed image file
     cv::imwrite(processedImagePath, copyImage);
 
     // Generating the return string
