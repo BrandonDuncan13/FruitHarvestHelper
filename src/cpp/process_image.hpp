@@ -17,7 +17,6 @@ private:
     std::string getOsName();
 
     // Filters
-    cv::Mat dummyFilter(cv::Mat inputImage);
     cv::Mat filterImage(cv::Mat inputImage);
     cv::Mat grayImage(cv::Mat inputImage);
 
