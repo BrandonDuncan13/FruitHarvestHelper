@@ -18,7 +18,6 @@ private:
 
     // Filters
     cv::Mat filterImage(cv::Mat inputImage);
-    cv::Mat grayImage(cv::Mat inputImage);
 
     // Variables
     int numBlossoms;

@@ -143,14 +143,3 @@ cv::Mat ProcessImage::filterImage(cv::Mat inputImage)
 
     return UnBinary;
 }
-
-
-// Convert image to grayscale
-cv::Mat ProcessImage::grayImage(cv::Mat inputImage)
-{
-    cv::Mat grayscaleImage;
-
-    cv::cvtColor(inputImage, grayscaleImage, cv::COLOR_BGR2GRAY);
-
-    return grayscaleImage;
-}
