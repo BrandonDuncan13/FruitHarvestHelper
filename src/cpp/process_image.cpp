@@ -3,19 +3,11 @@
 #include <filesystem>
 #include <string>
 
-#ifndef cv
-#include <opencv2/opencv.hpp>
-#endif
-
 #include "process_image.hpp"
 
 // Defines
 #define IMAGEPATH "images/image"
 #define EXTENSION ".jpg"
-
-
-// Function prototypes
-std::string getOsName();
 
 
 // Here is where the image gets processed
@@ -55,16 +47,16 @@ std::string ProcessImage::get_processed_image()
 
     // This just shows that openCV does something
     cv::Mat originalImage = cv::imread(originalImagePath);
-    cv::Mat copyImage = originalImage;
-    int rows = copyImage.rows;
-    int cols = copyImage.cols;
-    for (int i = 50; i < rows - 50; i++)
-    {
-        for (int j = 50 * 3; j < (cols * 3) - 50 * 3; j += 2)
-        {
-            copyImage.at<unsigned char>(i,j) = rand() % 256;
-        }
-    }
+    cv::Mat copyImage = grayImage(originalImage);
+    // int rows = copyImage.rows;
+    // int cols = copyImage.cols;
+    // for (int i = 50; i < rows - 50; i++)
+    // {
+    //     for (int j = 50 * 3; j < (cols * 3) - 50 * 3; j += 2)
+    //     {
+    //         copyImage.at<unsigned char>(i,j) = rand() % 256;
+    //     }
+    // }
 
     // Write to processed image file
     cv::imwrite(processedImagePath, copyImage);
@@ -76,7 +68,7 @@ std::string ProcessImage::get_processed_image()
 
 
 // Find OS name
-std::string getOsName()
+std::string ProcessImage::getOsName()
 {
     #ifdef _WIN32
     return "Windows 32-bit";
@@ -95,4 +87,19 @@ std::string getOsName()
     #else
     return "Other";
     #endif
+}
+
+
+// Convert image to grayscale
+cv::Mat ProcessImage::grayImage(cv::Mat inputImage)
+{
+    // cv::Mat originalImage = [inputImage CVMat3];
+    
+    cv::Mat grayscaleImage;
+    
+    cv::cvtColor(inputImage/*originalImage*/, grayscaleImage, cv::COLOR_BGR2GRAY);
+    
+    // UIImage* ResultingImage =[UIImage imageWithCVMat:grayscaleImage];
+    
+    return grayscaleImage;
 }
