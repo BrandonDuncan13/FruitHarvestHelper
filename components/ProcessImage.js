@@ -7,10 +7,13 @@ const { HelloWorld } = NativeModules;
 
 export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
 {
+    // Counter
+    countMyself();
+
     // Paths
     let path = originalImage.path;
     const dirPath = Dirs.CacheDir + '/images/';
-    const imageName = 'image.jpg';
+    const imageName = 'image' + countMyself.counter + '.jpg';
     const fullPath = dirPath + imageName;
 
     // Checking to make sure the cache directory exists
@@ -33,7 +36,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     {
         console.log(err.message);
 
-        FileSystem.mkdir(dirPath)
+        FileSystem.mkdir(dirPath);
     };
 
     // Checking if the image file exists, and if so deleting it
@@ -49,7 +52,14 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     };
 
     // Copying the file from the temporary location to somewhere that can be accessed
-    FileSystem.cp(path, fullPath);
+    try
+    {
+        await FileSystem.cp(path, fullPath);
+    }
+    catch (err)
+    {
+        console.log(err.message);
+    };
 
     console.log(fullPath);
 
@@ -67,7 +77,12 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
 
         const temp = message.toString();
 
-        // This used '$$' as the delimiter
+        // Catch if there was an error in 'HelloWorld.sayHello()'
+        if (temp.includes("error:")) {
+            throw(temp);
+        };
+
+        // '$$' is used as the delimiter
         const myArray = temp.split("$$");
 
         setNumBlossoms(myArray[0]);
@@ -77,11 +92,13 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     catch(err)
     {
         alert(err);
-    }
+    };
+
+    console.log(path);
 
 
     // Setting the processed image
-    setProcessedImage({ opacity: 0, path: fullPath });
+    setProcessedImage({ opacity: 0, path: path });
 }
 
 
@@ -116,4 +133,18 @@ async function check_file_path(path)
     {
         throw(err2);
     };
+}
+
+
+// Counter function
+// Copied from: https://stackoverflow.com/a/1535650
+function countMyself() {
+    // Check to see if the counter has been initialized
+    if ( typeof countMyself.counter == 'undefined' ) {
+        // It has not... perform the initialization
+        countMyself.counter = 0;
+    }
+
+    // Do something stupid to indicate the value
+    countMyself.counter++;
 }

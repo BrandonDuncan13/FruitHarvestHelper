@@ -110,6 +110,8 @@ export default function DetectBlossoms() {
             <Text style={styles.captionText}>Processed Image</Text>
             <ImageHolder
               // The porcessed image is now not pressable
+              // To make pressable, uncomment 'pressHandler' and comment 'activeOpacity'
+              // pressHandler={pressHandler}
               newImage={processedImage}
               activeOpacity={1}
             />
