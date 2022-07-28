@@ -22,8 +22,17 @@ DerivedData
 *.xcuserstate
 ios/.xcode.env.local
 
+# Sample OpenCV programs
+ios/samples/
+
 # This is temporary until we have an app logo
-ios/BlossomsCam/Images.xcassets
+ios/BlossomsCam/Images.xcassets/
+
+# Temp
+openCV/
+cCode/
+pyCode/
+screens/alter-app.js
 
 # Android/IntelliJ
 #

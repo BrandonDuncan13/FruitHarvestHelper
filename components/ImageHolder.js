@@ -9,14 +9,14 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // state is passed from detectBlossom file which was set within the BottomSheet file
 // code was made once but used multiple times
-export default function ImageHolder({ pressHandler, newImage }) {
+export default function ImageHolder({ pressHandler, newImage, activeOpacity=0.65 }) {
 
   return (
     <View>
       <TouchableOpacity
       // pressHandler in this case makes the "image buttons" not work when sheet is up and work when sheet is down (essentially)
       onPress={pressHandler}
-      activeOpacity={0.65}
+      activeOpacity={activeOpacity}// Changed activeOpacity to be able to be changed
       >
         {/* A box view to hold the image is created */}
         <View style={styles.imageBox}>
