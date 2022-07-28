@@ -57,7 +57,7 @@ std::string ProcessImage::get_processed_image()
     cv::imwrite(processedImagePath, copyImage);
 
     // Generating the return string
-    std::string myString = std::to_string(numBlossoms) + "$$" + processedImagePath;
+    std::string myString = std::to_string(numBlossoms) + "$$" + "it worked";//processedImagePath;
     return myString;
 }
 
