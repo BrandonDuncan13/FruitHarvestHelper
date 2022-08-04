@@ -171,7 +171,30 @@ android {
                 }
             }
         }
+    // the following configures ndk-build to build a "helloworld" module
+    ndk {
+        // For some reason this line breaks it.
+        // abiFilters "armeabi-v7a", "x86"
+        moduleName "helloworld"
+        ldLibs "log"
     }
+  } 
+  // ...
+  // Here we can add source code to our project
+  sourceSets {
+    main {
+      // first our new Java code
+      java.srcDirs = ["../../djinni/java", "src/main/java"]
+      // second our JNI classes
+      jni.srcDirs = ["../../djinni/jni"]
+    }
+  }
+  externalNativeBuild {
+    // This points ndk-build at our Android.mk file
+    ndkBuild {
+      path file('src/main/jni/Android.mk')
+    }
+  }
 
     if (isNewArchitectureEnabled()) {
         // We configure the NDK build only if you decide to opt-in for the New Architecture.

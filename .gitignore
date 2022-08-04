@@ -30,6 +30,7 @@ ios/BlossomsCam/Images.xcassets/
 
 # Temp
 openCV/
+OpenCV-android-sdk/
 cCode/
 pyCode/
 screens/alter-app.js
