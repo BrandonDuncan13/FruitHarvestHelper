@@ -3,10 +3,6 @@
 #include <filesystem>
 #include <string>
 
-#ifndef cv
-#include <opencv2/opencv.hpp>
-#endif
-
 #include "process_image.hpp"
 
 // Defines
@@ -14,15 +10,20 @@
 #define EXTENSION ".jpg"
 
 
-// Function prototypes
-std::string getOsName();
-
-
 // Here is where the image gets processed
+/*
+    If there is an error, do not use throw(), have
+    get_processed_image() return a string that starts
+    with "error:" that way the error will be handled
+    correctly.
+*/
 std::string ProcessImage::get_processed_image()
 {
+    // Reset 'numBlossoms'
+    numBlossoms = 0;
+
     // Counter to remember which photo it is using
-    static int count = 0;
+    static int count = -1;
     count++;
 
     // Paths
@@ -38,7 +39,7 @@ std::string ProcessImage::get_processed_image()
         {
             cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         }
-    
+
         // Edit path to be cache directory
         cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         cachePath += "/Library/Caches/";
@@ -53,30 +54,21 @@ std::string ProcessImage::get_processed_image()
     originalImagePath = cachePath + originalImagePath;
     processedImagePath = cachePath + processedImagePath;
 
-    // This just shows that openCV does something
+    // Filter the image using the algorithm
     cv::Mat originalImage = cv::imread(originalImagePath);
-    cv::Mat copyImage = originalImage;
-    int rows = copyImage.rows;
-    int cols = copyImage.cols;
-    for (int i = 50; i < rows - 50; i++)
-    {
-        for (int j = 50 * 3; j < (cols * 3) - 50 * 3; j += 2)
-        {
-            copyImage.at<unsigned char>(i,j) = rand() % 256;
-        }
-    }
+    cv::Mat copyImage = filterImage(originalImage);
 
     // Write to processed image file
     cv::imwrite(processedImagePath, copyImage);
 
     // Generating the return string
-    std::string myString = std::to_string(404/*numBlossoms*/) + "$$" + processedImagePath;
+    std::string myString = std::to_string(numBlossoms) + "$$" + processedImagePath;
     return myString;
 }
 
 
 // Find OS name
-std::string getOsName()
+std::string ProcessImage::getOsName()
 {
     #ifdef _WIN32
     return "Windows 32-bit";
@@ -95,4 +87,64 @@ std::string getOsName()
     #else
     return "Other";
     #endif
+}
+
+
+/*
+    Here are the image filters
+*/
+
+
+// Filter image
+cv::Mat ProcessImage::filterImage(cv::Mat inputImage)
+{
+    cv::Mat filterImage = inputImage.clone();
+
+    std::cout << filterImage.channels() << std::endl;
+
+    // Applying color filter to isolate blossoms.
+    for ( int i = 0; i < filterImage.rows; i++)
+        for (int j = 0; j < filterImage.cols; j++)
+            if ((7 * (double)filterImage.at<cv::Vec3b>(i,j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i,j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i,j)[2] < 155)
+        {
+            filterImage.at<cv::Vec3b>(i,j)[0] = 0;
+            filterImage.at<cv::Vec3b>(i,j)[1] = 0;
+            filterImage.at<cv::Vec3b>(i,j)[2] = 0;
+        }
+
+    cv:: Mat grayImage;
+
+    // Converting Image to gray scale.
+    cv::cvtColor(filterImage, grayImage, cv::COLOR_BGR2GRAY);
+
+    cv:: Mat ThresholdImage;
+
+    cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
+
+    cv::Mat BinaryImage;
+
+    cv::bitwise_not(ThresholdImage, BinaryImage);
+
+    cv::Mat UnBinary;
+
+    cv::bitwise_not(BinaryImage, UnBinary);
+
+    std::vector<std::vector<cv::Point>> contours;
+    std::vector<cv::Vec4i> hierarchy;
+    cv::findContours(UnBinary, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+
+    int BlossomsDetected = 0;
+
+    for (int pointer = 0; pointer < contours.size(); pointer++)
+    {
+        if (cv::contourArea(contours[pointer]) > 50 && cv::contourArea(contours[pointer]) < 60)
+        {
+            BlossomsDetected = BlossomsDetected + 1;
+        }
+    }
+
+    // Added
+    numBlossoms = BlossomsDetected;
+
+    return UnBinary;
 }
