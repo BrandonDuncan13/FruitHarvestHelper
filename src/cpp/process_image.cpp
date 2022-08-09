@@ -11,13 +11,19 @@
 
 
 // Here is where the image gets processed
+/*
+    If there is an error, do not use throw(), have
+    get_processed_image() return a string that starts
+    with "error:" that way the error will be handled
+    correctly.
+*/
 std::string ProcessImage::get_processed_image()
 {
     // Reset 'numBlossoms'
     numBlossoms = 0;
 
     // Counter to remember which photo it is using
-    static int count = 0;
+    static int count = -1;
     count++;
 
     // Paths
@@ -33,7 +39,7 @@ std::string ProcessImage::get_processed_image()
         {
             cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         }
-    
+
         // Edit path to be cache directory
         cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         cachePath += "/Library/Caches/";
@@ -49,8 +55,7 @@ std::string ProcessImage::get_processed_image()
     processedImagePath = cachePath + processedImagePath;
 
     // Filter the image using the algorithm
-    cv::Mat originalImage = cv::imread(originalImagePath);    
-    // cv::Mat copyImage = grayImage(originalImage);
+    cv::Mat originalImage = cv::imread(originalImagePath);
     cv::Mat copyImage = filterImage(originalImage);
 
     // Write to processed image file

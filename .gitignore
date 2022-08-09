@@ -28,12 +28,6 @@ ios/samples/
 # This is temporary until we have an app logo
 ios/BlossomsCam/Images.xcassets/
 
-# Temp
-openCV/
-cCode/
-pyCode/
-screens/alter-app.js
-
 # Android/IntelliJ
 #
 build/
