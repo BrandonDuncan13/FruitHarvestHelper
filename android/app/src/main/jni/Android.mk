@@ -8,7 +8,7 @@ include $(CLEAR_VARS)
 NDK_DEBUG=1
 
 # Specify C++ flags
-LOCAL_CPPFLAGS := -std=c++14
+LOCAL_CPPFLAGS := -std=c++17
 LOCAL_CPPFLAGS += -fexceptions
 LOCAL_CPPFLAGS += -frtti
 LOCAL_CPPFLAGS += -Wall

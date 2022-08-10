@@ -78,7 +78,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         const temp = message.toString();
 
         // Catch if there was an error in 'HelloWorld.sayHello()'
-        if (true/*temp.includes("error:")*/) {
+        if (temp.includes("error:")) {
             throw(temp);
         };
 
