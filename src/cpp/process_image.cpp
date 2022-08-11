@@ -6,9 +6,22 @@
 #include "filesystem.hpp"
 #include "process_image.hpp"
 
+// This is to make sure that the opencv functions are not
+// called from android but work in ios
+#ifdef __APPLE__
+#include "filter_image.hpp"
+#else
+#define filterImagePre ERROR_NO_ANDROID
+#endif
+
 // Defines
 #define IMAGEPATH "images/image"
 #define EXTENSION ".jpg"
+
+void ERROR_NO_ANDROID(std::string processedImagePath, std::string originalImagePath)
+{
+    return;
+}
 
 
 // Here is where the image gets processed
@@ -62,16 +75,22 @@ std::string ProcessImage::get_processed_image()
     // Finishing path variables
     originalImagePath = cachePath + originalImagePath;
     processedImagePath = cachePath + processedImagePath;
+/*
+    // Filter the image using the algorithm
+    cv::Mat originalImage = cv::imread(originalImagePath);
+    cv::Mat copyImage = filterImage(originalImage);
 
-    // // Filter the image using the algorithm
-    // cv::Mat originalImage = cv::imread(originalImagePath);
-    // cv::Mat copyImage = filterImage(originalImage);
-
-    // // Write to processed image file
-    // cv::imwrite(processedImagePath, copyImage);
+    // Write to processed image file
+    cv::imwrite(processedImagePath, copyImage);
+*/
+    // Only do opencv if on iOS, it doesn't work on Android yet
+    if (getOsName() == "Apple")
+    {
+        filterImagePre(processedImagePath, originalImagePath);
+    }
 
     // Generating the return string
-    std::string myString = std::to_string(numBlossoms) + "$$" + originalImagePath;//processedImagePath;
+    std::string myString = std::to_string(numBlossoms) + "$$" + processedImagePath;
     return myString;
 }
 
