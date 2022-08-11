@@ -3,11 +3,25 @@
 #include <filesystem>
 #include <string>
 
+#include "filesystem.hpp"
 #include "process_image.hpp"
+
+// This is to make sure that the opencv functions are not
+// called from android but work in ios
+#ifdef __APPLE__
+#include "filter_image.hpp"
+#else
+#define filterImagePre ERROR_NO_ANDROID
+#endif
 
 // Defines
 #define IMAGEPATH "images/image"
 #define EXTENSION ".jpg"
+
+void ERROR_NO_ANDROID(std::string processedImagePath, std::string originalImagePath)
+{
+    return;
+}
 
 
 // Here is where the image gets processed
@@ -29,11 +43,14 @@ std::string ProcessImage::get_processed_image()
     // Paths
     std::string originalImagePath = IMAGEPATH + std::to_string(count) + EXTENSION;
     std::string processedImagePath = "images/processed_image" + std::to_string(count) + EXTENSION;
-    std::string cachePath = std::filesystem::temp_directory_path().string();
+    std::string cachePath;
 
     // Finding cache path for different devices
     if (getOsName() == "Apple")
     {
+        // Set cache path
+        cachePath = std::filesystem::temp_directory_path().string();
+
         // Make sure there is no '/' at the end of the path
         if (cachePath.at(cachePath.length() - 1) == '/')
         {
@@ -44,22 +61,33 @@ std::string ProcessImage::get_processed_image()
         cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         cachePath += "/Library/Caches/";
     }
+    else if (getOsName() == "Linux")
+    {
+        // Set cache path
+        cachePath = "/data/user/0/com.blossomscam/cache/";
+    }
     else
     {
-        // This will be where the cache path is fixed for Android
-        return "error: Android not yet supported";
+        // The OS name is not accounted for
+        return "error: Unknown OS name";
     }
 
     // Finishing path variables
     originalImagePath = cachePath + originalImagePath;
     processedImagePath = cachePath + processedImagePath;
-
+/*
     // Filter the image using the algorithm
     cv::Mat originalImage = cv::imread(originalImagePath);
     cv::Mat copyImage = filterImage(originalImage);
 
     // Write to processed image file
     cv::imwrite(processedImagePath, copyImage);
+*/
+    // Only do opencv if on iOS, it doesn't work on Android yet
+    if (getOsName() == "Apple")
+    {
+        filterImagePre(processedImagePath, originalImagePath);
+    }
 
     // Generating the return string
     std::string myString = std::to_string(numBlossoms) + "$$" + processedImagePath;
@@ -92,7 +120,7 @@ std::string ProcessImage::getOsName()
 
 /*
     Here are the image filters
-*/
+*//*
 
 
 // Filter image
@@ -147,4 +175,4 @@ cv::Mat ProcessImage::filterImage(cv::Mat inputImage)
     numBlossoms = BlossomsDetected;
 
     return UnBinary;
-}
+}*/

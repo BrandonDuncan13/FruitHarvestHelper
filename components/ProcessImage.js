@@ -69,7 +69,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         /*
             Hello world is a c++ function that is linked to react native, it is
             currently being used for OpenCV to count the number of blossoms
-            because Josh cannot figure out how to change the function's name.
+            because we cannot figure out how to change the function's name.
 
             It is defined at src/cpp/hello_world_impl.cpp
         */

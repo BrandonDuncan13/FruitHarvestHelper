@@ -1,7 +1,7 @@
 #pragma once
 
 #ifndef cv
-#include <opencv2/opencv.hpp>
+// #include <opencv2/opencv.hpp>
 #endif
 
 
@@ -16,8 +16,8 @@ private:
 
     std::string getOsName();
 
-    // Filters
-    cv::Mat filterImage(cv::Mat inputImage);
+    // // Filter
+    // cv::Mat filterImage(cv::Mat inputImage);
 
     // Variables
     int numBlossoms;
