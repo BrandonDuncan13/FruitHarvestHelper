@@ -27,16 +27,17 @@ std::string ProcessImage::get_processed_image()
     static int count = -1;
     count++;
 
-    return "error: Android not yet supported";
-
     // Paths
     std::string originalImagePath = IMAGEPATH + std::to_string(count) + EXTENSION;
     std::string processedImagePath = "images/processed_image" + std::to_string(count) + EXTENSION;
-    std::string cachePath = std::filesystem::temp_directory_path().string();
+    std::string cachePath;
 
     // Finding cache path for different devices
     if (getOsName() == "Apple")
     {
+        // Set cache path
+        cachePath = std::filesystem::temp_directory_path().string();
+
         // Make sure there is no '/' at the end of the path
         if (cachePath.at(cachePath.length() - 1) == '/')
         {
@@ -47,10 +48,15 @@ std::string ProcessImage::get_processed_image()
         cachePath = cachePath.substr(0, cachePath.find_last_of("/"));
         cachePath += "/Library/Caches/";
     }
+    else if (getOsName() == "Linux")
+    {
+        // Set cache path
+        cachePath = "/data/user/0/com.blossomscam/cache/";
+    }
     else
     {
-        // This will be where the cache path is fixed for Android
-        return "error: Android not yet supported";
+        // The OS name is not accounted for
+        return "error: Unknown OS name";
     }
 
     // Finishing path variables
