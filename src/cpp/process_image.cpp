@@ -10,6 +10,7 @@
 // called from android but work in ios
 #ifdef __APPLE__
 #include "filter_image.hpp"
+// #define filterImagePre ERROR_NO_ANDROID///////////////////////////////////////////////////////////
 #else
 #define filterImagePre ERROR_NO_ANDROID
 #endif
@@ -86,7 +87,7 @@ std::string ProcessImage::get_processed_image()
     // Only do opencv if on iOS, it doesn't work on Android yet
     if (getOsName() == "Apple")
     {
-        filterImagePre(processedImagePath, originalImagePath);
+        numBlossoms = filterImagePre(processedImagePath, originalImagePath);
     }
 
     // Generating the return string

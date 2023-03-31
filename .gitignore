@@ -25,9 +25,6 @@ ios/.xcode.env.local
 # Sample OpenCV programs
 ios/samples/
 
-# This is temporary until we have an app logo
-ios/BlossomsCam/Images.xcassets/
-
 # Android/IntelliJ
 #
 build/

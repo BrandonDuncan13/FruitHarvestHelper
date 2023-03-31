@@ -6,7 +6,7 @@
 
 
 // Filter image
-cv::Mat filterImage(cv::Mat inputImage)
+cv::Mat filterImage(cv::Mat inputImage, int* numBlossoms)
 {
     cv::Mat filterImage = inputImage.clone();
 
@@ -16,11 +16,11 @@ cv::Mat filterImage(cv::Mat inputImage)
     for ( int i = 0; i < filterImage.rows; i++)
         for (int j = 0; j < filterImage.cols; j++)
             if ((7 * (double)filterImage.at<cv::Vec3b>(i,j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i,j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i,j)[2] < 155)
-        {
-            filterImage.at<cv::Vec3b>(i,j)[0] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[1] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[2] = 0;
-        }
+            {
+                filterImage.at<cv::Vec3b>(i,j)[0] = 0;
+                filterImage.at<cv::Vec3b>(i,j)[1] = 0;
+                filterImage.at<cv::Vec3b>(i,j)[2] = 0;
+            }
 
     cv:: Mat grayImage;
 
@@ -53,20 +53,25 @@ cv::Mat filterImage(cv::Mat inputImage)
         }
     }
 
-    // Added
-    // numBlossoms = BlossomsDetected;// Will add back later
+    // Save number of blossoms
+    *numBlossoms = BlossomsDetected;
 
     return UnBinary;
 }
 
 
 // Filter image
-void filterImagePre(std::string processedImagePath, std::string originalImagePath)
+int filterImagePre(std::string processedImagePath, std::string originalImagePath)
 {
+    // The number of blossoms
+    int numBlossoms = -404;
+
     // Filter the image using the algorithm
     cv::Mat originalImage = cv::imread(originalImagePath);
-    cv::Mat copyImage = filterImage(originalImage);
+    cv::Mat copyImage = filterImage(originalImage, &numBlossoms);
 
     // Write to processed image file
     cv::imwrite(processedImagePath, copyImage);
+
+    return numBlossoms;
 }

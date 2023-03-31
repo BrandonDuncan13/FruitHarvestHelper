@@ -44,6 +44,7 @@
 		26F72476286B972000D63D74 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A437285CF7C7008EE401 /* Octicons.ttf */; };
 		26F72477286B972000D63D74 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A441285CF7C7008EE401 /* SimpleLineIcons.ttf */; };
 		26F72478286B972000D63D74 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A439285CF7C7008EE401 /* Zocial.ttf */; };
+		40F0676129D7A4BC00AE0B1D /* images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 40F0676029D7A4BC00AE0B1D /* images.xcassets */; };
 		7699B88040F8A987B510C191 /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		BFF9176A28C1A53400DF4B64 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF9176928C1A53400DF4B64 /* Photos.framework */; };
@@ -99,6 +100,7 @@
 		26D24765287FA7DF002F8F2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		26D24767287FA7FD002F8F2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		3B4392A12AC88292D35C810B /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
+		40F0676029D7A4BC00AE0B1D /* images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = images.xcassets; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-BlossomsCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-BlossomsCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -276,6 +278,7 @@
 		83CBB9F61A601CBA00E9B192 = {
 			isa = PBXGroup;
 			children = (
+				40F0676029D7A4BC00AE0B1D /* images.xcassets */,
 				13B07FAE1A68108700A75B9A /* BlossomsCam */,
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				00E356EF1AD99517003FC87E /* BlossomsCamTests */,
@@ -429,6 +432,7 @@
 				26F72469286B972000D63D74 /* AntDesign.ttf in Resources */,
 				26F7246A286B972000D63D74 /* Entypo.ttf in Resources */,
 				26F7246B286B972000D63D74 /* EvilIcons.ttf in Resources */,
+				40F0676129D7A4BC00AE0B1D /* images.xcassets in Resources */,
 				26F7246C286B972000D63D74 /* Feather.ttf in Resources */,
 				26F7246D286B972000D63D74 /* FontAwesome.ttf in Resources */,
 				26F7246E286B972000D63D74 /* FontAwesome5_Brands.ttf in Resources */,
@@ -724,7 +728,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.BlossomsCam;
 				PRODUCT_NAME = BlossomsCam;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -759,7 +763,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = org.reactjs.native.BlossomsCam;
 				PRODUCT_NAME = BlossomsCam;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
