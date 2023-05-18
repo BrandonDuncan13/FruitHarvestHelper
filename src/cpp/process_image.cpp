@@ -10,7 +10,6 @@
 // called from android but work in ios
 #ifdef __APPLE__
 #include "filter_image.hpp"
-// #define filterImagePre ERROR_NO_ANDROID///////////////////////////////////////////////////////////
 #else
 #define filterImagePre ERROR_NO_ANDROID
 #endif
@@ -117,63 +116,3 @@ std::string ProcessImage::getOsName()
     return "Other";
     #endif
 }
-
-
-/*
-    Here are the image filters
-*//*
-
-
-// Filter image
-cv::Mat ProcessImage::filterImage(cv::Mat inputImage)
-{
-    cv::Mat filterImage = inputImage.clone();
-
-    std::cout << filterImage.channels() << std::endl;
-
-    // Applying color filter to isolate blossoms.
-    for ( int i = 0; i < filterImage.rows; i++)
-        for (int j = 0; j < filterImage.cols; j++)
-            if ((7 * (double)filterImage.at<cv::Vec3b>(i,j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i,j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i,j)[2] < 155)
-        {
-            filterImage.at<cv::Vec3b>(i,j)[0] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[1] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[2] = 0;
-        }
-
-    cv:: Mat grayImage;
-
-    // Converting Image to gray scale.
-    cv::cvtColor(filterImage, grayImage, cv::COLOR_BGR2GRAY);
-
-    cv:: Mat ThresholdImage;
-
-    cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
-
-    cv::Mat BinaryImage;
-
-    cv::bitwise_not(ThresholdImage, BinaryImage);
-
-    cv::Mat UnBinary;
-
-    cv::bitwise_not(BinaryImage, UnBinary);
-
-    std::vector<std::vector<cv::Point>> contours;
-    std::vector<cv::Vec4i> hierarchy;
-    cv::findContours(UnBinary, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
-
-    int BlossomsDetected = 0;
-
-    for (int pointer = 0; pointer < contours.size(); pointer++)
-    {
-        if (cv::contourArea(contours[pointer]) > 50 && cv::contourArea(contours[pointer]) < 60)
-        {
-            BlossomsDetected = BlossomsDetected + 1;
-        }
-    }
-
-    // Added
-    numBlossoms = BlossomsDetected;
-
-    return UnBinary;
-}*/
