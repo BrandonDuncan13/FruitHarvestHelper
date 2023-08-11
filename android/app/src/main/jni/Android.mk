@@ -1,7 +1,8 @@
-# ./android/app/src/main/jni/Android.mk
-
-# Set up paths
 LOCAL_PATH := $(call my-dir)
+include $(CLEAR_VARS)
+
+# Native JNI
+include $(LOCAL_PATH)/NativeAndroid.mk
 include $(CLEAR_VARS)
 
 # Debug mode
@@ -19,7 +20,7 @@ LOCAL_CPPFLAGS += -I$(LOCAL_PATH)/../../../../../node_modules/djinni/support-lib
 LOCAL_CPPFLAGS += -I$(LOCAL_PATH)/../../../../../node_modules/djinni/support-lib
 LOCAL_CPPFLAGS += -I$(LOCAL_PATH)/../../../../../src/cpp
 
-# Specify sourc files
+# Specify source files
 LOCAL_SRC_FILES += $(LOCAL_PATH)/../../../../../djinni/jni/NativeHelloWorld.cpp
 LOCAL_SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../../../src/cpp/*.cpp)
 LOCAL_SRC_FILES += $(wildcard $(LOCAL_PATH)/../../../../../node_modules/djinni/support-lib/jni/*.cpp)
