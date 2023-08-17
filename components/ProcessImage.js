@@ -1,12 +1,28 @@
 // Here is where the cpp program is called
 
+import React, { useState, useEffect } from 'react';
 import { NativeModules } from 'react-native';
 import { Dirs, FileSystem } from 'react-native-file-access';
-const { HelloWorld } = NativeModules;
+import ImageProcessingModule from './ImageProcessingModule';
 
+const { HelloWorld } = NativeModules;
 
 export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
 {
+    /* const [deviceId, setDeviceId] = useState('');
+
+    useEffect(() => {
+        const getDeviceId = async () => {
+          try {
+            const response = await NativeModules.ImageProcessingModule.getDeviceId();
+            setDeviceId(response);
+          } catch (error) {
+            setDeviceId(error);
+          }
+        };
+        getDeviceId();
+      }, []); */
+
     // Counter
     countMyself();
 
@@ -85,7 +101,18 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         // '$$' is used as the delimiter
         const myArray = temp.split("$$");
 
-        setNumBlossoms(myArray[0]);
+        //setNumBlossoms(myArray[0]);
+        // set the value to promise value that was either resolved or rejected
+        //const myDeviceId = deviceId;
+        // setNumBlossoms(data);
+        try {
+            const eventId = await ImageProcessingModule.testFunction();
+            setNumBlossoms(eventId);
+            console.log(`Created a new event with id ${eventId}`);
+          } catch (e) {
+            console.error(e);
+          }
+
         path = myArray[1];
     }
     // Error catch

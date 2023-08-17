@@ -7,7 +7,7 @@
 #include <iostream>
 
 extern "C" JNIEXPORT jint JNICALL
-Java_com_blossomscam_MainActivity_getInt(JNIEnv *env, jobject thiz)
+Java_com_blossomscam_ImageProcessingModule_getInt(JNIEnv *env, jobject thiz)
 {
-    return 10;
+    return 696969;
 }

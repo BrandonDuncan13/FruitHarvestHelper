@@ -12,5 +12,7 @@ import HomeStack from './navigate/homeStack.js';
 // the HomeStack component is returned which holds the navigation system for the entire app
 // this app uses stack navigation instead of drawer navigation to keep it simple
 export default function BlossomCounter() {
-  return <HomeStack />;
+  return (
+      <HomeStack />
+    );
 }

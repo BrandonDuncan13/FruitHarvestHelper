@@ -1,16 +1,22 @@
 package com.blossomscam;
 
+import androidx.appcompat.app.AppCompatActivity;
 import com.facebook.react.ReactActivity;
 import com.facebook.react.ReactActivityDelegate;
 import com.facebook.react.ReactRootView;
+import android.content.SharedPreferences;
+import android.content.Context;
+import android.os.Bundle;
 
 public class MainActivity extends ReactActivity {
 
-  public native int getInt();
-
-  static {
-    System.loadLibrary("processAndroid");
-  }
+  /*
+   * public static native int getInt();
+   * 
+   * static {
+   * System.loadLibrary("processAndroid");
+   * }
+   */
 
   /**
    * Returns the name of the main component registered from JavaScript. This is
@@ -31,7 +37,9 @@ public class MainActivity extends ReactActivity {
    */
   @Override
   protected ReactActivityDelegate createReactActivityDelegate() {
-    return new MainActivityDelegate(this, getMainComponentName());
+    return new ReactActivityDelegate(this, getMainComponentName()) {
+
+    };
   }
 
   public static class MainActivityDelegate extends ReactActivityDelegate {

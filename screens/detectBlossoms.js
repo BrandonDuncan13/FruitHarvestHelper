@@ -6,8 +6,8 @@ npx react-native run-android
 https://www.youtube.com/watch?v=Xp0q8ZDOeyE&t=2s
 on June 19th, 2022 */
 
-import React, { useState } from 'react';
-import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text, DeviceEventEmitter } from 'react-native';
 import { GestureHandlerRootView, Gesture } from 'react-native-gesture-handler';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import BottomSheet from '../components/BottomSheet';
@@ -18,6 +18,8 @@ export default function DetectBlossoms() {
   /* although most of these consts and functions are used in BottomSheet they were created in this file since some of
   them needed to be used here and it seems to make more sense when the code for the bottomSheet's functionality is in one place. */
   const buttonText = 'Choose Picture';
+
+  // retrieve code from android ndk
 
   // Variable to count the number of blossoms
   const [numBlossoms, setNumBlossoms] = useState(0);
