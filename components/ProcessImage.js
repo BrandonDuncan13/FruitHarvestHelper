@@ -106,7 +106,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         //const myDeviceId = deviceId;
         // setNumBlossoms(data);
         try {
-            const eventId = await ImageProcessingModule.testFunction();
+            const eventId = await ImageProcessingModule.processImage(imageName);
             setNumBlossoms(eventId);
             console.log(`Created a new event with id ${eventId}`);
           } catch (e) {
