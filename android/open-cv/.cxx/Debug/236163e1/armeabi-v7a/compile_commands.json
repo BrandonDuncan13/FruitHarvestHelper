@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/Users/brandonduncan/BlossomCam/android/open-cv/.cxx/Debug/236163e1/armeabi-v7a",
+  "command": "/Users/brandonduncan/Library/Android/sdk/ndk/25.0.8775105/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++ --target=armv7-none-linux-androideabi21 --sysroot=/Users/brandonduncan/Library/Android/sdk/ndk/25.0.8775105/toolchains/llvm/prebuilt/darwin-x86_64/sysroot -g -DANDROID -fdata-sections -ffunction-sections -funwind-tables -fstack-protector-strong -no-canonical-prefixes -D_FORTIFY_SOURCE=2 -march=armv7-a -mthumb -Wformat -Werror=format-security   -fno-limit-debug-info  -fPIC -o CMakeFiles/opencv_jni_shared.dir/dummy.cpp.o -c /Users/brandonduncan/BlossomCam/android/open-cv/libcxx_helper/dummy.cpp",
+  "file": "/Users/brandonduncan/BlossomCam/android/open-cv/libcxx_helper/dummy.cpp"
+}
+]

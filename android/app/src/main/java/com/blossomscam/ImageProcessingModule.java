@@ -12,6 +12,10 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
+import org.opencv.android.OpenCVLoader;
+import org.opencv.core.Mat;
+import org.opencv.imgcodecs.Imgcodecs;
+
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
@@ -20,7 +24,11 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
     private ReactApplicationContext reactContext;
 
     static {
-        System.loadLibrary("processAndroid");
+        if (!OpenCVLoader.initDebug()) {
+            Log.d("Error", "Unable to load OpenCV");
+        } else {
+            System.loadLibrary("processAndroid");
+        }
     }
 
     ImageProcessingModule(ReactApplicationContext context) {
@@ -33,16 +41,18 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         return "ImageProcessingModule";
     }
 
-    public Bitmap getImageFromCache(String imgPath) {
+    public Mat getImageFromCache(String imgPath) {
         File cacheDir = reactContext.getCacheDir();
         File imagesDir = new File(cacheDir, "images");
         File imageFile = new File(imagesDir, imgPath);
-        Bitmap originalImage = null;
+        // Read the image file into a Mat object
+        Mat imageMat = null;
 
         if (imageFile.exists()) {
             // The image file exists in the cache directory
             // You can now access the image using the file object
-            originalImage = BitmapFactory.decodeFile(imageFile.getAbsolutePath());
+            // Read the image file into a Mat object
+            imageMat = Imgcodecs.imread(imageFile.getAbsolutePath());
             Log.d("ImageProcessingModule", "Image loaded from cache successfully!");
         } else {
             // The image file does not exist in the cache directory
@@ -50,22 +60,28 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
             Log.d("ImageProcessingModule", "Failed to find the image in the cache...");
         }
 
-        return originalImage;
+        return imageMat;
     }
 
     @ReactMethod
     public void processImage(String imgPath, Promise promise) {
         try {
             // retrieve the image to process
-            Bitmap orgImage = getImageFromCache(imgPath);
+            Mat orgImage = getImageFromCache(imgPath);
 
             // send image over to C++ and process the image with OpenCV
-            Integer eventId = detectBlossoms(orgImage);
-            promise.resolve(eventId);
-        } catch(Exception e) {
+            float myFloat = 3.14f;
+            int numBlossoms = detectBlossoms(orgImage, myFloat);
+            promise.resolve(numBlossoms);
+        } catch (Exception e) {
             promise.reject("Create Event Error", e);
         }
     }
 
-    private native int detectBlossoms(Bitmap orgImage);
+    public static int detectBlossoms(Mat mat, float threshold) {
+
+        return detectBlossoms(mat.getNativeObjAddr(), threshold);
+    }
+
+    public static native int detectBlossoms(long matAddr, float threshold);
 }

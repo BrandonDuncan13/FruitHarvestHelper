@@ -106,12 +106,12 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         //const myDeviceId = deviceId;
         // setNumBlossoms(data);
         try {
-            const eventId = await ImageProcessingModule.processImage(imageName);
-            setNumBlossoms(eventId);
-            console.log(`Created a new event with id ${eventId}`);
-          } catch (e) {
-            console.error(e);
-          }
+            const processAndroidImageEvent = await ImageProcessingModule.processImage(imageName);
+            setNumBlossoms(processAndroidImageEvent);
+            console.log(`Created a new event with id ${processAndroidImageEvent}`);
+          } catch (err) {
+            console.log(err.message);
+        }
 
         path = myArray[1];
     }

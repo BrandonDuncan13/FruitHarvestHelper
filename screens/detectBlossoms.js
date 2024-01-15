@@ -130,7 +130,7 @@ export default function DetectBlossoms() {
             />
         </Animated.View>
         {/* The BottomSheet Component is used here which accepts props in order to handle the
-        functionaliy of the sheet, the styling of the sheet, and set two new values after the image is taken */}
+        functionaliy of the sheet, the styling of the sheet, and set new values after the image is taken */}
         <BottomSheet
           SCREEN_HEIGHT={SCREEN_HEIGHT}
           gesture={gesture}

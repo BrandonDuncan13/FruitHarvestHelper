@@ -134,6 +134,10 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    packagingOptions {
+           pickFirst '**/libc++_shared.so'
+        }
+    
     defaultConfig {
         applicationId "com.blossomscam"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -171,30 +175,28 @@ android {
                 }
             }
         }
-    // the following configures ndk-build to build a "helloworld" module
-    ndk {
-        // For some reason this line breaks it.
-        // abiFilters "armeabi-v7a", "x86"
-        moduleName "helloworld"
-        ldLibs "log"
+        // the following configures ndk-build to build a "helloworld" module
+        ndk {
+            // For some reason this line breaks it.
+            // abiFilters "armeabi-v7a", "x86"
+            moduleName "helloworld"
+            ldLibs "log"
+        }
+    } 
+    // ...
+    // Here we can add source code to our project
+    sourceSets {
+        main {
+            java.srcDirs = ["src/main/java/com/blossomscam", "../../djinni/java"]
+            jni.srcDirs = ["src/main/jni", "../../djinni/jni"]
+        }
     }
-  } 
-  // ...
-  // Here we can add source code to our project
-  sourceSets {
-    main {
-      // first our new Java code
-      java.srcDirs = ["../../djinni/java", "src/main/java"]
-      // second our JNI classes
-      jni.srcDirs = ["../../djinni/jni"]
+    externalNativeBuild {
+        // This points ndk-build at our Android.mk file
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
     }
-  }
-  externalNativeBuild {
-    // This points ndk-build at our Android.mk file
-    ndkBuild {
-      path file('src/main/jni/Android.mk')
-    }
-  }
 
     if (isNewArchitectureEnabled()) {
         // We configure the NDK build only if you decide to opt-in for the New Architecture.
@@ -290,6 +292,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation  project(':react-native-vector-icons') // added this line
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
+    implementation project(path: ':open-cv')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
