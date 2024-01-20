@@ -6,6 +6,9 @@ include $(CLEAR_VARS)
 #OPENCV_CAMERA_MODULES:=on
 #OPENCV_LIB_TYPE:=STATIC
 #include $(LOCAL_PATH)/OpenCV.mk
+OPENCV_INSTALL_MODULES:=on
+OPENCV_LIB_TYPE:=STATIC
+include $(LOCAL_PATH)/../../../../opencv/native/jni/OpenCV.mk
 
 LOCAL_MODULE := processAndroid
 LOCAL_SRC_FILES := processAndroid.cpp

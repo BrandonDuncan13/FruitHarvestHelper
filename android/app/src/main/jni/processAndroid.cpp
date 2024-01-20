@@ -2,6 +2,9 @@
 #include <stdio.h>
 #include <iostream>
 
+#include <opencv2/opencv.hpp>
+// #include <opencv2/imgproc.hpp>
+
 extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_detectBlossoms(
     JNIEnv *env, jobject obj, jlong param1, jfloat param2)
 {
@@ -11,5 +14,5 @@ extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_det
 
     // Perform other operations using the parameters
 
-    return 420;
+    return 201;
 }

@@ -1,2 +1,0 @@
-ninja: Entering directory `/Users/brandonduncan/BlossomCam/android/open-cv/.cxx/Debug/236163e1/x86'
-ninja: no work to do.

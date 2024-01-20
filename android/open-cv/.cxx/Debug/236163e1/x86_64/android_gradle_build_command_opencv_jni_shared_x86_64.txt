@@ -1,7 +1,0 @@
-Executable : /Users/brandonduncan/Library/Android/sdk/cmake/3.18.1/bin/ninja
-arguments : 
--C
-/Users/brandonduncan/BlossomCam/android/open-cv/.cxx/Debug/236163e1/x86_64
-opencv_jni_shared
-jvmArgs : 
-

@@ -28,6 +28,7 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
             Log.d("Error", "Unable to load OpenCV");
         } else {
             System.loadLibrary("processAndroid");
+            System.loadLibrary("opencv_java3");
         }
     }
 

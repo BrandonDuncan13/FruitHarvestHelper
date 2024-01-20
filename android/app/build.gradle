@@ -292,7 +292,7 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation  project(':react-native-vector-icons') // added this line
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-    implementation project(path: ':open-cv')
+    implementation project(path: ':opencv')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'
