@@ -152,12 +152,14 @@ android {
             externalNativeBuild {
                 ndkBuild {
                     arguments "APP_PLATFORM=android-21",
-                        "APP_STL=c++_shared",
+                        "APP_STL=c++_static",
                         "NDK_TOOLCHAIN_VERSION=clang",
                         "GENERATED_SRC_DIR=$buildDir/generated/source",
                         "PROJECT_BUILD_DIR=$buildDir",
                         "REACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
-                        "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build"
+                        "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build",
+                        "OPENCV_INSTALL_MODULES=on",
+                        "OPENCV_CONFIG_FILE=../opencv/native/jni/OpenCV.mk"
                     cFlags "-Wall", "-Werror", "-fexceptions", "-frtti", "-DWITH_INSPECTOR=1"
                     cppFlags "-std=c++17"
                     // Make sure this target name is the same you specify inside the
@@ -292,7 +294,6 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation  project(':react-native-vector-icons') // added this line
     implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.0.0"
-    implementation project(path: ':opencv')
 
     debugImplementation("com.facebook.flipper:flipper:${FLIPPER_VERSION}") {
         exclude group:'com.facebook.fbjni'

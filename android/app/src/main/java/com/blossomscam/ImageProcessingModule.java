@@ -27,8 +27,8 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         if (!OpenCVLoader.initDebug()) {
             Log.d("Error", "Unable to load OpenCV");
         } else {
-            System.loadLibrary("processAndroid");
             System.loadLibrary("opencv_java3");
+            System.loadLibrary("processAndroid");
         }
     }
 
@@ -69,20 +69,15 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         try {
             // retrieve the image to process
             Mat orgImage = getImageFromCache(imgPath);
+            int input = 1;
 
             // send image over to C++ and process the image with OpenCV
-            float myFloat = 3.14f;
-            int numBlossoms = detectBlossoms(orgImage, myFloat);
+            int numBlossoms = detectBlossoms(input);
             promise.resolve(numBlossoms);
         } catch (Exception e) {
             promise.reject("Create Event Error", e);
         }
     }
 
-    public static int detectBlossoms(Mat mat, float threshold) {
-
-        return detectBlossoms(mat.getNativeObjAddr(), threshold);
-    }
-
-    public static native int detectBlossoms(long matAddr, float threshold);
+    public static native int detectBlossoms(int input);
 }
