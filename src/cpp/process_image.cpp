@@ -85,7 +85,7 @@ std::string ProcessImage::get_processed_image()
     // Only do opencv if on iOS, it doesn't work on Android yet
     if (getOsName() == "Apple")
     {
-        filterImagePre(processedImagePath, originalImagePath);
+        numApples = filterImagePre(processedImagePath, originalImagePath);
     }
 
     // Generating the return string

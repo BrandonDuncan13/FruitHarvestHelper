@@ -23,6 +23,9 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         getDeviceId();
       }, []); */
 
+    // Create num apples var
+    let numApples = 0;
+
     // Counter
     countMyself();
 
@@ -105,15 +108,19 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         // set the value to promise value that was either resolved or rejected
         //const myDeviceId = deviceId;
         // setNumApples(data);
-        try {
-            const eventId = await ImageProcessingModule.processImage(imageName);
-            setNumApples(eventId);
-            console.log(`Created a new event with id ${eventId}`);
-          } catch (e) {
-            console.error(e);
-          }
+        // try {
+        //     const eventId = await ImageProcessingModule.processImage(imageName);
+        //     setNumApples(eventId);
+        //     console.log(`Created a new event with id ${eventId}`);
+        //   } catch (e) {
+        //     console.error(e);
+        //   }
 
         path = myArray[1];
+        numApples = myArray[0];
+
+        // Set the number of apples
+        await setNumApples(numApples);
     }
     // Error catch
     catch(err)
