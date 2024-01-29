@@ -7,7 +7,7 @@ import React from 'react';
 
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// state is passed from detectBlossom file which was set within the BottomSheet file
+// state is passed from detectApples file which was set within the BottomSheet file
 // code was made once but used multiple times
 export default function ImageHolder({ pressHandler, newImage, activeOpacity=0.65 }) {
 

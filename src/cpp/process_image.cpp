@@ -1,4 +1,4 @@
-// Process blossom image
+// Process apple image
 
 #include <filesystem>
 #include <string>
@@ -23,7 +23,6 @@ void ERROR_NO_ANDROID(std::string processedImagePath, std::string originalImageP
     return;
 }
 
-
 // Here is where the image gets processed
 /*
     If there is an error, do not use throw(), have
@@ -33,8 +32,8 @@ void ERROR_NO_ANDROID(std::string processedImagePath, std::string originalImageP
 */
 std::string ProcessImage::get_processed_image()
 {
-    // Reset 'numBlossoms'
-    numBlossoms = 0;
+    // Reset 'numApples'
+    numApples = 0;
 
     // Counter to remember which photo it is using
     static int count = -1;
@@ -75,14 +74,14 @@ std::string ProcessImage::get_processed_image()
     // Finishing path variables
     originalImagePath = cachePath + originalImagePath;
     processedImagePath = cachePath + processedImagePath;
-/*
-    // Filter the image using the algorithm
-    cv::Mat originalImage = cv::imread(originalImagePath);
-    cv::Mat copyImage = filterImage(originalImage);
+    /*
+        // Filter the image using the algorithm
+        cv::Mat originalImage = cv::imread(originalImagePath);
+        cv::Mat copyImage = filterImage(originalImage);
 
-    // Write to processed image file
-    cv::imwrite(processedImagePath, copyImage);
-*/
+        // Write to processed image file
+        cv::imwrite(processedImagePath, copyImage);
+    */
     // Only do opencv if on iOS, it doesn't work on Android yet
     if (getOsName() == "Apple")
     {
@@ -90,89 +89,88 @@ std::string ProcessImage::get_processed_image()
     }
 
     // Generating the return string
-    std::string myString = std::to_string(numBlossoms) + "$$" + processedImagePath;
+    std::string myString = std::to_string(numApples) + "$$" + processedImagePath;
     return myString;
 }
-
 
 // Find OS name
 std::string ProcessImage::getOsName()
 {
-    #ifdef _WIN32
+#ifdef _WIN32
     return "Windows 32-bit";
-    #elif _WIN64
+#elif _WIN64
     return "Windows 64-bit";
-    #elif __APPLE__
+#elif __APPLE__
     return "Apple";
-    #elif __MACH__
+#elif __MACH__
     return "Mac OS";
-    #elif __linux__
+#elif __linux__
     return "Linux";
-    #elif __FreeBSD__
+#elif __FreeBSD__
     return "FreeBSD";
-    #elif __unix || __unix__
+#elif __unix || __unix__
     return "Unix";
-    #else
+#else
     return "Other";
-    #endif
+#endif
 }
-
 
 /*
     Here are the image filters
-*//*
+*/
+/*
 
 
 // Filter image
 cv::Mat ProcessImage::filterImage(cv::Mat inputImage)
 {
-    cv::Mat filterImage = inputImage.clone();
+  cv::Mat filterImage = inputImage.clone();
 
-    std::cout << filterImage.channels() << std::endl;
+  std::cout << filterImage.channels() << std::endl;
 
-    // Applying color filter to isolate blossoms.
-    for ( int i = 0; i < filterImage.rows; i++)
-        for (int j = 0; j < filterImage.cols; j++)
-            if ((7 * (double)filterImage.at<cv::Vec3b>(i,j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i,j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i,j)[2] < 155)
-        {
-            filterImage.at<cv::Vec3b>(i,j)[0] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[1] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[2] = 0;
-        }
+  // Applying color filter to isolate blossoms.
+  for ( int i = 0; i < filterImage.rows; i++)
+      for (int j = 0; j < filterImage.cols; j++)
+          if ((7 * (double)filterImage.at<cv::Vec3b>(i,j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i,j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i,j)[2] < 155)
+      {
+          filterImage.at<cv::Vec3b>(i,j)[0] = 0;
+          filterImage.at<cv::Vec3b>(i,j)[1] = 0;
+          filterImage.at<cv::Vec3b>(i,j)[2] = 0;
+      }
 
-    cv:: Mat grayImage;
+  cv:: Mat grayImage;
 
-    // Converting Image to gray scale.
-    cv::cvtColor(filterImage, grayImage, cv::COLOR_BGR2GRAY);
+  // Converting Image to gray scale.
+  cv::cvtColor(filterImage, grayImage, cv::COLOR_BGR2GRAY);
 
-    cv:: Mat ThresholdImage;
+  cv:: Mat ThresholdImage;
 
-    cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
+  cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
 
-    cv::Mat BinaryImage;
+  cv::Mat BinaryImage;
 
-    cv::bitwise_not(ThresholdImage, BinaryImage);
+  cv::bitwise_not(ThresholdImage, BinaryImage);
 
-    cv::Mat UnBinary;
+  cv::Mat UnBinary;
 
-    cv::bitwise_not(BinaryImage, UnBinary);
+  cv::bitwise_not(BinaryImage, UnBinary);
 
-    std::vector<std::vector<cv::Point>> contours;
-    std::vector<cv::Vec4i> hierarchy;
-    cv::findContours(UnBinary, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+  std::vector<std::vector<cv::Point>> contours;
+  std::vector<cv::Vec4i> hierarchy;
+  cv::findContours(UnBinary, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
 
-    int BlossomsDetected = 0;
+  int BlossomsDetected = 0;
 
-    for (int pointer = 0; pointer < contours.size(); pointer++)
-    {
-        if (cv::contourArea(contours[pointer]) > 50 && cv::contourArea(contours[pointer]) < 60)
-        {
-            BlossomsDetected = BlossomsDetected + 1;
-        }
-    }
+  for (int pointer = 0; pointer < contours.size(); pointer++)
+  {
+      if (cv::contourArea(contours[pointer]) > 50 && cv::contourArea(contours[pointer]) < 60)
+      {
+          BlossomsDetected = BlossomsDetected + 1;
+      }
+  }
 
-    // Added
-    numBlossoms = BlossomsDetected;
+  // Added
+  numBlossoms = BlossomsDetected;
 
-    return UnBinary;
+  return UnBinary;
 }*/

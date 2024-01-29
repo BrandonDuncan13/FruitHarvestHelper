@@ -20,13 +20,13 @@ const BottomSheet = (( props ) => {
     console.log(image.path);
     // once the image is used then the bottomSheet will be lowered by setting the translateY value to 0
     props.translateY.value = withSpring(0, { damping: 50 });
-    /* here state passed from the detectBlossoms file is used to change some new values through the setNewImage function.
+    /* here state passed from the detectApples file is used to change some new values through the setNewImage function.
       Here we are setting the opacity to 0 which is used in the ImageHolder file to have the opacity of the camera icon change
       once an image is used. The value of path is also set to the path of the caputred image to change the BackgroundImage. */
     props.setNewImage({ opacity: 0, path: image.path });
 
-    // Process the image to find blossoms
-    ProcessImage(image, props.setProcessedImage, props.setNumBlossoms);
+    // Process the image to detect the apples
+    ProcessImage(image, props.setProcessedImage, props.setNumApples);
   }
 
   /* this function allows you to take a photo from the camera by using the ImagePicker library to open the device's camera
@@ -77,13 +77,13 @@ const BottomSheet = (( props ) => {
             top: props.SCREEN_HEIGHT,
             borderRadius: 25,
           }, props.rBottomSheetStyle,
-          // this Animated.View accepts styles from detectBlossoms as a prop. This style updates the translateY value of the sheet
+          // this Animated.View accepts styles from detectApples as a prop. This style updates the translateY value of the sheet
         ]}>
             <View style={styles.line}/>
             <View style={styles.panel}>
                 <View style={styles.centerTitle}>
                     <Text style={styles.panelTitle}>Upload Photo</Text>
-                    <Text style={styles.panelSubtitle}>Choose a photo to count blossoms</Text>
+                    <Text style={styles.panelSubtitle}>Choose a photo to detect apples</Text>
                 </View>
                 <TouchableOpacity
                     style={styles.panelButton}

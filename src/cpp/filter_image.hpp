@@ -4,7 +4,6 @@
     Here are the image filters
 */
 
-
 // Filter image
 cv::Mat filterImage(cv::Mat inputImage)
 {
@@ -12,22 +11,22 @@ cv::Mat filterImage(cv::Mat inputImage)
 
     std::cout << filterImage.channels() << std::endl;
 
-    // Applying color filter to isolate blossoms.
-    for ( int i = 0; i < filterImage.rows; i++)
+    // Applying color filter to isolate blossoms
+    for (int i = 0; i < filterImage.rows; i++)
         for (int j = 0; j < filterImage.cols; j++)
-            if ((7 * (double)filterImage.at<cv::Vec3b>(i,j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i,j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i,j)[2] < 155)
-        {
-            filterImage.at<cv::Vec3b>(i,j)[0] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[1] = 0;
-            filterImage.at<cv::Vec3b>(i,j)[2] = 0;
-        }
+            if ((7 * (double)filterImage.at<cv::Vec3b>(i, j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i, j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i, j)[2] < 155)
+            {
+                filterImage.at<cv::Vec3b>(i, j)[0] = 0;
+                filterImage.at<cv::Vec3b>(i, j)[1] = 0;
+                filterImage.at<cv::Vec3b>(i, j)[2] = 0;
+            }
 
-    cv:: Mat grayImage;
+    cv::Mat grayImage;
 
     // Converting Image to gray scale.
     cv::cvtColor(filterImage, grayImage, cv::COLOR_BGR2GRAY);
 
-    cv:: Mat ThresholdImage;
+    cv::Mat ThresholdImage;
 
     cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
 
@@ -58,7 +57,6 @@ cv::Mat filterImage(cv::Mat inputImage)
 
     return UnBinary;
 }
-
 
 // Filter image
 void filterImagePre(std::string processedImagePath, std::string originalImagePath)
