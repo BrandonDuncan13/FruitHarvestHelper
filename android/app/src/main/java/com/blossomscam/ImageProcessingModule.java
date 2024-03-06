@@ -12,10 +12,7 @@ import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
 
-import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Mat;
-import org.opencv.imgcodecs.Imgcodecs;
-
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.Map;
 import java.util.HashMap;
@@ -24,12 +21,8 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
     private ReactApplicationContext reactContext;
 
     static {
-        if (!OpenCVLoader.initDebug()) {
-            Log.d("Error", "Unable to load OpenCV");
-        } else {
-            System.loadLibrary("opencv_java3");
-            System.loadLibrary("processAndroid");
-        }
+        // Load native libraries
+        System.loadLibrary("processAndroid");
     }
 
     ImageProcessingModule(ReactApplicationContext context) {
@@ -42,42 +35,40 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         return "ImageProcessingModule";
     }
 
-    public Mat getImageFromCache(String imgPath) {
+    public byte[] getImageFromCache(String imgPath) {
         File cacheDir = reactContext.getCacheDir();
         File imagesDir = new File(cacheDir, "images");
         File imageFile = new File(imagesDir, imgPath);
-        // Read the image file into a Mat object
-        Mat imageMat = null;
+        byte[] imageBytes = null;
 
         if (imageFile.exists()) {
-            // The image file exists in the cache directory
-            // You can now access the image using the file object
-            // Read the image file into a Mat object
-            imageMat = Imgcodecs.imread(imageFile.getAbsolutePath());
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.ARGB_8888;
+            Bitmap bitmap = BitmapFactory.decodeFile(imageFile.getAbsolutePath(), options);
+            ByteArrayOutputStream stream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+            imageBytes = stream.toByteArray();
             Log.d("ImageProcessingModule", "Image loaded from cache successfully!");
         } else {
-            // The image file does not exist in the cache directory
-            // Handle the case where the image is not found
             Log.d("ImageProcessingModule", "Failed to find the image in the cache...");
         }
 
-        return imageMat;
+        return imageBytes;
     }
 
     @ReactMethod
     public void processImage(String imgPath, Promise promise) {
         try {
             // retrieve the image to process
-            Mat orgImage = getImageFromCache(imgPath);
-            int input = 1;
+            byte[] orgImage = getImageFromCache(imgPath);
 
             // send image over to C++ and process the image with OpenCV
-            int numBlossoms = detectBlossoms(input);
+            int numBlossoms = detectBlossoms(orgImage);
             promise.resolve(numBlossoms);
         } catch (Exception e) {
             promise.reject("Create Event Error", e);
         }
     }
 
-    public static native int detectBlossoms(int input);
+    public static native int detectBlossoms(byte[] imageBytes);
 }

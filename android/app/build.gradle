@@ -151,6 +151,7 @@ android {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
             externalNativeBuild {
                 ndkBuild {
+                    path "$projectDir/src/main/jni/Android.mk"
                     arguments "APP_PLATFORM=android-21",
                         "APP_STL=c++_static",
                         "NDK_TOOLCHAIN_VERSION=clang",
@@ -159,7 +160,8 @@ android {
                         "REACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
                         "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build",
                         "OPENCV_INSTALL_MODULES=on",
-                        "OPENCV_CONFIG_FILE=../opencv/native/jni/OpenCV.mk"
+                        "OPENCV_CONFIG_FILE=../opencv/native/jni/OpenCV.mk",
+                        "-DOpenCV_DIR=" + opencvsdk + "/sdk/native" // Add this line for OpenCV
                     cFlags "-Wall", "-Werror", "-fexceptions", "-frtti", "-DWITH_INSPECTOR=1"
                     cppFlags "-std=c++17"
                     // Make sure this target name is the same you specify inside the
@@ -288,8 +290,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-
+    implementation fileTree(dir: "src/main/jniLibs", include: ["**/*.jar"])
+    implementation project(':opencv')
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation  project(':react-native-vector-icons') // added this line

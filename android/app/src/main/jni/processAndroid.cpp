@@ -7,11 +7,15 @@
 #include <opencv2/core.hpp>
 
 extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_detectBlossoms(
-    JNIEnv *env, jobject obj, jint input)
+    JNIEnv *env, jobject obj, jbyteArray imageBytes)
 {
-    // // read in the user selected image
+    // Convert byte array to Mat to get the user selected image
+    jbyte *buffer = env->GetByteArrayElements(imageBytes, NULL);
+    jsize length = env->GetArrayLength(imageBytes);
+    cv::Mat orgImage = cv::imdecode(cv::Mat(1, length, CV_8UC1, (unsigned char *)buffer), cv::IMREAD_COLOR);
+    env->ReleaseByteArrayElements(imageBytes, buffer, 0);
     // // cv::Mat *orgImage = (cv::Mat *)orgImageAddr;
-    cv::Mat orgImage = cv::imread("/Users/brandonduncan/Downloads/20230428_145300.jpg");
+
     // // cv::Mat copy = orgImage->clone();
     // cv::Mat copy = orgImage.clone();
 
