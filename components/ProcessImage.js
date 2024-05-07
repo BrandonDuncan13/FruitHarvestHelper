@@ -23,6 +23,9 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         getDeviceId();
       }, []); */
 
+    // Start the timer
+    const start = performance.now();
+
     // Create num apples var
     let numApples = 0;
 
@@ -130,9 +133,14 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
 
     console.log(path);
 
-
     // Setting the processed image
     setProcessedImage({ opacity: 0, path: path });
+
+    // Stop the timer
+    const end = performance.now();
+
+    // Calculate and log the execution time
+    console.log(`Execution time: ${end - start} ms`);
 }
 
 
