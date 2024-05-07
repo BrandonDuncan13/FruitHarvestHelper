@@ -63,6 +63,7 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
             byte[] orgImage = getImageFromCache(imgPath);
 
             // send image over to C++ and process the image with OpenCV
+            // Java -> C++ -> Java
             int numBlossoms = detectBlossoms(orgImage);
             promise.resolve(numBlossoms);
         } catch (Exception e) {
@@ -70,5 +71,6 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         }
     }
 
+    // function signature for C++ defined function
     public static native int detectBlossoms(byte[] imageBytes);
 }

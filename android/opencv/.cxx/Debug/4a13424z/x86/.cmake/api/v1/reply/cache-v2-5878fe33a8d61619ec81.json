@@ -11,7 +11,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "x86_64"
+			"value" : "x86"
 		},
 		{
 			"name" : "ANDROID_NDK",
@@ -75,7 +75,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "x86_64"
+			"value" : "x86"
 		},
 		{
 			"name" : "CMAKE_ANDROID_NDK",
@@ -163,7 +163,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/.cxx/Debug/4a13424z/x86_64"
+			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/.cxx/Debug/4a13424z/x86"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -236,22 +236,6 @@
 			],
 			"type" : "INTERNAL",
 			"value" : "/Users/brandonduncan/Library/Android/sdk/cmake/3.18.1/bin/ctest"
-		},
-		{
-			"name" : "CMAKE_CXX_COMPILER",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "(This variable does not exist and should not be used)"
-				}
-			],
-			"type" : "UNINITIALIZED",
-			"value" : ""
 		},
 		{
 			"name" : "CMAKE_CXX_COMPILER_AR",
@@ -380,22 +364,6 @@
 			],
 			"type" : "STRING",
 			"value" : "-latomic -lm"
-		},
-		{
-			"name" : "CMAKE_C_COMPILER",
-			"properties" : 
-			[
-				{
-					"name" : "ADVANCED",
-					"value" : "1"
-				},
-				{
-					"name" : "HELPSTRING",
-					"value" : "(This variable does not exist and should not be used)"
-				}
-			],
-			"type" : "UNINITIALIZED",
-			"value" : ""
 		},
 		{
 			"name" : "CMAKE_C_COMPILER_AR",
@@ -739,7 +707,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/build/intermediates/cxx/Debug/4a13424z/obj/x86_64"
+			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/build/intermediates/cxx/Debug/4a13424z/obj/x86"
 		},
 		{
 			"name" : "CMAKE_LINKER",
@@ -1011,7 +979,7 @@
 				}
 			],
 			"type" : "UNINITIALIZED",
-			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/build/intermediates/cxx/Debug/4a13424z/obj/x86_64"
+			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/build/intermediates/cxx/Debug/4a13424z/obj/x86"
 		},
 		{
 			"name" : "CMAKE_SHARED_LINKER_FLAGS",
@@ -1251,10 +1219,10 @@
 			[
 				{
 					"name" : "HELPSTRING",
-					"value" : "The CMake toolchain file"
+					"value" : "No help, variable specified on the command line."
 				}
 			],
-			"type" : "FILEPATH",
+			"type" : "UNINITIALIZED",
 			"value" : "/Users/brandonduncan/Library/Android/sdk/ndk/25.0.8775105/build/cmake/android.toolchain.cmake"
 		},
 		{
@@ -1295,7 +1263,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/.cxx/Debug/4a13424z/x86_64"
+			"value" : "/Users/brandonduncan/BlossomCam/android/opencv/.cxx/Debug/4a13424z/x86"
 		},
 		{
 			"name" : "opencv_jni_shared_SOURCE_DIR",

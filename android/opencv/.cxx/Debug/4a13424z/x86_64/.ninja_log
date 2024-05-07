@@ -7,3 +7,5 @@
 0	16	0	clean	c3c5bc2c562ae7ba
 0	58	1709700342	CMakeFiles/opencv_jni_shared.dir/dummy.cpp.o	afe84b70b68aa047
 58	698	1709700343	libopencv_jni_shared.a	d8bb710d8ee188d9
+0	313	1715112526	CMakeFiles/opencv_jni_shared.dir/dummy.cpp.o	afe84b70b68aa047
+313	944	1715112526	libopencv_jni_shared.a	d8bb710d8ee188d9
