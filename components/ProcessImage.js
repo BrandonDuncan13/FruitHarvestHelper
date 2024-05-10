@@ -1,9 +1,10 @@
 // Here is where the cpp program is called
 
 import React, { useState, useEffect } from 'react';
-import { NativeModules } from 'react-native';
+import { NativeModules, Base64 } from 'react-native';
 import { Dirs, FileSystem } from 'react-native-file-access';
 import ImageProcessingModule from './ImageProcessingModule';
+import RNFS from 'react-native-fs';
 
 const { HelloWorld } = NativeModules;
 
@@ -100,15 +101,41 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
 
         // '$$' is used as the delimiter
         const myArray = temp.split("$$");
+        
+        let android = false;
 
         //setNumBlossoms(myArray[0]);
         // set the value to promise value that was either resolved or rejected
         //const myDeviceId = deviceId;
         // setNumBlossoms(data);
         try {
-            const processAndroidImageEvent = await ImageProcessingModule.processImage(imageName);
-            setNumBlossoms(processAndroidImageEvent);
-            console.log(`Created a new event with id ${processAndroidImageEvent}`);
+            const response = await ImageProcessingModule.processImage(imageName);
+            console.log('Response from processImage:', response); // Log the raw response
+
+            setNumBlossoms(response);
+
+            // access android cache dir
+            const androidCacheDir = RNFS.CachesDirectoryPath + '/images/';
+
+            const processedImagePath = androidCacheDir + 'processedImage' + countMyself.counter + '.jpg';
+            console.log('Constructed processed image path:', processedImagePath);
+
+            // Use RNFS to read the processed image file as base64
+            RNFS.readFile(processedImagePath, 'base64')
+                .then((result) => {
+                    // Convert the base64 string to a data URI
+                    const dataUri = `data:image/jpg;base64,${result}`;
+
+                    // Update the state with the processed image data URI
+                    setProcessedImage({ opacity: 1, path: dataUri });
+                    
+                    // Indicate state was updated
+                    console.log('State updated with processed image and number of blossoms');
+                    android = true;
+                })
+                .catch((err) => {
+                    console.log('Error reading processed image:', err);
+                });
           } catch (err) {
             console.log(err.message);
         }
@@ -123,9 +150,11 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
 
     console.log(path);
 
-
-    // Setting the processed image
-    setProcessedImage({ opacity: 0, path: path });
+    if (android == false)
+    {
+        // Setting the processed image
+        //setProcessedImage({ opacity: 0, path: path });
+    }
 }
 
 

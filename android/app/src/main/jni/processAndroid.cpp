@@ -1,24 +1,27 @@
 #include <jni.h>
 #include <stdio.h>
 #include <iostream>
+#include <vector>
+#include <cstdlib>
 
 #include <opencv2/opencv.hpp>
 #include <opencv2/imgproc.hpp>
 #include <opencv2/core.hpp>
 
 // JNI wrapper for the (Java -> C++ -> Java) function
-extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_detectBlossoms(
-    JNIEnv *env, jobject obj, jbyteArray imageBytes)
+extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingModule_detectBlossoms(
+    JNIEnv *env, jclass ImageProcessingModule, jbyteArray orgImage)
 {
+
     // Convert byte array to Mat to get the user selected image
-    jbyte *buffer = env->GetByteArrayElements(imageBytes, NULL);
-    jsize length = env->GetArrayLength(imageBytes);
-    cv::Mat orgImage = cv::imdecode(cv::Mat(1, length, CV_8UC1, (unsigned char *)buffer), cv::IMREAD_COLOR);
-    env->ReleaseByteArrayElements(imageBytes, buffer, 0);
+    jbyte *buffer = env->GetByteArrayElements(orgImage, NULL);
+    jsize length = env->GetArrayLength(orgImage);
+    cv::Mat inputImage = cv::imdecode(cv::Mat(1, length, CV_8UC1, (unsigned char *)buffer), cv::IMREAD_COLOR);
+    env->ReleaseByteArrayElements(orgImage, buffer, 0);
     // cv::Mat *orgImage = (cv::Mat *)orgImageAddr;
 
     // cv::Mat copy = orgImage->clone();
-    cv::Mat copy = orgImage.clone();
+    cv::Mat copy = inputImage.clone();
 
     // resize the image for testing purposes
     cv::Size newSize(600, 800);
@@ -145,7 +148,7 @@ extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_det
     int numLabels = cv::connectedComponents(appleObjectsMask1_8u, labels);
 
     // Iterate over the labels and calculate properties of each component
-    jint count = 0;
+    jint numBlossoms = 0;
     for (int label = 1; label <= numLabels; ++label)
     {
         cv::Mat componentMask = (labels == label);
@@ -154,7 +157,7 @@ extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_det
 
         if (!contour.empty())
         {
-            count++;
+            numBlossoms++;
             cv::Point2f centroid;
             float radius;
             cv::minEnclosingCircle(contour[0], centroid, radius);
@@ -167,9 +170,23 @@ extern "C" JNIEXPORT jint JNICALL Java_com_blossomscam_ImageProcessingModule_det
         }
     }
 
-    // return both the image and detected apple count
+    // Convert the processed image (copy) to a byte array
+    std::vector<uint8_t> processedImage;
+    cv::imencode(".jpg", copy, processedImage);
 
-    return count;
+    // Prepare the processed image
+    jbyteArray imageBytes = env->NewByteArray(processedImage.size());
+    env->SetByteArrayRegion(imageBytes, 0, processedImage.size(), reinterpret_cast<jbyte *>(processedImage.data()));
 
-    // return 69;
+    // Return both the image and detected apples
+    // Create a new Object array with 2 elements
+    jobjectArray result = env->NewObjectArray(2, env->FindClass("java/lang/Object"), NULL);
+    if (result == NULL)
+        return NULL;
+
+    // Set the elements in the Object array
+    env->SetObjectArrayElement(result, 0, imageBytes);
+    env->SetObjectArrayElement(result, 1, env->NewObject(env->FindClass("java/lang/Integer"), env->GetMethodID(env->FindClass("java/lang/Integer"), "<init>", "(I)V"), numBlossoms));
+
+    return result;
 }

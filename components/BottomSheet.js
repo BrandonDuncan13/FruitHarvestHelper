@@ -5,13 +5,20 @@ npx react-native run-android
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
-import React from 'react';
+import React, { useEffect } from 'react';
 // ImagePicker is one of the widely used React Native Camera libraries which was imported here
 import ImagePicker from 'react-native-image-crop-picker';
 import ProcessImage from './ProcessImage';
 
 // rather than destructuring a lot of different properties you can just pass props
 const BottomSheet = (( props ) => {
+
+  // Example useEffect hook to log state changes
+  useEffect(() => {
+    // Assuming processedImage and numBlossoms are state variables or props
+    console.log('Processed Image:', props.processedImage);
+    console.log('Number of Detected Blossoms:', props.numBlossoms);
+  }, [props.processedImage, props.numBlossoms]);
 
   // Function for setting image, because the same thing is done twice
   function setImage(props, image)
