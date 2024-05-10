@@ -1,7 +1,5 @@
 package com.blossomscam;
 
-import com.blossomscam.ImageResult;
-
 import androidx.annotation.NonNull;
 
 import android.graphics.Bitmap;
