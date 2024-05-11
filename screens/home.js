@@ -11,7 +11,7 @@ import CustomButton from '../components/CustomButton';
 screens each screen in the stack automatically gets a navigation property that can be used */
 export default function Home({ navigation }) {
 
-    const image = require('../images/blossoms.jpg');
+  const image = require('../images/appleTreeWithHat.jpg');
 
     // here a method called navigate from the navigation object is used to navigate to the screen of a specific screen name
     const pressHandler = () => {

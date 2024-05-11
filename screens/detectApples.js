@@ -17,7 +17,7 @@ import ImageHolder from '../components/ImageHolder';
 export default function DetectApples() {
   /* although most of these consts and functions are used in BottomSheet they were created in this file since some of
   them needed to be used here and it seems to make more sense when the code for the bottomSheet's functionality is in one place. */
-  const buttonText = 'Choose Picture';
+  const buttonText = 'Go Detect Apples';
 
   // retrieve code from android ndk
 

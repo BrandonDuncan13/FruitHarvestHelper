@@ -130,11 +130,18 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
                     const dataUri = `data:image/jpg;base64,${result}`;
 
                     // Update the state with the processed image data URI
-                    setProcessedImage({ opacity: 1, path: dataUri });
+                    setProcessedImage({ opacity: 0, path: dataUri });
                     
                     // Indicate state was updated
                     console.log('State updated with processed image and number of apples');
                     android = true;
+
+                    console.log('Processing Timer Ended...');
+                    // Stop the timer
+                    const end = performance.now();
+
+                    // Calculate and log the execution time
+                    console.log(`Execution time: ${end - start} ms`);
                 })
                 .catch((err) => {
                     console.log('Error reading processed image:', err);
@@ -158,12 +165,6 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         // Setting the processed image
         //setProcessedImage({ opacity: 0, path: path });
     }
-
-    // Stop the timer
-    const end = performance.now();
-
-    // Calculate and log the execution time
-    console.log(`Execution time: ${end - start} ms`);
 }
 
 

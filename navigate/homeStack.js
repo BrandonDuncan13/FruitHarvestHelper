@@ -43,7 +43,7 @@ const HomeStack = () => {
           name="Home" // The name is used for navigating to this Stack.Screen from another screen
           component={Home} // this Stack.Screen is configuring the Home component
           options={{
-            title: 'Apples Counter App', // The title of the screen in the navigation heading
+            title: 'Apple Detection App', // The title of the screen in the navigation heading
           }}
         />
         <Stack.Screen
