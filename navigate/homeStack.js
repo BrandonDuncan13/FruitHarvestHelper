@@ -11,7 +11,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import Home from '../screens/home';
-import DetectBlossoms from '../screens/detectBlossoms';
+import DetectApples from '../screens/detectApples';
 
 const Stack = createNativeStackNavigator();
 
@@ -43,14 +43,14 @@ const HomeStack = () => {
           name="Home" // The name is used for navigating to this Stack.Screen from another screen
           component={Home} // this Stack.Screen is configuring the Home component
           options={{
-            title: 'Blossom Counter App', // The title of the screen in the navigation heading
+            title: 'Apples Counter App', // The title of the screen in the navigation heading
           }}
         />
         <Stack.Screen
-        /* Since the Detect Blossoms screen isn't the first Stack.Screen to appear in the code
+        /* Since the Detect Apples screen isn't the first Stack.Screen to appear in the code
         it won't be the default screen and will have to be navigated to in order to access it */
-          name="Detect Blossoms"
-          component={DetectBlossoms}
+          name="Detect Apples"
+          component={DetectApples}
           options={{
             headerBackTitle: 'Previous',
             headerBackTitleStyle: {

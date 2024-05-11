@@ -8,7 +8,7 @@ import RNFS from 'react-native-fs';
 
 const { HelloWorld } = NativeModules;
 
-export default async function ProcessImage( originalImage, setProcessedImage, setNumBlossoms )
+export default async function ProcessImage( originalImage, setProcessedImage, setNumApples )
 {
     /* const [deviceId, setDeviceId] = useState('');
 
@@ -23,6 +23,9 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         };
         getDeviceId();
       }, []); */
+
+    // Start the processing timer
+    const start = performance.now();
 
     // Counter
     countMyself();
@@ -85,7 +88,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     {
         /*
             Hello world is a c++ function that is linked to react native, it is
-            currently being used for OpenCV to count the number of blossoms
+            currently being used for OpenCV to count the number of apples
             because we cannot figure out how to change the function's name.
 
             It is defined at src/cpp/hello_world_impl.cpp
@@ -104,15 +107,15 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         
         let android = false;
 
-        //setNumBlossoms(myArray[0]);
+        //setNumApples(myArray[0]);
         // set the value to promise value that was either resolved or rejected
         //const myDeviceId = deviceId;
-        // setNumBlossoms(data);
+        // setNumApples(data);
         try {
             const response = await ImageProcessingModule.processImage(imageName);
             console.log('Response from processImage:', response); // Log the raw response
 
-            setNumBlossoms(response);
+            setNumApples(response);
 
             // access android cache dir
             const androidCacheDir = RNFS.CachesDirectoryPath + '/images/';
@@ -130,7 +133,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
                     setProcessedImage({ opacity: 1, path: dataUri });
                     
                     // Indicate state was updated
-                    console.log('State updated with processed image and number of blossoms');
+                    console.log('State updated with processed image and number of apples');
                     android = true;
                 })
                 .catch((err) => {
@@ -155,6 +158,12 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         // Setting the processed image
         //setProcessedImage({ opacity: 0, path: path });
     }
+
+    // Stop the timer
+    const end = performance.now();
+
+    // Calculate and log the execution time
+    console.log(`Execution time: ${end - start} ms`);
 }
 
 

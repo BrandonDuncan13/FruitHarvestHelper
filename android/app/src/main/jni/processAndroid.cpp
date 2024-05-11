@@ -9,7 +9,7 @@
 #include <opencv2/core.hpp>
 
 // JNI wrapper for the (Java -> C++ -> Java) function
-extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingModule_detectBlossoms(
+extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingModule_detectApples(
     JNIEnv *env, jclass ImageProcessingModule, jbyteArray orgImage)
 {
 
@@ -148,7 +148,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingMo
     int numLabels = cv::connectedComponents(appleObjectsMask1_8u, labels);
 
     // Iterate over the labels and calculate properties of each component
-    jint numBlossoms = 0;
+    jint numApples = 0;
     for (int label = 1; label <= numLabels; ++label)
     {
         cv::Mat componentMask = (labels == label);
@@ -157,7 +157,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingMo
 
         if (!contour.empty())
         {
-            numBlossoms++;
+            numApples++;
             cv::Point2f centroid;
             float radius;
             cv::minEnclosingCircle(contour[0], centroid, radius);
@@ -172,7 +172,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingMo
 
     // Convert the processed image (copy) to a byte array
     std::vector<uint8_t> processedImage;
-    cv::imencode(".jpg", copy, processedImage);
+    cv::imencode(".jpeg", copy, processedImage);
 
     // Prepare the processed image
     jbyteArray imageBytes = env->NewByteArray(processedImage.size());
@@ -186,7 +186,7 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingMo
 
     // Set the elements in the Object array
     env->SetObjectArrayElement(result, 0, imageBytes);
-    env->SetObjectArrayElement(result, 1, env->NewObject(env->FindClass("java/lang/Integer"), env->GetMethodID(env->FindClass("java/lang/Integer"), "<init>", "(I)V"), numBlossoms));
+    env->SetObjectArrayElement(result, 1, env->NewObject(env->FindClass("java/lang/Integer"), env->GetMethodID(env->FindClass("java/lang/Integer"), "<init>", "(I)V"), numApples));
 
     return result;
 }

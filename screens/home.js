@@ -15,12 +15,12 @@ export default function Home({ navigation }) {
 
     // here a method called navigate from the navigation object is used to navigate to the screen of a specific screen name
     const pressHandler = () => {
-      navigation.navigate('Detect Blossoms');
+      navigation.navigate('Detect Apples');
     }
 
     // buttonText needs to be created in order to have this as the button title
     // since components are code that's reusable we need to pass information that's specific as props
-    const buttonText = 'Detect Blossoms';
+    const buttonText = 'Detect Apples';
 
     return (
         <View style={styles.container}>

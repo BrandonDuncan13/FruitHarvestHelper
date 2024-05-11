@@ -41,7 +41,7 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
     }
 
     // function signature for C++ defined function
-    public static native Object[] detectBlossoms(byte[] orgImage);
+    public static native Object[] detectApples(byte[] orgImage);
 
     public byte[] getImageFromCache(String imgPath) {
         File cacheDir = reactContext.getCacheDir();
@@ -72,15 +72,15 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
 
             // send image over to C++ and process the image with OpenCV
             // Java -> C++ -> Java
-            Object[] result = detectBlossoms(orgImage);
+            Object[] result = detectApples(orgImage);
 
             // get the returned results
             byte[] processedImage = (byte[]) result[0];
-            int numBlossoms = ((Integer) result[1]).intValue();
+            int numApples = ((Integer) result[1]).intValue();
 
             // Log the results
             Log.d("ImageProcessingModule", "Processed Image Length: " + processedImage.length);
-            Log.d("ImageProcessingModule", "Number of Detected Blossoms: " + numBlossoms);
+            Log.d("ImageProcessingModule", "Number of Detected Apples: " + numApples);
 
             // Increment the counter
             processedImageCounter++;
@@ -111,7 +111,7 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
                 Log.e("ImageProcessingModule", "Error saving processed image", e);
             }
 
-            promise.resolve(numBlossoms);
+            promise.resolve(numApples);
         } catch (Exception e) {
             promise.reject("Create Event Error", e);
         }

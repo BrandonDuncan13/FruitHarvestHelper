@@ -14,15 +14,15 @@ import BottomSheet from '../components/BottomSheet';
 import CustomButton from '../components/CustomButton';
 import ImageHolder from '../components/ImageHolder';
 
-export default function DetectBlossoms() {
+export default function DetectApples() {
   /* although most of these consts and functions are used in BottomSheet they were created in this file since some of
   them needed to be used here and it seems to make more sense when the code for the bottomSheet's functionality is in one place. */
   const buttonText = 'Choose Picture';
 
   // retrieve code from android ndk
 
-  // Variable to count the number of blossoms
-  const [numBlossoms, setNumBlossoms] = useState(0);
+  // Variable to count the number of apples
+  const [numApples, setNumApples] = useState(0);
 
   // is used but doesn't actually do anything right now
   let fall = new Animated.Value(1);
@@ -117,7 +117,7 @@ export default function DetectBlossoms() {
               newImage={processedImage}
               activeOpacity={1}
             />
-            <Text style={styles.captionText}>Blossoms Detected: {numBlossoms}</Text>
+            <Text style={styles.captionText}>Apples Detected: {numApples}</Text>
           </View>
         </Animated.View>
         </TouchableWithoutFeedback>
@@ -140,7 +140,7 @@ export default function DetectBlossoms() {
           newImage={newImage}
           setNewImage={setNewImage}
           setProcessedImage={setProcessedImage}
-          setNumBlossoms={setNumBlossoms}
+          setNumApples={setNumApples}
         />
     </GestureHandlerRootView>
   );
