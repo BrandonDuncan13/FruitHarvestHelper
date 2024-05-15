@@ -23,8 +23,10 @@ extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingMo
     // cv::Mat copy = orgImage->clone();
     cv::Mat copy = inputImage.clone();
 
-    // resize the image for testing purposes
-    cv::Size newSize(600, 800);
+    // resize the image for testing purposes (tested at 600, 800)
+    // in retrospect this was stupid... Dale said shrinking image loses data... duhh...
+    // look up largest square image size that would work across various Android & iOS devices
+    cv::Size newSize(800, 800);
     cv::resize(copy, copy, newSize);
     cv::Mat appleObjectsMask0 = cv::Mat::zeros(copy.size(), CV_64F); // Change to CV_64F
 
