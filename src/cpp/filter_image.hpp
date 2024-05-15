@@ -66,7 +66,9 @@ cv::Mat filterImage(cv::Mat inputImage)
     cv::Mat filterImage = inputImage.clone();
 
     // resize the image for testing purposes
-    cv::Size newSize(600, 800);
+    // changed to a square to look better on the poster
+    // NOTE: algorithm has not been tested on sqaure resized images... testing was on (600, 800)
+    cv::Size newSize(800, 800);
     cv::resize(filterImage, filterImage, newSize);
     cv::Mat appleObjectsMask0 = cv::Mat::zeros(filterImage.size(), CV_64F); // Change to CV_64F
 
