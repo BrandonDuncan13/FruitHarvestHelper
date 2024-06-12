@@ -5,14 +5,13 @@ npx react-native run-android
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
-import React from 'react';
+import React, { useEffect } from 'react';
 // ImagePicker is one of the widely used React Native Camera libraries which was imported here
 import ImagePicker from 'react-native-image-crop-picker';
 import ProcessImage from './ProcessImage';
 
 // rather than destructuring a lot of different properties you can just pass props
 const BottomSheet = (( props ) => {
-
   // Function for setting image, because the same thing is done twice
   function setImage(props, image)
   {
@@ -21,11 +20,12 @@ const BottomSheet = (( props ) => {
     // once the image is used then the bottomSheet will be lowered by setting the translateY value to 0
     props.translateY.value = withSpring(0, { damping: 50 });
     /* here state passed from the detectApples file is used to change some new values through the setNewImage function.
+    /* here state passed from the detectApples file is used to change some new values through the setNewImage function.
       Here we are setting the opacity to 0 which is used in the ImageHolder file to have the opacity of the camera icon change
       once an image is used. The value of path is also set to the path of the caputred image to change the BackgroundImage. */
     props.setNewImage({ opacity: 0, path: image.path });
 
-    // Process the image to detect the apples
+    // Process the image to detect the apple clusters
     ProcessImage(image, props.setProcessedImage, props.setNumApples);
   }
 
@@ -77,6 +77,7 @@ const BottomSheet = (( props ) => {
             top: props.SCREEN_HEIGHT,
             borderRadius: 25,
           }, props.rBottomSheetStyle,
+          // this Animated.View accepts styles from detectApples as a prop. This style updates the translateY value of the sheet
           // this Animated.View accepts styles from detectApples as a prop. This style updates the translateY value of the sheet
         ]}>
             <View style={styles.line}/>

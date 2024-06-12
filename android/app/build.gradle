@@ -134,6 +134,10 @@ android {
 
     compileSdkVersion rootProject.ext.compileSdkVersion
 
+    packagingOptions {
+           pickFirst '**/libc++_shared.so'
+        }
+    
     defaultConfig {
         applicationId "com.blossomscam"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -147,13 +151,17 @@ android {
             // We configure the NDK build only if you decide to opt-in for the New Architecture.
             externalNativeBuild {
                 ndkBuild {
+                    path "$projectDir/src/main/jni/Android.mk"
                     arguments "APP_PLATFORM=android-21",
-                        "APP_STL=c++_shared",
+                        "APP_STL=c++_static",
                         "NDK_TOOLCHAIN_VERSION=clang",
                         "GENERATED_SRC_DIR=$buildDir/generated/source",
                         "PROJECT_BUILD_DIR=$buildDir",
                         "REACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
-                        "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build"
+                        "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build",
+                        "OPENCV_INSTALL_MODULES=on",
+                        "OPENCV_CONFIG_FILE=../opencv/native/jni/OpenCV.mk",
+                        "-DOpenCV_DIR=" + opencvsdk + "/sdk/native" // Add this line for OpenCV
                     cFlags "-Wall", "-Werror", "-fexceptions", "-frtti", "-DWITH_INSPECTOR=1"
                     cppFlags "-std=c++17"
                     // Make sure this target name is the same you specify inside the
@@ -171,30 +179,28 @@ android {
                 }
             }
         }
-    // the following configures ndk-build to build a "helloworld" module
-    ndk {
-        // For some reason this line breaks it.
-        // abiFilters "armeabi-v7a", "x86"
-        moduleName "helloworld"
-        ldLibs "log"
+        // the following configures ndk-build to build a "helloworld" module
+        ndk {
+            // For some reason this line breaks it.
+            // abiFilters "armeabi-v7a", "x86"
+            moduleName "helloworld"
+            ldLibs "log"
+        }
+    } 
+    // ...
+    // Here we can add source code to our project
+    sourceSets {
+        main {
+            java.srcDirs = ["src/main/java/com/blossomscam", "../../djinni/java"]
+            jni.srcDirs = ["src/main/jni", "../../djinni/jni"]
+        }
     }
-  } 
-  // ...
-  // Here we can add source code to our project
-  sourceSets {
-    main {
-      // first our new Java code
-      java.srcDirs = ["../../djinni/java", "src/main/java"]
-      // second our JNI classes
-      jni.srcDirs = ["../../djinni/jni"]
+    externalNativeBuild {
+        // This points ndk-build at our Android.mk file
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
+        }
     }
-  }
-  externalNativeBuild {
-    // This points ndk-build at our Android.mk file
-    ndkBuild {
-      path file('src/main/jni/Android.mk')
-    }
-  }
 
     if (isNewArchitectureEnabled()) {
         // We configure the NDK build only if you decide to opt-in for the New Architecture.
@@ -284,8 +290,8 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: "libs", include: ["*.jar"])
-
+    //implementation fileTree(dir: "src/main/jniLibs", include: ["**/*.jar"])
+    implementation project(':opencv')
     //noinspection GradleDynamicVersion
     implementation "com.facebook.react:react-native:+"  // From node_modules
     implementation  project(':react-native-vector-icons') // added this line

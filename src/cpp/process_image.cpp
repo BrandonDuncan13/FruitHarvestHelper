@@ -18,7 +18,7 @@
 #define IMAGEPATH "images/image"
 #define EXTENSION ".jpg"
 
-void ERROR_NO_ANDROID(std::string processedImagePath, std::string originalImagePath)
+void ERROR_NO_ANDROID()
 {
     return;
 }
@@ -118,6 +118,7 @@ std::string ProcessImage::getOsName()
 /*
     Here are the image filters
 */
+
 /*
 
 

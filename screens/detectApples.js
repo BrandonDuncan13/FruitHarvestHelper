@@ -17,7 +17,7 @@ import ImageHolder from '../components/ImageHolder';
 export default function DetectApples() {
   /* although most of these consts and functions are used in BottomSheet they were created in this file since some of
   them needed to be used here and it seems to make more sense when the code for the bottomSheet's functionality is in one place. */
-  const buttonText = 'Choose Picture';
+  const buttonText = 'Go Detect Apples';
 
   // retrieve code from android ndk
 
@@ -130,7 +130,7 @@ export default function DetectApples() {
             />
         </Animated.View>
         {/* The BottomSheet Component is used here which accepts props in order to handle the
-        functionaliy of the sheet, the styling of the sheet, and set two new values after the image is taken */}
+        functionaliy of the sheet, the styling of the sheet, and set new values after the image is taken */}
         <BottomSheet
           SCREEN_HEIGHT={SCREEN_HEIGHT}
           gesture={gesture}
