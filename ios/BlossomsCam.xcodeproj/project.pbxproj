@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* BlossomsCamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* BlossomsCamTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-BlossomsCam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-BlossomsCam.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		267CDA21287E255300A4C68C /* process_image.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 267CDA1F287E255300A4C68C /* process_image.cpp */; };
+		1698B13538310E90010788CF /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 781C4FA0E48A8D6DE0838033 /* libPods-BlossomsCam-BlossomsCamTests.a */; };
+		267CDA21287E255300A4C68C /* processImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 267CDA1F287E255300A4C68C /* processImage.cpp */; };
 		2697CC8D287E0DDD00E6AC8E /* HWHelloWorld+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */; };
 		2697CC95287E0E3600E6AC8E /* DJIProxyCaches.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC8F287E0E3600E6AC8E /* DJIProxyCaches.mm */; };
 		2697CC96287E0E3600E6AC8E /* DJIError.mm in Sources */ = {isa = PBXBuildFile; fileRef = 2697CC92287E0E3600E6AC8E /* DJIError.mm */; };
@@ -44,7 +44,7 @@
 		26F72476286B972000D63D74 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A437285CF7C7008EE401 /* Octicons.ttf */; };
 		26F72477286B972000D63D74 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A441285CF7C7008EE401 /* SimpleLineIcons.ttf */; };
 		26F72478286B972000D63D74 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A439285CF7C7008EE401 /* Zocial.ttf */; };
-		7699B88040F8A987B510C191 /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */; };
+		3218C4A5787B4AD5B8121D8E /* libPods-BlossomsCam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F31A7AC0A8CC94A5E4C307 /* libPods-BlossomsCam.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		BFF9176A28C1A53400DF4B64 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF9176928C1A53400DF4B64 /* Photos.framework */; };
 		BFF9176F28C1AC3900DF4B64 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D2474E287F9FF8002F8F2F /* AssetsLibrary.framework */; };
@@ -69,9 +69,8 @@
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = BlossomsCam/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = BlossomsCam/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = BlossomsCam/main.m; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam-BlossomsCamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		267CDA1F287E255300A4C68C /* process_image.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = process_image.cpp; path = ../src/cpp/process_image.cpp; sourceTree = "<group>"; };
-		267CDA20287E255300A4C68C /* process_image.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = process_image.hpp; path = ../src/cpp/process_image.hpp; sourceTree = "<group>"; };
+		267CDA1F287E255300A4C68C /* processImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = processImage.cpp; path = ../src/cpp/processImage.cpp; sourceTree = "<group>"; };
+		267CDA20287E255300A4C68C /* processImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = processImage.hpp; path = ../src/cpp/processImage.hpp; sourceTree = "<group>"; };
 		2697CC8A287E0DDD00E6AC8E /* HWHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWHelloWorld.h; path = ../djinni/objc/HWHelloWorld.h; sourceTree = "<group>"; };
 		2697CC8B287E0DDD00E6AC8E /* HWHelloWorld+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HWHelloWorld+Private.h"; path = "../djinni/objc/HWHelloWorld+Private.h"; sourceTree = "<group>"; };
 		2697CC8C287E0DDD00E6AC8E /* HWHelloWorld+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "HWHelloWorld+Private.mm"; path = "../djinni/objc/HWHelloWorld+Private.mm"; sourceTree = "<group>"; };
@@ -98,12 +97,12 @@
 		26D24763287FA7D0002F8F2F /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		26D24765287FA7DF002F8F2F /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		26D24767287FA7FD002F8F2F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		3B4392A12AC88292D35C810B /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
-		5709B34CF0A7D63546082F79 /* Pods-BlossomsCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.release.xcconfig"; sourceTree = "<group>"; };
-		5B7EB9410499542E8C5724F5 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-BlossomsCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26F31A7AC0A8CC94A5E4C307 /* libPods-BlossomsCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5DF083EE0B36B18B7612148C /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.release.xcconfig"; sourceTree = "<group>"; };
+		67B4FBB3DC10DB06227EBC3A /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; sourceTree = "<group>"; };
+		781C4FA0E48A8D6DE0838033 /* libPods-BlossomsCam-BlossomsCamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam-BlossomsCamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BlossomsCam/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		89C6BE57DB24E9ADA2F236DE /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.release.xcconfig"; sourceTree = "<group>"; };
+		88C2BED08D9F9AAF06C83327 /* Pods-BlossomsCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.release.xcconfig"; sourceTree = "<group>"; };
 		BF52A435285CF7C7008EE401 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		BF52A436285CF7C7008EE401 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		BF52A437285CF7C7008EE401 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
@@ -121,6 +120,7 @@
 		BF52A443285CF7C7008EE401 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		BF52A444285CF7C7008EE401 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		BFF9176928C1A53400DF4B64 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
+		E99A3D295D2B5231A58311BD /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -130,7 +130,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D2474D287F9B53002F8F2F /* opencv2.framework in Frameworks */,
-				7699B88040F8A987B510C191 /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */,
+				1698B13538310E90010788CF /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +150,7 @@
 				26D24768287FA7FD002F8F2F /* Foundation.framework in Frameworks */,
 				26D24762287FA7C3002F8F2F /* CoreVideo.framework in Frameworks */,
 				26D2475A287FA78C002F8F2F /* AVFoundation.framework in Frameworks */,
-				0C80B921A6F3F58F76C31292 /* libPods-BlossomsCam.a in Frameworks */,
+				3218C4A5787B4AD5B8121D8E /* libPods-BlossomsCam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -219,8 +219,8 @@
 		2697CC89287E0D9700E6AC8E /* CppSrc */ = {
 			isa = PBXGroup;
 			children = (
-				267CDA1F287E255300A4C68C /* process_image.cpp */,
-				267CDA20287E255300A4C68C /* process_image.hpp */,
+				267CDA1F287E255300A4C68C /* processImage.cpp */,
+				267CDA20287E255300A4C68C /* processImage.hpp */,
 				2697CC97287E0E5E00E6AC8E /* hello_world_impl.cpp */,
 				2697CC98287E0E5E00E6AC8E /* hello_world_impl.hpp */,
 			);
@@ -260,8 +260,8 @@
 				26D2474E287F9FF8002F8F2F /* AssetsLibrary.framework */,
 				26D2474C287F9B52002F8F2F /* opencv2.framework */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-BlossomsCam.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-BlossomsCam-BlossomsCamTests.a */,
+				26F31A7AC0A8CC94A5E4C307 /* libPods-BlossomsCam.a */,
+				781C4FA0E48A8D6DE0838033 /* libPods-BlossomsCam-BlossomsCamTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -301,10 +301,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				3B4392A12AC88292D35C810B /* Pods-BlossomsCam.debug.xcconfig */,
-				5709B34CF0A7D63546082F79 /* Pods-BlossomsCam.release.xcconfig */,
-				5B7EB9410499542E8C5724F5 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */,
-				89C6BE57DB24E9ADA2F236DE /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */,
+				E99A3D295D2B5231A58311BD /* Pods-BlossomsCam.debug.xcconfig */,
+				88C2BED08D9F9AAF06C83327 /* Pods-BlossomsCam.release.xcconfig */,
+				67B4FBB3DC10DB06227EBC3A /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */,
+				5DF083EE0B36B18B7612148C /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -339,12 +339,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BlossomsCamTests" */;
 			buildPhases = (
-				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
+				C867BF922F4CDDB7CF94FA2C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */,
-				F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */,
+				9BC754D1FAB52B433C1A24BB /* [CP] Embed Pods Frameworks */,
+				8FD604E45983F05DE2B69DD3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -360,14 +360,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BlossomsCam" */;
 			buildPhases = (
-				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
+				9F239E8679371CF8D23EFFB0 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */,
-				E235C05ADACE081382539298 /* [CP] Copy Pods Resources */,
+				261AEB68F353640AA914425C /* [CP] Embed Pods Frameworks */,
+				563D7222AAFEC9345D3B016D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -465,7 +465,7 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		00EEFC60759A1932668264C0 /* [CP] Embed Pods Frameworks */ = {
+		261AEB68F353640AA914425C /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -482,29 +482,58 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
+		563D7222AAFEC9345D3B016D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-BlossomsCam-BlossomsCamTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */ = {
+		8FD604E45983F05DE2B69DD3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9BC754D1FAB52B433C1A24BB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9F239E8679371CF8D23EFFB0 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -526,55 +555,26 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C59DA0FBD6956966B86A3779 /* [CP] Embed Pods Frameworks */ = {
+		C867BF922F4CDDB7CF94FA2C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-BlossomsCam-BlossomsCamTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -614,7 +614,7 @@
 				2697CC99287E0E5E00E6AC8E /* hello_world_impl.cpp in Sources */,
 				2697CC95287E0E3600E6AC8E /* DJIProxyCaches.mm in Sources */,
 				2697CC8D287E0DDD00E6AC8E /* HWHelloWorld+Private.mm in Sources */,
-				267CDA21287E255300A4C68C /* process_image.cpp in Sources */,
+				267CDA21287E255300A4C68C /* processImage.cpp in Sources */,
 				2697CC96287E0E3600E6AC8E /* DJIError.mm in Sources */,
 				13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */,
 				26C56667287DF2600016F50B /* RCTHeloWorld.m in Sources */,
@@ -635,7 +635,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */;
+			baseConfigurationReference = 67B4FBB3DC10DB06227EBC3A /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -668,7 +668,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */;
+			baseConfigurationReference = 5DF083EE0B36B18B7612148C /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -698,7 +698,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-BlossomsCam.debug.xcconfig */;
+			baseConfigurationReference = E99A3D295D2B5231A58311BD /* Pods-BlossomsCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -734,7 +734,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-BlossomsCam.release.xcconfig */;
+			baseConfigurationReference = 88C2BED08D9F9AAF06C83327 /* Pods-BlossomsCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;

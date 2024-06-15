@@ -10,21 +10,7 @@ const { HelloWorld } = NativeModules;
 
 export default async function ProcessImage( originalImage, setProcessedImage, setNumApples )
 {
-    /* const [deviceId, setDeviceId] = useState('');
-
-    useEffect(() => {
-        const getDeviceId = async () => {
-          try {
-            const response = await NativeModules.ImageProcessingModule.getDeviceId();
-            setDeviceId(response);
-          } catch (error) {
-            setDeviceId(error);
-          }
-        };
-        getDeviceId();
-      }, []); */
-
-    // Start the timer
+    // Start processing timer for testing purposes
     const start = performance.now();
 
     // Create num apples var
@@ -96,22 +82,34 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
 
             It is defined at src/cpp/hello_world_impl.cpp
         */
-        const message = await HelloWorld.sayHello();
+        if (Platform.OS === 'ios')
+        {
+            const message = await HelloWorld.sayHello();
 
-        const temp = message.toString();
+            const temp = message.toString();
 
-        // Catch if there was an error in 'HelloWorld.sayHello()'
-        if (temp.includes("error:")) {
-            throw(temp);
-        };
+            // Catch if there was an error in 'HelloWorld.sayHello()'
+            if (temp.includes("error:")) {
+                throw(temp);
+            };
 
-        // '$$' is used as the delimiter
-        const myArray = temp.split("$$");
+            // '$$' is used as the delimiter
+            const myArray = temp.split("$$");
 
-        //setNumApples(myArray[0]);
-        // set the value to promise value that was either resolved or rejected
-        //const myDeviceId = deviceId;
-        if (Platform.OS === 'android')
+            // get the data from myArray
+            path = myArray[1];
+            numApples = myArray[0];
+
+            // Update UI with processed data
+            setNumApples(numApples);
+            setProcessedImage({ opacity: 0, path: path })
+;
+            // Stop the timer
+            const end = performance.now();
+
+            // Calculate and log the execution time
+            console.log(`Execution time: ${end - start} ms`);
+        } else if (Platform.OS === 'android')
         {
             try {
                 const response = await ImageProcessingModule.processImage(imageName);
@@ -151,19 +149,6 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
               } catch (err) {
                 console.log(err.message);
             }
-        } else if (Platform.OS === 'ios')
-        {
-            path = myArray[1];
-            numApples = myArray[0];
-
-            // Set the number of apples
-            await setNumApples(numApples);
-
-            // Stop the timer
-            const end = performance.now();
-
-            // Calculate and log the execution time
-            console.log(`Execution time: ${end - start} ms`);
         } else
         {
             console.log('Running default code. Device not compatible...');

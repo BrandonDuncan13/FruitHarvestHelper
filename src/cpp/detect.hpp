@@ -1,84 +1,44 @@
 #pragma once
+// Detect
 
-/*
-    Here are the image filters
-*/
+// Function Signatures
+cv::Mat detectApples(cv::Mat originalImage, int &numApples);
+int detectApplesPre(std::string processedImagePath, std::string originalImagePath);
 
-// define global var numApples
-int numApples = 0;
-
-// Filter image
-// cv::Mat filterImage(cv::Mat inputImage)
-// {
-//     cv::Mat filterImage = inputImage.clone();
-
-//     std::cout << filterImage.channels() << std::endl;
-
-//     // Applying color filter to isolate blossoms
-//     for (int i = 0; i < filterImage.rows; i++)
-//         for (int j = 0; j < filterImage.cols; j++)
-//             if ((7 * (double)filterImage.at<cv::Vec3b>(i, j)[0] - 9 * (double)filterImage.at<cv::Vec3b>(i, j)[2] + 135) && (double)filterImage.at<cv::Vec3b>(i, j)[2] < 155)
-//             {
-//                 filterImage.at<cv::Vec3b>(i, j)[0] = 0;
-//                 filterImage.at<cv::Vec3b>(i, j)[1] = 0;
-//                 filterImage.at<cv::Vec3b>(i, j)[2] = 0;
-//             }
-
-//     cv::Mat grayImage;
-
-//     // Converting Image to gray scale.
-//     cv::cvtColor(filterImage, grayImage, cv::COLOR_BGR2GRAY);
-
-//     cv::Mat ThresholdImage;
-
-//     cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
-
-//     cv::Mat BinaryImage;
-
-//     cv::bitwise_not(ThresholdImage, BinaryImage);
-
-//     cv::Mat UnBinary;
-
-//     cv::bitwise_not(BinaryImage, UnBinary);
-
-//     std::vector<std::vector<cv::Point>> contours;
-//     std::vector<cv::Vec4i> hierarchy;
-//     cv::findContours(UnBinary, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
-
-//     int BlossomsDetected = 0;
-
-//     for (int pointer = 0; pointer < contours.size(); pointer++)
-//     {
-//         if (cv::contourArea(contours[pointer]) > 50 && cv::contourArea(contours[pointer]) < 60)
-//         {
-//             BlossomsDetected = BlossomsDetected + 1;
-//         }
-//     }
-
-//     // Added
-//     // numBlossoms = BlossomsDetected;// Will add back later
-
-//     return UnBinary;
-// }
-
-cv::Mat filterImage(cv::Mat inputImage)
+int detectApplesPre(std::string processedImagePath, std::string originalImagePath) // Process image and write resulting image
 {
-    cv::Mat filterImage = inputImage.clone();
+    // How many apple clusters detected
+    int numApples = 0;
 
-    // resize the image for testing purposes
-    // changed to a square to look better on the poster
+    // Detect apple clusters in orignal image that gets copied
+    cv::Mat originalImage = cv::imread(originalImagePath);
+    cv::Mat copyImage = detectApples(originalImage, numApples);
+
+    // Write to processed image file
+    cv::imwrite(processedImagePath, copyImage);
+
+    return numApples;
+}
+
+cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentation algorithm that uses color ratio's to detect apple clusters
+{
+    // Create copy of image to modify
+    cv::Mat copyImage = originalImage.clone();
+
+    // Resize the image for testing purposes
+    // Changed to a square to look better on the poster
     // NOTE: algorithm has not been tested on sqaure resized images... testing was on (600, 800)
     cv::Size newSize(800, 800);
-    cv::resize(filterImage, filterImage, newSize);
-    cv::Mat appleObjectsMask0 = cv::Mat::zeros(filterImage.size(), CV_64F); // Change to CV_64F
+    cv::resize(copyImage, copyImage, newSize);
+    cv::Mat appleObjectsMask0 = cv::Mat::zeros(copyImage.size(), CV_64F); // Change to CV_64F
 
-    // split the image into B, G, R color channels
+    // Split the image into B, G, R color channels
     std::vector<cv::Mat> channels;
-    cv::split(filterImage, channels);
+    cv::split(copyImage, channels);
 
-    cv::Mat blueChannel = cv::Mat::zeros(filterImage.size(), CV_8UC3);
-    cv::Mat greenChannel = cv::Mat::zeros(filterImage.size(), CV_8UC3);
-    cv::Mat redChannel = cv::Mat::zeros(filterImage.size(), CV_8UC3);
+    cv::Mat blueChannel = cv::Mat::zeros(copyImage.size(), CV_8UC3);
+    cv::Mat greenChannel = cv::Mat::zeros(copyImage.size(), CV_8UC3);
+    cv::Mat redChannel = cv::Mat::zeros(copyImage.size(), CV_8UC3);
 
     std::vector<cv::Mat> blueChannels = {channels[0], cv::Mat::zeros(channels[0].size(), CV_8U), cv::Mat::zeros(channels[0].size(), CV_8U)};
     std::vector<cv::Mat> greenChannels = {cv::Mat::zeros(channels[1].size(), CV_8U), channels[1], cv::Mat::zeros(channels[1].size(), CV_8U)};
@@ -88,24 +48,28 @@ cv::Mat filterImage(cv::Mat inputImage)
     cv::merge(greenChannels, greenChannel);
     cv::merge(redChannels, redChannel);
 
-    // convert the image to gray scale
+    // Convert the image to gray scale
     cv::Mat gray;
-    cv::cvtColor(filterImage, gray, cv::COLOR_BGR2GRAY); // Convert to grayscale
-    // convert the red and green and blue channels to gray scale
+    cv::cvtColor(copyImage, gray, cv::COLOR_BGR2GRAY);
+
+    // Convert the red and green and blue channels to gray scale
     cv::Mat redGray, greenGray, blueGray;
     cv::cvtColor(redChannel, redGray, cv::COLOR_BGR2GRAY);
     cv::cvtColor(greenChannel, greenGray, cv::COLOR_BGR2GRAY);
     cv::cvtColor(blueChannel, blueGray, cv::COLOR_BGR2GRAY);
-    // get the ratio of red/green/blue in image to the total color intensity of the image
+
+    // Get the ratio of red/green/blue in image to the total color intensity of the image
     cv::Mat redRatio, greenRatio, blueRatio;
     cv::divide(redGray, gray + 1e-10, redRatio, 1.0, CV_64F);
     cv::divide(greenGray, gray + 1e-10, greenRatio, 1.0, CV_64F);
     cv::divide(blueGray, gray + 1e-10, blueRatio, 1.0, CV_64F);
-    // create the apple evaluation equations
+
+    // Create the pixel classifcation equations
+    // Classify pixels as apple or not apple
     cv::Mat d1 = 0.4 * redRatio - 0.2 * greenRatio - 0.3 * blueRatio;
     cv::Mat d2 = 0.35 * redRatio - 0.15 * greenRatio - 0.02 - 0.3 * blueRatio;
 
-    // loops for debugging the equations
+    // Loops for debugging the equations
     //    std::cout << "Equation 1 values: " << std::endl;
     //    for (int i = 0; i < d1.rows - 100; i++)
     //    {
@@ -126,10 +90,10 @@ cv::Mat filterImage(cv::Mat inputImage)
     //        std::cout << std::endl;
     //    }
 
-    // iterate through each pixel and mark as white for what we think are apple pixels
-    for (int i = 0; i < filterImage.rows; ++i)
+    // Iterate through each pixel and mark as white for what we think are apple pixels
+    for (int i = 0; i < copyImage.rows; ++i)
     {
-        for (int j = 0; j < filterImage.cols; ++j)
+        for (int j = 0; j < copyImage.cols; ++j)
         {
             if (i < appleObjectsMask0.rows && j < appleObjectsMask0.cols)
             {
@@ -147,7 +111,8 @@ cv::Mat filterImage(cv::Mat inputImage)
             }
         }
     }
-    // Perform morphological opening on the mask (get rid of white pixels around "apples")
+
+    // Perform morphological opening on the mask (get rid of white pixels around "apples") to remove noise, etc.
     cv::Mat structuringElement = cv::getStructuringElement(cv::MORPH_RECT, cv::Size(3, 3));
     cv::morphologyEx(appleObjectsMask0, appleObjectsMask0, cv::MORPH_OPEN, structuringElement);
 
@@ -161,11 +126,12 @@ cv::Mat filterImage(cv::Mat inputImage)
     cv::findContours(appleObjectsMask0_8u, contours, hierarchy, cv::RETR_EXTERNAL, cv::CHAIN_APPROX_SIMPLE);
 
     // Filter out the contours that are too small
-    int minContourArea = 60; // Change this value to finetune algorithm
+    int minContourArea = 60; // Change this hyperparameter to finetune algorithm
+
     for (auto it = contours.begin(); it != contours.end();)
     {
         double area = cv::contourArea(*it);
-        if (area < minContourArea) // erase small contours so only "apples" remain
+        if (area < minContourArea) // Erase small contours so only "apples" remain
         {
             it = contours.erase(it);
         }
@@ -208,26 +174,67 @@ cv::Mat filterImage(cv::Mat inputImage)
             cv::Rect boundingBox = cv::boundingRect(contour[0]);
 
             // Finally, draw the centroids and bounding boxes on the original image
-            // cv::circle(filterImage, centroid, radius, cv::Scalar(0, 255, 0), 2);
-            cv::rectangle(filterImage, boundingBox, cv::Scalar(0, 255, 0), 2);
+            // cv::circle(copyImage, centroid, radius, cv::Scalar(0, 255, 0), 2);
+            cv::rectangle(copyImage, boundingBox, cv::Scalar(0, 255, 0), 2);
         }
     }
-    // set the number of apples detected
+    // Set the number of apples detected
     numApples = count;
 
-    // return appleObjectsMask1_8u;
-    return filterImage;
+    // Return processed copied image
+    return copyImage;
 }
 
-// Filter image
-int filterImagePre(std::string processedImagePath, std::string originalImagePath)
-{
-    // Filter the image using the algorithm
-    cv::Mat originalImage = cv::imread(originalImagePath);
-    cv::Mat copyImage = filterImage(originalImage);
+// Old blossom detection algorithm
+// cv::Mat copyImage(cv::Mat originalImage) // Filter image
+// {
+//     cv::Mat copyImage = originalImage.clone();
 
-    // Write to processed image file
-    cv::imwrite(processedImagePath, copyImage);
+//     std::cout << copyImage.channels() << std::endl;
 
-    return numApples;
-}
+//     // Applying color filter to isolate blossoms
+//     for (int i = 0; i < copyImage.rows; i++)
+//         for (int j = 0; j < copyImage.cols; j++)
+//             if ((7 * (double)copyImage.at<cv::Vec3b>(i, j)[0] - 9 * (double)copyImage.at<cv::Vec3b>(i, j)[2] + 135) && (double)copyImage.at<cv::Vec3b>(i, j)[2] < 155)
+//             {
+//                 copyImage.at<cv::Vec3b>(i, j)[0] = 0;
+//                 copyImage.at<cv::Vec3b>(i, j)[1] = 0;
+//                 copyImage.at<cv::Vec3b>(i, j)[2] = 0;
+//             }
+
+//     cv::Mat grayImage;
+
+//     // Converting Image to gray scale.
+//     cv::cvtColor(copyImage, grayImage, cv::COLOR_BGR2GRAY);
+
+//     cv::Mat ThresholdImage;
+
+//     cv::threshold(grayImage, ThresholdImage, 0, 255, cv::THRESH_BINARY);
+
+//     cv::Mat BinaryImage;
+
+//     cv::bitwise_not(ThresholdImage, BinaryImage);
+
+//     cv::Mat UnBinary;
+
+//     cv::bitwise_not(BinaryImage, UnBinary);
+
+//     std::vector<std::vector<cv::Point>> contours;
+//     std::vector<cv::Vec4i> hierarchy;
+//     cv::findContours(UnBinary, contours, hierarchy, cv::RETR_TREE, cv::CHAIN_APPROX_SIMPLE);
+
+//     int BlossomsDetected = 0;
+
+//     for (int pointer = 0; pointer < contours.size(); pointer++)
+//     {
+//         if (cv::contourArea(contours[pointer]) > 50 && cv::contourArea(contours[pointer]) < 60)
+//         {
+//             BlossomsDetected = BlossomsDetected + 1;
+//         }
+//     }
+
+//     // Added
+//     // numBlossoms = BlossomsDetected;// Will add back later
+
+//     return UnBinary;
+// }
