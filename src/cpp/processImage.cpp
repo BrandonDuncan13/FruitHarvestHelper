@@ -9,11 +9,11 @@
 #include <string>
 
 // Only process iOS images
-// Still contains Android code in case someone wants to try to get it working here but it's commented out
+// Still contains Android code in case someone wants to try to get it working here but Python is a better language for the task
 #ifdef __APPLE__
 #include "detect.hpp"
 #else
-int detectApplesPre(std::string processedImagePath, std::string originalImagePath) // Dummy implementation for linux
+int detectApplesPre(std::string processedImagePath, std::string originalImagePath, std::string &processingError) // Dummy implementation for Android
 {
     return 0;
 }
@@ -29,15 +29,17 @@ std::string ProcessImage::handleImageProcessing() // Gets processed image from c
 {
     // Counter to keep create new photo for every image sent to be processed
     static int count = -1;
-    count++;
-
-    // Reset the number of apples detected from last call
+    // Reset the number of apples detected from image processed
     numApples = 0;
+
+    count++;
 
     // Image paths
     std::string originalImagePath = IMAGEPATH + std::to_string(count) + EXTENSION;
     std::string processedImagePath = "images/processed_image" + std::to_string(count) + EXTENSION;
     std::string cachePath;
+    // Error tracking var
+    std::string processingError = "";
 
     // Finding the cache path
     if (getOsName() == "Apple")
@@ -72,7 +74,14 @@ std::string ProcessImage::handleImageProcessing() // Gets processed image from c
     // Process for iOS devices and use macro to skip on Android
     if (getOsName() == "Apple" || getOsName() == "Linux")
     {
-        numApples = detectApplesPre(processedImagePath, originalImagePath);
+        numApples = detectApplesPre(processedImagePath, originalImagePath, processingError);
+
+        // Image may have been processed unsuccessfully
+        if (processingError != "")
+        {
+            // Contains "error: "
+            return processingError;
+        }
     }
 
     // Generate return string to send data back

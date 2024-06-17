@@ -7,13 +7,11 @@
 class ProcessImage
 {
 public:
-    // Method that gets image, processes image, and returns data to JavaScript (UI)
+    // Gets image, processes image, and returns data to JavaScript (UI)
     std::string handleImageProcessing();
 
 private:
-    // Variables
     int numApples;
 
-    // Methods
     std::string getOsName();
 };

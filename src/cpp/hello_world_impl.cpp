@@ -4,22 +4,22 @@
 
 namespace helloworld
 {
+    // Constructor
+    HelloWorldImpl::HelloWorldImpl()
+    {
+    }
 
     std::shared_ptr<HelloWorld> HelloWorld::create()
     {
         return std::make_shared<HelloWorldImpl>();
     }
 
-    HelloWorldImpl::HelloWorldImpl()
-    {
-    }
-
     std::string HelloWorldImpl::get_hello_world()
     {
-        // Here is the where the image processing takes place
-        // src/cpp/process_image.cpp
+        // Process an image and get data to return
         ProcessImage processedImage;
         std::string myString = processedImage.handleImageProcessing();
+
         return myString;
     }
 }

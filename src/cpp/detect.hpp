@@ -2,17 +2,17 @@
 // Detect
 
 // Function Signatures
-cv::Mat detectApples(cv::Mat originalImage, int &numApples);
-int detectApplesPre(std::string processedImagePath, std::string originalImagePath);
+cv::Mat detectApples(cv::Mat originalImage, int &numApples, std::string &processingError);
+int detectApplesPre(std::string processedImagePath, std::string originalImagePath, std::string &processingError);
 
-int detectApplesPre(std::string processedImagePath, std::string originalImagePath) // Process image and write resulting image
+int detectApplesPre(std::string processedImagePath, std::string originalImagePath, std::string &processingError) // Process image and write resulting image
 {
-    // How many apple clusters detected
+    // Apple clusters detected
     int numApples = 0;
 
-    // Detect apple clusters in orignal image that gets copied
+    // Detect apple clusters in copied version of original image
     cv::Mat originalImage = cv::imread(originalImagePath);
-    cv::Mat copyImage = detectApples(originalImage, numApples);
+    cv::Mat copyImage = detectApples(originalImage, numApples, processingError);
 
     // Write to processed image file
     cv::imwrite(processedImagePath, copyImage);
@@ -20,30 +20,33 @@ int detectApplesPre(std::string processedImagePath, std::string originalImagePat
     return numApples;
 }
 
-cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentation algorithm that uses color ratio's to detect apple clusters
+cv::Mat detectApples(cv::Mat originalImage, int &numApples, std::string &processingError) // Image segmentation algorithm that uses color ratio's to detect apple clusters
 {
     // Create copy of image to modify
     cv::Mat copyImage = originalImage.clone();
 
     // Resize the image for testing purposes
-    // Changed to a square to look better on the poster
+    // Changed to a square to look better on a poster
     // NOTE: algorithm has not been tested on sqaure resized images... testing was on (600, 800)
     cv::Size newSize(800, 800);
     cv::resize(copyImage, copyImage, newSize);
-    cv::Mat appleObjectsMask0 = cv::Mat::zeros(copyImage.size(), CV_64F); // Change to CV_64F
+    cv::Mat appleObjectsMask0 = cv::Mat::zeros(copyImage.size(), CV_64F);
 
     // Split the image into B, G, R color channels
     std::vector<cv::Mat> channels;
     cv::split(copyImage, channels);
 
+    // One matrix for each channel
     cv::Mat blueChannel = cv::Mat::zeros(copyImage.size(), CV_8UC3);
     cv::Mat greenChannel = cv::Mat::zeros(copyImage.size(), CV_8UC3);
     cv::Mat redChannel = cv::Mat::zeros(copyImage.size(), CV_8UC3);
 
+    // One vector of matricies for each channel
     std::vector<cv::Mat> blueChannels = {channels[0], cv::Mat::zeros(channels[0].size(), CV_8U), cv::Mat::zeros(channels[0].size(), CV_8U)};
     std::vector<cv::Mat> greenChannels = {cv::Mat::zeros(channels[1].size(), CV_8U), channels[1], cv::Mat::zeros(channels[1].size(), CV_8U)};
     std::vector<cv::Mat> redChannels = {cv::Mat::zeros(channels[2].size(), CV_8U), cv::Mat::zeros(channels[2].size(), CV_8U), channels[2]};
 
+    // Merge the matricies and vectors to get channel with correct values
     cv::merge(blueChannels, blueChannel);
     cv::merge(greenChannels, greenChannel);
     cv::merge(redChannels, redChannel);
@@ -52,11 +55,11 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentatio
     cv::Mat gray;
     cv::cvtColor(copyImage, gray, cv::COLOR_BGR2GRAY);
 
-    // Convert the red and green and blue channels to gray scale
+    // Convert the B,G,R channels to gray scale
     cv::Mat redGray, greenGray, blueGray;
-    cv::cvtColor(redChannel, redGray, cv::COLOR_BGR2GRAY);
-    cv::cvtColor(greenChannel, greenGray, cv::COLOR_BGR2GRAY);
     cv::cvtColor(blueChannel, blueGray, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(greenChannel, greenGray, cv::COLOR_BGR2GRAY);
+    cv::cvtColor(redChannel, redGray, cv::COLOR_BGR2GRAY);
 
     // Get the ratio of red/green/blue in image to the total color intensity of the image
     cv::Mat redRatio, greenRatio, blueRatio;
@@ -64,8 +67,7 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentatio
     cv::divide(greenGray, gray + 1e-10, greenRatio, 1.0, CV_64F);
     cv::divide(blueGray, gray + 1e-10, blueRatio, 1.0, CV_64F);
 
-    // Create the pixel classifcation equations
-    // Classify pixels as apple or not apple
+    // Create the pixel classifcation equations that classify pixels as apple (white) or not apple (black)
     cv::Mat d1 = 0.4 * redRatio - 0.2 * greenRatio - 0.3 * blueRatio;
     cv::Mat d2 = 0.35 * redRatio - 0.15 * greenRatio - 0.02 - 0.3 * blueRatio;
 
@@ -90,7 +92,7 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentatio
     //        std::cout << std::endl;
     //    }
 
-    // Iterate through each pixel and mark as white for what we think are apple pixels
+    // Iterate through each pixel and classify each pixel
     for (int i = 0; i < copyImage.rows; ++i)
     {
         for (int j = 0; j < copyImage.cols; ++j)
@@ -105,9 +107,9 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentatio
                     appleObjectsMask0.at<double>(i, j) = 1.0;
                 }
             }
-            else
+            else // Don't throw error but update string that throws error in JavaScript
             {
-                std::cerr << "Error: Index out of bounds at i=" << i << ", j=" << j << std::endl;
+                processingError = "error: Index out of bounds at i=" + i + ", j=" + j;
             }
         }
     }
@@ -178,6 +180,7 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples) // Image segmentatio
             cv::rectangle(copyImage, boundingBox, cv::Scalar(0, 255, 0), 2);
         }
     }
+
     // Set the number of apples detected
     numApples = count;
 

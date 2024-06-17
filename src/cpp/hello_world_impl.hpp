@@ -4,10 +4,8 @@
 
 namespace helloworld
 {
-
-    class HelloWorldImpl : public helloworld::HelloWorld
+    class HelloWorldImpl : public HelloWorld
     {
-
     public:
         // Constructor
         HelloWorldImpl();
@@ -15,5 +13,4 @@ namespace helloworld
         // Our method that returns a string
         std::string get_hello_world();
     };
-
 }
