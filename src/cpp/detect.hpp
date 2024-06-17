@@ -3,9 +3,9 @@
 
 // Function Signatures
 cv::Mat detectApples(cv::Mat originalImage, int &numApples, std::string &processingError);
-int detectApplesPre(std::string processedImagePath, std::string originalImagePath, std::string &processingError);
+int detectApplesPre(const std::string &processedImagePath, const std::string &originalImagePath, std::string &processingError);
 
-int detectApplesPre(std::string processedImagePath, std::string originalImagePath, std::string &processingError) // Process image and write resulting image
+int detectApplesPre(const std::string &processedImagePath, const std::string &originalImagePath, std::string &processingError) // Process image and write resulting image
 {
     // Apple clusters detected
     int numApples = 0;
@@ -25,9 +25,10 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples, std::string &process
     // Create copy of image to modify
     cv::Mat copyImage = originalImage.clone();
 
-    // Resize the image for testing purposes
-    // Changed to a square to look better on a poster
-    // NOTE: algorithm has not been tested on sqaure resized images... testing was on (600, 800)
+    // Resize the image for testing purposes (tested at 600, 800)
+    // In retrospect this was stupid... Dale said shrinking image loses data... duhh...
+    // Look up largest square image size that would work across various Android & iOS devices
+    // NOTE: algorithm has not been tested on sqaure resized images
     cv::Size newSize(800, 800);
     cv::resize(copyImage, copyImage, newSize);
     cv::Mat appleObjectsMask0 = cv::Mat::zeros(copyImage.size(), CV_64F);
@@ -109,7 +110,7 @@ cv::Mat detectApples(cv::Mat originalImage, int &numApples, std::string &process
             }
             else // Don't throw error but update string that throws error in JavaScript
             {
-                processingError = "error: Index out of bounds at i=" + i + ", j=" + j;
+                processingError = "error: Index out of bounds at i=" + std::to_string(i) + ", j=" + std::to_string(j);
             }
         }
     }

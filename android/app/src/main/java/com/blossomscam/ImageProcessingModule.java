@@ -13,7 +13,6 @@ import com.facebook.react.bridge.ReactApplicationContext;
 import com.facebook.react.bridge.ReactContext;
 import com.facebook.react.bridge.ReactContextBaseJavaModule;
 import com.facebook.react.bridge.ReactMethod;
-
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.util.Map;
@@ -23,13 +22,15 @@ import java.io.IOException;
 
 public class ImageProcessingModule extends ReactContextBaseJavaModule {
     private ReactApplicationContext reactContext;
-    private static int processedImageCounter = -1; // static counter for processed image names
+    // Keep track of number of images processed
+    private static int processedImageCounter = -1;
 
     static {
         // Load native libraries
         System.loadLibrary("processAndroid");
     }
 
+    // Provide the app's context to the class
     ImageProcessingModule(ReactApplicationContext context) {
         super(context);
         reactContext = context;
@@ -40,15 +41,40 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         return "ImageProcessingModule";
     }
 
-    // function signature for C++ defined function
-    public static native Object[] detectApples(byte[] orgImage);
+    // Signature for C++ image processing function that detects apple clusters
+    public static native Object[] detect(byte[] orgImage);
 
-    public byte[] getImageFromCache(String imgPath) {
+    @ReactMethod
+    public void handleImageProcessing(String imgPath, Promise promise) { // Get image from cache, process it, and return
+                                                                         // data to JavaScript (UI)
+        try {
+            // Retrieve the image to process
+            byte[] orgImage = getImageFromCache(imgPath);
+
+            // Send image over to C++ and process the image with OpenCV
+            // Java -> C++ -> Java
+            Object[] result = detect(orgImage);
+
+            // Save the processed image to the cache & output for debugging
+            saveAndLogProcessedImage(result);
+
+            // Send apples detected to front end
+            int numApples = ((Integer) result[1]).intValue();
+            promise.resolve(numApples);
+
+        } catch (Exception e) {
+            promise.reject("Create Event Error", e);
+        }
+    }
+
+    public byte[] getImageFromCache(String imgPath) { // Find image in cache directory and store it for use
+        // Retrieve the cache directory
         File cacheDir = reactContext.getCacheDir();
         File imagesDir = new File(cacheDir, "images");
         File imageFile = new File(imagesDir, imgPath);
         byte[] imageBytes = null;
 
+        // Store the cached original image as a byte array to modify
         if (imageFile.exists()) {
             BitmapFactory.Options options = new BitmapFactory.Options();
             options.inPreferredConfig = Bitmap.Config.ARGB_8888;
@@ -64,56 +90,42 @@ public class ImageProcessingModule extends ReactContextBaseJavaModule {
         return imageBytes;
     }
 
-    @ReactMethod
-    public void processImage(String imgPath, Promise promise) {
+    public void saveAndLogProcessedImage(Object[] result) throws IOException { // Saves image to cache
+        // Get the processed image and number of apples
+        byte[] processedImage = (byte[]) result[0];
+        int numApples = ((Integer) result[1]).intValue();
+
+        // Log the image and apples detected for debugging
+        Log.d("ImageProcessingModule", "Processed Image Length: " + processedImage.length);
+        Log.d("ImageProcessingModule", "Number of Detected Apples: " + numApples);
+
+        // Indicate an image was processed for naming conventions
+        processedImageCounter++;
+
+        // Save the processed image to the cache
+        String cacheDirPath = reactContext.getCacheDir().getAbsolutePath();
+        String processedImagePath = new File(cacheDirPath, "images/processedImage" + processedImageCounter + ".jpg")
+                .getAbsolutePath();
+        Log.d("ImageProcessingModule", "Saving processed image to: " + processedImagePath);
+
+        // Create a FileOutputStream with a File object
+        File processedImageFile = new File(processedImagePath);
+        Log.d("ImageProcessingModule", "File object created for: " + processedImageFile.getAbsolutePath());
+
         try {
-            // retrieve the image to process
-            byte[] orgImage = getImageFromCache(imgPath);
+            // Create a FileOutputStream with the File object
+            FileOutputStream fos = new FileOutputStream(processedImageFile);
+            Log.d("ImageProcessingModule", "FileOutputStream created for: " + processedImageFile.getAbsolutePath());
 
-            // send image over to C++ and process the image with OpenCV
-            // Java -> C++ -> Java
-            Object[] result = detectApples(orgImage);
+            // Write the byte array to the FileOutputStream
+            fos.write(processedImage);
+            Log.d("ImageProcessingModule", "Processed image written to FileOutputStream");
 
-            // get the returned results
-            byte[] processedImage = (byte[]) result[0];
-            int numApples = ((Integer) result[1]).intValue();
-
-            // Log the results
-            Log.d("ImageProcessingModule", "Processed Image Length: " + processedImage.length);
-            Log.d("ImageProcessingModule", "Number of Detected Apples: " + numApples);
-
-            // Increment the counter
-            processedImageCounter++;
-
-            // Save the processed image to the cache
-            String cacheDirPath = reactContext.getCacheDir().getAbsolutePath();
-            String processedImagePath = new File(cacheDirPath, "images/processedImage" + processedImageCounter + ".jpg")
-                    .getAbsolutePath();
-            Log.d("ImageProcessingModule", "Saving processed image to: " + processedImagePath);
-
-            // Create a FileOutputStream with a File object
-            File processedImageFile = new File(processedImagePath);
-            Log.d("ImageProcessingModule", "File object created for: " + processedImageFile.getAbsolutePath());
-
-            try {
-                // Create a FileOutputStream with the File object
-                FileOutputStream fos = new FileOutputStream(processedImageFile);
-                Log.d("ImageProcessingModule", "FileOutputStream created for: " + processedImageFile.getAbsolutePath());
-
-                // Write the byte array to the FileOutputStream
-                fos.write(processedImage);
-                Log.d("ImageProcessingModule", "Processed image written to FileOutputStream");
-
-                // Close the FileOutputStream
-                fos.close();
-                Log.d("ImageProcessingModule", "FileOutputStream closed");
-            } catch (IOException e) {
-                Log.e("ImageProcessingModule", "Error saving processed image", e);
-            }
-
-            promise.resolve(numApples);
-        } catch (Exception e) {
-            promise.reject("Create Event Error", e);
+            // Close the FileOutputStream
+            fos.close();
+            Log.d("ImageProcessingModule", "FileOutputStream closed");
+        } catch (IOException e) {
+            Log.e("ImageProcessingModule", "Error saving processed image", e);
         }
     }
 }

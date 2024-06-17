@@ -112,7 +112,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         } else if (Platform.OS === 'android')
         {
             try {
-                const response = await ImageProcessingModule.processImage(imageName);
+                const response = await ImageProcessingModule.handleImageProcessing(imageName);
                 console.log('Response from processImage:', response); // Log the raw response
     
                 setNumApples(response);
