@@ -1,34 +1,29 @@
-// Here is where the cpp program is called
-
-import React, { useState, useEffect } from 'react';
-import { NativeModules, Platform, Base64 } from 'react-native';
+import { NativeModules, Platform } from 'react-native';
 import { Dirs, FileSystem } from 'react-native-file-access';
 import ImageProcessingModule from './ImageProcessingModule';
 import RNFS from 'react-native-fs';
 
+// Djinni HelloWorld class
 const { HelloWorld } = NativeModules;
 
-export default async function ProcessImage( originalImage, setProcessedImage, setNumApples )
+export default async function ProcessImage( originalImage, setProcessedImage, setNumApples ) // Processes images for iOS and Android devices
 {
     // Start processing timer for testing purposes
     const start = performance.now();
-
-    // Create num apples var
     let numApples = 0;
 
-    // Counter
-    countMyself();
+    numProcessedImages();
 
-    // Paths
+    // Paths for images
     let path = originalImage.path;
-    const dirPath = Dirs.CacheDir + '/images/';
-    const imageName = 'image' + countMyself.counter + '.jpg';
-    const fullPath = dirPath + imageName;
+    const cacheDirPath = Dirs.CacheDir + '/images/';
+    const imageName = 'image' + numProcessedImages.counter + '.jpg';
+    const fullPath = cacheDirPath + imageName;
 
     // Checking to make sure the cache directory exists
     try
     {
-        await check_file_path(Dirs.CacheDir);
+        await checkFilePath(Dirs.CacheDir);
     }
     catch (err)
     {
@@ -39,19 +34,19 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     // Checking if the image directory exists, and if not creating it
     try
     {
-        await check_file_path(dirPath);
+        await checkFilePath(cacheDirPath);
     }
     catch (err)
     {
         console.log(err.message);
 
-        FileSystem.mkdir(dirPath);
+        FileSystem.mkdir(cacheDirPath);
     };
 
-    // Checking if the image file exists, and if so deleting it
+    // Checking if the image file exists, and if so deleting it (may exist from previous app lifecycle)
     try
     {
-        await check_file_path(fullPath);
+        await checkFilePath(fullPath);
 
         FileSystem.unlink(fullPath);
     }
@@ -60,7 +55,7 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         console.log(err.message);
     };
 
-    // Copying the file from the temporary location to somewhere that can be accessed
+    // Copying the file from the temporary location to the accessible cache dir we created
     try
     {
         await FileSystem.cp(path, fullPath);
@@ -77,71 +72,58 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
     {
         /*
             Hello world is a c++ function that is linked to react native, it is
-            currently being used for OpenCV to count the number of apples
-            because we cannot figure out how to change the function's name.
+            currently being used for OpenCV to count the number of apples... 
+            we cannot figure out how to change the function's name from the default.
 
             It is defined at src/cpp/hello_world_impl.cpp
         */
-        if (Platform.OS === 'ios')
+        if (Platform.OS === 'ios') // Handles image processing for iOS
         {
+            // Djinni method that returns string containing processed data
             const message = await HelloWorld.sayHello();
-
             const temp = message.toString();
 
-            // Catch if there was an error in 'HelloWorld.sayHello()'
+            // Catch any error that may have been in 'HelloWorld.sayHello()'
             if (temp.includes("error:")) {
                 throw(temp);
             };
 
-            // '$$' is used as the delimiter
+            // '$$' is used as a delimeter
             const myArray = temp.split("$$");
+            // Log the path for debugging
+            console.log(path);
 
-            // get the data from myArray
+            // Store the processed image data
             path = myArray[1];
             numApples = myArray[0];
 
             // Update UI with processed data
             setNumApples(numApples);
-            setProcessedImage({ opacity: 0, path: path })
-;
-            // Stop the timer
-            const end = performance.now();
+            setProcessedImage({ opacity: 0, path: path });
 
-            // Calculate and log the execution time
-            console.log(`Execution time: ${end - start} ms`);
-        } else if (Platform.OS === 'android')
+        } else if (Platform.OS === 'android') // Handles image processing for Android
         {
             try {
+                // Android native module method that returns number of apple clusters detected
                 const response = await ImageProcessingModule.handleImageProcessing(imageName);
-                console.log('Response from processImage:', response); // Log the raw response
+                console.log('Response from processImage:', response);
     
-                setNumApples(response);
-    
-                // access android cache dir
+                // Access android cache dir
                 const androidCacheDir = RNFS.CachesDirectoryPath + '/images/';
-    
-                const processedImagePath = androidCacheDir + 'processedImage' + countMyself.counter + '.jpg';
+                // Retrieve processed image from Android cache
+                const processedImagePath = androidCacheDir + 'processedImage' + numProcessedImages.counter + '.jpg';
                 console.log('Constructed processed image path:', processedImagePath);
     
-                // Use RNFS to read the processed image file as base64
+                // Use React Native File System to read the processed image as base64
                 RNFS.readFile(processedImagePath, 'base64')
                     .then((result) => {
-                        // Convert the base64 string to a data URI
+                        // Add prefix to the base64 processed image to get useable URI
                         const dataUri = `data:image/jpg;base64,${result}`;
     
-                        // Update the state with the processed image data URI
+                        // Update the UI now that all information is available
                         setProcessedImage({ opacity: 0, path: dataUri });
+                        setNumApples(response);
                         
-                        // Indicate state was updated
-                        console.log('State updated with processed image and number of apples');
-                        android = true;
-    
-                        console.log('Processing Timer Ended...');
-                        // Stop the timer
-                        const end = performance.now();
-    
-                        // Calculate and log the execution time
-                        console.log(`Execution time: ${end - start} ms`);
                     })
                     .catch((err) => {
                         console.log('Error reading processed image:', err);
@@ -149,35 +131,32 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
               } catch (err) {
                 console.log(err.message);
             }
-        } else
+        } else // For devices not recognized
         {
             console.log('Running default code. Device not compatible...');
-
-            // Stop the timer just because
-            const end = performance.now();
         }
+
+        // Stop the timer
+        const end = performance.now();
+        // Calculate and log the execution time
+        console.log(`Execution time: ${end - start} ms`);
     }
-    // Error catch
     catch(err)
     {
         alert(err);
     };
-
-    console.log(path);
 }
 
 
-// Function checks if a path exists, and if not throws an error
-async function check_file_path(path)
+async function checkFilePath(path) // Checks for a file path and throws error otherwise
 {
     var err2;
 
-    // Checks if the path exists
     await FileSystem.exists(path).then((exists) =>
     {
-        if(!exists)
+        // Log error information
+        if(!exists) 
         {
-            // Error information
             var error = new Error("PathError, no such file or directory '" + path + "'");
             error.errno = 404;
             error.code = 'PathError';
@@ -193,23 +172,18 @@ async function check_file_path(path)
         err2 = err1;
     });
 
-    // If err2 is not defined, then there is no error and the function exits
+    // If err2 is not defined, then there is no error and the file path exits
     if(typeof err2 !== 'undefined')
     {
         throw(err2);
     };
 }
 
-
-// Counter function
-// Copied from: https://stackoverflow.com/a/1535650
-function countMyself() {
-    // Check to see if the counter has been initialized
-    if ( typeof countMyself.counter == 'undefined' ) {
-        // It has not... perform the initialization
-        countMyself.counter = -1;
+function numProcessedImages() {  // Counter function
+    if ( typeof numProcessedImages.counter == 'undefined' ) {
+        // Initalize the counter if not already initialized
+        numProcessedImages.counter = -1;
     }
 
-    // Do something stupid to indicate the value
-    countMyself.counter++;
+    numProcessedImages.counter++;
 }
