@@ -107,8 +107,6 @@ const BottomSheet = (( props ) => {
   );
 });
 
-export default BottomSheet;
-
 const styles = StyleSheet.create({
     line: {
         width: 75,
@@ -154,3 +152,5 @@ const styles = StyleSheet.create({
         margin: 0,
       },
 });
+
+export default BottomSheet;
