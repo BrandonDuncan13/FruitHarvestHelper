@@ -1,25 +1,22 @@
 /* eslint-disable prettier/prettier */
-/*
-npx react-native run-android
-*/
 import { StyleSheet, Text, View, TouchableOpacity, Dimensions } from 'react-native';
 import React from 'react';
 
+
 export default function CustomButton({ pressHandler, buttonText }) {
 
-  /* this component is just a simple button with styling that can be reused multiple times. It accepts
-  the destructured pressHandler and buttonText props */
+  // Button component made for reusability
   return (
     <View style={styles.container}>
         <TouchableOpacity
             style={styles.button}
-            // uses the passed in pressHandler when button is pressed
+            // Uses the passed in custom pressHandler
             onPress={pressHandler}
             activeOpacity={0.8}
         >
             <Text
             style={styles.buttonText}
-            // the text inside the button is custom based on what is passed in
+            // Button text is custom too
             >
               { buttonText }
             </Text>
@@ -28,20 +25,19 @@ export default function CustomButton({ pressHandler, buttonText }) {
   );
 }
 
+// Dimensions can be used to create a dynamic height, width, etc.
 const styles = StyleSheet.create({
     container: {
         height: ((Dimensions.get('window').height) * 0.175),
-        // read below for how Dimensions can be used to create a dynamic height, width, etc.
         justifyContent: 'center',
         alignItems: 'center',
     },
     button: {
         justifyContent: 'center',
         alignItems: 'center',
-        backgroundColor: '#d42d2d', // green color -> #287c37, red color -> #d42d2d
+        backgroundColor: '#d42d2d', // green color -> #287c37, red color -> #d42d2d (Whichever you prefer)
+        // Used dimensions to grab the window size to get right size for each device
         width: ((Dimensions.get('window').width)) * 0.45,
-        // using the Dimensions to grab the width of the window makes it so the width is the right size for each device
-        // here we set the button width to 45% of the device's screen width
         height: 60,
         padding: 10,
         borderRadius: 200,

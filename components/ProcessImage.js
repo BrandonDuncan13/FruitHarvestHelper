@@ -3,10 +3,11 @@ import { Dirs, FileSystem } from 'react-native-file-access';
 import ImageProcessingModule from './ImageProcessingModule';
 import RNFS from 'react-native-fs';
 
+
 // Djinni HelloWorld class
 const { HelloWorld } = NativeModules;
 
-export default async function ProcessImage( originalImage, setProcessedImage, setNumApples ) // Processes images for iOS and Android devices
+export default async function ProcessImage( originalImage, setProcessedImage, setNumApples ) // Processes images for iOS and Android devices (asynchronous)
 {
     // Start processing timer for testing purposes
     const start = performance.now();
@@ -146,7 +147,6 @@ export default async function ProcessImage( originalImage, setProcessedImage, se
         alert(err);
     };
 }
-
 
 async function checkFilePath(path) // Checks for a file path and throws error otherwise
 {

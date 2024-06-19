@@ -1,57 +1,51 @@
 /* eslint-disable prettier/prettier */
-/*
-npx react-native run-android
-*/
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
-import React, { useEffect } from 'react';
-// ImagePicker is one of the widely used React Native Camera libraries which was imported here
+import React from 'react';
+// ImagePicker is one of the widely used React Native Camera libraries
 import ImagePicker from 'react-native-image-crop-picker';
 import ProcessImage from './ProcessImage';
 
-// rather than destructuring a lot of different properties you can just pass props
+
+// Intead of destructing properies you can just pass in props
 const BottomSheet = (( props ) => {
-  // Function for setting image, because the same thing is done twice
-  function setImage(props, image)
+
+  function processAndSetImages(props, image) // Detects apple clusters in image, sets the original and processed images
   {
+    // Log original image and path
     console.log(image);
     console.log(image.path);
-    // once the image is used then the bottomSheet will be lowered by setting the translateY value to 0
-    props.translateY.value = withSpring(0, { damping: 50 });
-    /* here state passed from the detectApples file is used to change some new values through the setNewImage function.
-    /* here state passed from the detectApples file is used to change some new values through the setNewImage function.
-      Here we are setting the opacity to 0 which is used in the ImageHolder file to have the opacity of the camera icon change
-      once an image is used. The value of path is also set to the path of the caputred image to change the BackgroundImage. */
-    props.setNewImage({ opacity: 0, path: image.path });
 
-    // Process the image to detect the apple clusters
+    // Image is already selected so lower BottomSheet by translating
+    props.translateY.value = withSpring(0, { damping: 50 });
+    // Set the original image selected and opacity to 0 to make camera icon invisible
+    props.setNewImage({ opacity: 0, path: image.path });
+    // Process the image to detect the apple clusters and set processed image/num apples
     ProcessImage(image, props.setProcessedImage, props.setNumApples);
   }
 
-  /* this function allows you to take a photo from the camera by using the ImagePicker library to open the device's camera
-  and then spitting out a bunch of data about the captured image. The data can be used to do things with the image... */
-  const takePhotoFromCamera = () => {
+  const takePhotoFromCamera = () => { // Use iOS or Android device camera to take photo and then apply image processing
     ImagePicker.openCamera({
-      // these height and width values are used to set the dimensions of the image that will be captured
+      // Set dimensions of image that will be captured
       width: 400,
       height: 400,
       cropping: true,
     }).then(image => {
-      setImage(props, image);
+      processAndSetImages(props, image);
     }).catch((err) => {
       console.log(err.message);
     });
   };
 
-  // this function allows you to choose a photo from the device's photo library by using ImagePicker
-  const choosePhotoFromLibrary = () => {
+  const choosePhotoFromLibrary = () => { // Allows you to choose a photo from the device's photo library
     ImagePicker.openPicker({
+      // Set dimensions of image that will be selected
       width: 400,
       height: 400,
       cropping: true,
     }).then(image => {
-      setImage(props, image);
+      processAndSetImages(props, image);
     }).catch((err) => {
       console.log(err.message);
     });
@@ -59,38 +53,36 @@ const BottomSheet = (( props ) => {
 
   return (
     <GestureDetector
-     // GestureDetector is responsible for creating and updating native gesture handlers based on the gesture provided
-     // this gesture provided allows you to pan the bottomSheet (it holds it's previous position, and can close the bottomSheet)
+    // Responsible for creating and updating this gesture handler which allows you to pan and close BottomSheet
       gesture={props.gesture}
     >
         <Animated.View
-          /* an Animated View is needed here since the content inside the bottomSheet has to be Animated to respond
-          according to the gesture the user makes. */
+          // Content inside of BottomSheet is animated to respond when user moves it by a gesture
           // eslint-disable-next-line react-native/no-inline-styles
           style={[{
-            // props aren't able to be passed to styles so an inline style is required
+            // Props aren't able to be passed to styles so an inline style is required
             height: props.SCREEN_HEIGHT,
             width: '100%',
             backgroundColor: '#1a1a1c',
-            // the position is absolute so the sheet doesn't get pushed down by each page's content
+            // Absolute position so screen isn't pushed down by pages content (stays in place)
             position: 'absolute',
             top: props.SCREEN_HEIGHT,
             borderRadius: 25,
-          }, props.rBottomSheetStyle,
-          // this Animated.View accepts styles from detectApples as a prop. This style updates the translateY value of the sheet
-          // this Animated.View accepts styles from detectApples as a prop. This style updates the translateY value of the sheet
+          }, props.rBottomSheetStyle, // Updates y position of the sheet
         ]}>
             <View style={styles.line}/>
             <View style={styles.panel}>
+                {/* Instructions for user on how to use the panel */}
                 <View style={styles.centerTitle}>
                     <Text style={styles.panelTitle}>Upload Photo</Text>
                     <Text style={styles.panelSubtitle}>Choose a photo to detect apples</Text>
                 </View>
-                <TouchableOpacity
+                <TouchableOpacity // BottomSheet doesn't use custom button
                     style={styles.panelButton}
                     onPress={takePhotoFromCamera}
                     activeOpacity={0.45}
                 >
+                    {/* Take a photo on iOS or Android for processing */}
                     <Text style={styles.panelButtonTitle}>Take Photo</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -98,6 +90,7 @@ const BottomSheet = (( props ) => {
                     onPress={choosePhotoFromLibrary}
                     activeOpacity={0.45}
                 >
+                    {/* Select a photo from iOS or Android library for processing */}
                     <Text style={styles.panelButtonTitle}>Choose From Library</Text>
                 </TouchableOpacity>
                 <TouchableOpacity
@@ -105,6 +98,7 @@ const BottomSheet = (( props ) => {
                     onPress={props.lowerSheet}
                     activeOpacity={0.45}
                 >
+                    {/* Exit the BottomScreen panel */}
                     <Text style={styles.panelButtonTitle}>Cancel</Text>
                 </TouchableOpacity>
             </View>
@@ -127,7 +121,7 @@ const styles = StyleSheet.create({
     panel: {
         padding: 20,
         backgroundColor: '#1a1a1c',
-        marginTop: -5, // this gets rid of glitches between the header and the panel
+        marginTop: -5, // This gets rid of glitches between the header and the panel
         paddingTop: 20,
       },
       panelTitle: {
@@ -144,7 +138,7 @@ const styles = StyleSheet.create({
       panelButton: {
         padding: 13,
         borderRadius: 10,
-        backgroundColor: '#287c37', // green color -> #287c37, red color -> #d42d2d
+        backgroundColor: '#287c37', // green color -> #287c37, red color -> #d42d2d (Whichever you prefer)
         alignItems: 'center',
         marginVertical: 7,
       },

@@ -1,36 +1,28 @@
 /* eslint-disable prettier/prettier */
-/*
-npx react-native run-android
-*/
 import { StyleSheet, View, TouchableOpacity, ImageBackground, Dimensions } from 'react-native';
 import React from 'react';
-
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-// state is passed from detectApples file which was set within the BottomSheet file
-// code was made once but used multiple times
+// State is passed from BottomSheet to detectApples component
 export default function ImageHolder({ pressHandler, newImage, activeOpacity=0.65 }) {
 
   return (
     <View>
-      <TouchableOpacity
-      // pressHandler in this case makes the "image buttons" not work when sheet is up and work when sheet is down (essentially)
+      <TouchableOpacity // Makes image box clickable
+      // PressHandler makes image clickable unless pop-up is already up
       onPress={pressHandler}
-      activeOpacity={activeOpacity}// Changed activeOpacity to be able to be changed
+      activeOpacity={activeOpacity}
       >
-        {/* A box view to hold the image is created */}
         <View style={styles.imageBox}>
-            <ImageBackground
-                // newImage starts out as template images but is changed when an image is used
+            <ImageBackground // Template image until image is selected
                 source={{
                     uri: newImage.path,
                 }}
                 style={styles.image}
                 imageStyle={styles.imageStyling}
             >
-                {/* A view within the box to hold the image is created to hold a camera icon */}
                 <View style={styles.iconBox}>
-                    {/* once an image is used, the icon becomes invisible */}
+                    {/* Icon becomes invisible once an image is selected */}
                     <Icon name="camera" size={75} color="#aaaa" style={[styles.icon, {opacity: newImage.opacity}]}/>
                 </View>
             </ImageBackground>
@@ -40,9 +32,10 @@ export default function ImageHolder({ pressHandler, newImage, activeOpacity=0.65
   );
 }
 
-// device dimensions were used to dynamically style the image box and the image itself (not the icon...this can be done if you want)
+// Devices dimensions are used to style dynamically
 const styles = StyleSheet.create({
     imageBox: {
+        // When ImageBackground is wrapped in a View the height and width must be defined
         height: ((Dimensions.get('window').width)) * 0.5,
         width: ((Dimensions.get('window').width)) * 0.5,
         borderRadius: 15,
