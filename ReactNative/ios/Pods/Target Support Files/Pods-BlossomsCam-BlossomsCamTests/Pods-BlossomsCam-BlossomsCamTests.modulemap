@@ -1,0 +1,6 @@
+module Pods_BlossomsCam_BlossomsCamTests {
+  umbrella header "Pods-BlossomsCam-BlossomsCamTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
