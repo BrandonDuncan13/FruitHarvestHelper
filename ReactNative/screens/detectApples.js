@@ -3,7 +3,7 @@
 https://www.youtube.com/watch?v=Xp0q8ZDOeyE&t=2s
 on June 19th, 2022 */
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text, DeviceEventEmitter } from 'react-native';
 import { GestureHandlerRootView, Gesture } from 'react-native-gesture-handler';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';

@@ -2,27 +2,57 @@
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 // ImagePicker is one of the widely used React Native Camera libraries
 import ImagePicker from 'react-native-image-crop-picker';
-import ProcessImage from './ProcessImage';
+//import ProcessImage from './ProcessImage';
+//import ProcessImageFlask from './ProcessImageFlask';
 
 
 // Intead of destructing properies you can just pass in props
 const BottomSheet = (( props ) => {
 
-  function processAndSetImages(props, image) // Detects apple clusters in image, sets the original and processed images
-  {
-    // Log original image and path
-    console.log(image);
-    console.log(image.path);
+  // If a new image is selected then send data to and receive data from server
+  const [newImageSelected, setNewImageSelected] = React.useState(false);
+  const [dataProcessed, setDataProcessed] = React.useState(false);
+  // Timer for image processing
+  const [timerStart, setTimerStart] = React.useState(null);
+  const [timerEnd, setTimerEnd] = React.useState(null);
 
-    // Image is already selected so lower BottomSheet by translating
-    props.translateY.value = withSpring(0, { damping: 50 });
-    // Set the original image selected and opacity to 0 to make camera icon invisible
-    props.setNewImage({ opacity: 0, path: image.path });
-    // Process the image to detect the apple clusters and set processed image/num apples
-    ProcessImage(image, props.setProcessedImage, props.setNumApples);
+  // Fetch JSON data from Flask web server
+  useEffect(() => {
+    fetch('http://192.168.1.224:5000/getData', {
+        method: 'GET'
+    })
+    .then(resp => resp.json())
+    .then(jsonData => {
+        console.log(`Received Promise from flask:`, jsonData);
+        console.log('The processed image:', jsonData.procImage);
+        console.log('Number of apples:', jsonData.numDetections);
+        props.setProcessedImage({ opacity: 0, path: jsonData.procImage });
+        props.setNumApples(jsonData.numDetections);
+        // Record the end time of the timer
+        setTimerEnd(performance.now());
+      
+        // Calculate and log the execution time
+        const executionTime = timerEnd - timerStart;
+        console.log(`Execution time: ${executionTime} ms`);
+
+        // Prepare for next processed image
+        numProcessedImages();
+        setNewImageSelected(false);
+    })
+    .catch(error => console.error("Error fetching data:", error));
+  }, [newImageSelected])
+
+
+  function numProcessedImages() {  // Counter function
+    if ( typeof numProcessedImages.counter == 'undefined' ) {
+        // Initalize the counter if not already initialized
+        numProcessedImages.counter = -1;
+    }
+
+    numProcessedImages.counter++;
   }
 
   const takePhotoFromCamera = () => { // Use iOS or Android device camera to take photo and then apply image processing
@@ -32,7 +62,9 @@ const BottomSheet = (( props ) => {
       height: 400,
       cropping: true,
     }).then(image => {
-      processAndSetImages(props, image);
+      //processAndSetImages(props, image);
+      setTimerStart(performance.now());
+      setNewImageSelected(true);
     }).catch((err) => {
       console.log(err.message);
     });
@@ -45,11 +77,15 @@ const BottomSheet = (( props ) => {
       height: 400,
       cropping: true,
     }).then(image => {
-      processAndSetImages(props, image);
+      //processAndSetImages(props, image);
+      setTimerStart(performance.now());
+      setNewImageSelected(true);
     }).catch((err) => {
       console.log(err.message);
     });
   };
+
+
 
   return (
     <GestureDetector
