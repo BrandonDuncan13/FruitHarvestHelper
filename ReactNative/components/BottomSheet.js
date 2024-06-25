@@ -29,15 +29,42 @@ const BottomSheet = (( props ) => {
     numProcessedImages();
     // ProcessImage(image, props.setProcessedImage, props.setNumApples);
     
-    // Send data over to flask for processing
-
-    // Retrieve the processed data from flask
-    fetchProcessedData();
+    // Send data over to flask for processing and fetch the data after send is complete
+    sendDataToServer(image);
   };
 
-  // Fetch JSON data from Flask web server asynchronously
-  const fetchProcessedData = () => {
+  const sendDataToServer = (image) => {
+    console.log('sending data to flask...');
+  
+    // Create FormData instance
+    let formData = new FormData();
+  
+    // Append the image to FormData
+    formData.append('image', {
+      uri: image.path,
+      type: image.mime, // Type of data being sent
+      name: image.filename || image.path.split('/').pop(),
+    });
+  
+    // Send FormData to the Flask server
+    fetch('http://192.168.1.224:5000/sendData', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+      body: formData,
+    })
+     .then(resp => resp.json())
+     .then(json => {
+        console.log('Server response:', json);
+        fetchProcessedData();
+      })
+     .catch(error => console.error('Error sending data to server:', error));
+  };
+
+  const fetchProcessedData = () => { // Fetch JSON data from Flask web server asynchronously
     console.log('fetching from flask...');
+
     fetch('http://192.168.1.224:5000/getData', {
       method: 'GET'
     })
@@ -47,8 +74,13 @@ const BottomSheet = (( props ) => {
         console.log(`Received Promise from flask:`, jsonData);
         console.log('The processed image:', jsonData.procImage);
         console.log('Number of apples:', jsonData.numDetections);
+
+        // Convert base64 string (processedImage) to image source
+        const base64String = jsonData.procImage;
+        const imageSource = `data:image/jpeg;base64,${base64String}`;
+
         // Update UI with processed data
-        props.setProcessedImage({ opacity: 0, path: jsonData.procImage });
+        props.setProcessedImage({ opacity: 0, path: imageSource });
         props.setNumApples(jsonData.numDetections);
         setTimerEnd(performance.now());
 
