@@ -2,7 +2,7 @@
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 // ImagePicker is one of the widely used React Native Camera libraries
 import ImagePicker from 'react-native-image-crop-picker';
 //import ProcessImage from './ProcessImage';
@@ -12,38 +12,52 @@ import ImagePicker from 'react-native-image-crop-picker';
 // Intead of destructing properies you can just pass in props
 const BottomSheet = (( props ) => {
 
-  // If a new image is selected then send data to and receive data from server
-  const [newImageSelected, setNewImageSelected] = React.useState(false);
-  const [dataProcessed, setDataProcessed] = React.useState(false);
   // Timer for image processing
-  const [timerStart, setTimerStart] = React.useState(null);
-  const [timerEnd, setTimerEnd] = React.useState(null);
+  const [timerStart, setTimerStart] = useState(null);
+  const [timerEnd, setTimerEnd] = useState(null);
 
-  // Fetch JSON data from Flask web server
-  useEffect(() => {
+  const processAndSetImages = (props, image) => { // Detects apple clusters in image, sets the original and processed images
+    // Log original image and path
+    console.log(image);
+    console.log(image.path);
+
+    // Image is already selected so lower BottomSheet by translating
+    props.translateY.value = withSpring(0, { damping: 50 });
+    // Set the original image selected and opacity to 0 to make camera icon invisible
+    props.setNewImage({ opacity: 0, path: image.path });
+    // Process the image to detect the apple clusters and set processed image/num apples
+    numProcessedImages();
+    // ProcessImage(image, props.setProcessedImage, props.setNumApples);
+    
+    // Send data over to flask for processing
+
+    // Retrieve the processed data from flask
+    fetchProcessedData();
+  };
+
+  // Fetch JSON data from Flask web server asynchronously
+  const fetchProcessedData = () => {
+    console.log('fetching from flask...');
     fetch('http://192.168.1.224:5000/getData', {
-        method: 'GET'
+      method: 'GET'
     })
-    .then(resp => resp.json())
-    .then(jsonData => {
+   .then(resp => resp.json())
+   .then(jsonData => {
+
         console.log(`Received Promise from flask:`, jsonData);
         console.log('The processed image:', jsonData.procImage);
         console.log('Number of apples:', jsonData.numDetections);
+        // Update UI with processed data
         props.setProcessedImage({ opacity: 0, path: jsonData.procImage });
         props.setNumApples(jsonData.numDetections);
-        // Record the end time of the timer
         setTimerEnd(performance.now());
-      
-        // Calculate and log the execution time
+
+        // Log the processing time
         const executionTime = timerEnd - timerStart;
         console.log(`Execution time: ${executionTime} ms`);
-
-        // Prepare for next processed image
-        numProcessedImages();
-        setNewImageSelected(false);
     })
-    .catch(error => console.error("Error fetching data:", error));
-  }, [newImageSelected])
+   .catch(error => console.error("Error fetching data:", error));
+  };
 
 
   function numProcessedImages() {  // Counter function
@@ -64,7 +78,7 @@ const BottomSheet = (( props ) => {
     }).then(image => {
       //processAndSetImages(props, image);
       setTimerStart(performance.now());
-      setNewImageSelected(true);
+      processAndSetImages(props, image);
     }).catch((err) => {
       console.log(err.message);
     });
@@ -79,12 +93,11 @@ const BottomSheet = (( props ) => {
     }).then(image => {
       //processAndSetImages(props, image);
       setTimerStart(performance.now());
-      setNewImageSelected(true);
+      processAndSetImages(props, image);
     }).catch((err) => {
       console.log(err.message);
     });
   };
-
 
 
   return (
