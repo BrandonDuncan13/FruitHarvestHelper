@@ -16,6 +16,8 @@ const BottomSheet = (( props ) => {
   const [timerStart, setTimerStart] = useState(null);
   const [timerEnd, setTimerEnd] = useState(null);
 
+  const algoChoice = 0;
+
   const processAndSetImages = (props, image) => { // Detects apple clusters in image, sets the original and processed images
     // Log original image and path
     console.log(image);
@@ -30,11 +32,21 @@ const BottomSheet = (( props ) => {
     // ProcessImage(image, props.setProcessedImage, props.setNumApples);
     
     // Send data over to flask for processing and fetch the data after send is complete
-    sendDataToServer(image);
+    sendDataToServer(image, algoChoice);
   };
 
-  const sendDataToServer = (image) => {
+  function numProcessedImages() {  // Counter function that can be used for naming images to be saved
+    if ( typeof numProcessedImages.counter == 'undefined' ) {
+        // Initalize the counter if not already initialized
+        numProcessedImages.counter = -1;
+    }
+
+    numProcessedImages.counter++;
+  }
+
+  const sendDataToServer = (image, algoChoice) => {
     console.log('sending data to flask...');
+    setTimerStart(performance.now());
   
     // Create FormData instance
     let formData = new FormData();
@@ -45,6 +57,9 @@ const BottomSheet = (( props ) => {
       type: image.mime, // Type of data being sent
       name: image.filename || image.path.split('/').pop(),
     });
+
+    // Append the algorithm choice to FormData
+    formData.append('algoChoice', algoChoice); // the bottom sheet text can even be based on the user selection
   
     // Send FormData to the Flask server
     fetch('http://192.168.1.224:5000/sendData', {
@@ -91,16 +106,6 @@ const BottomSheet = (( props ) => {
    .catch(error => console.error("Error fetching data:", error));
   };
 
-
-  function numProcessedImages() {  // Counter function
-    if ( typeof numProcessedImages.counter == 'undefined' ) {
-        // Initalize the counter if not already initialized
-        numProcessedImages.counter = -1;
-    }
-
-    numProcessedImages.counter++;
-  }
-
   const takePhotoFromCamera = () => { // Use iOS or Android device camera to take photo and then apply image processing
     ImagePicker.openCamera({
       // Set dimensions of image that will be captured
@@ -108,8 +113,6 @@ const BottomSheet = (( props ) => {
       height: 400,
       cropping: true,
     }).then(image => {
-      //processAndSetImages(props, image);
-      setTimerStart(performance.now());
       processAndSetImages(props, image);
     }).catch((err) => {
       console.log(err.message);
@@ -123,8 +126,6 @@ const BottomSheet = (( props ) => {
       height: 400,
       cropping: true,
     }).then(image => {
-      //processAndSetImages(props, image);
-      setTimerStart(performance.now());
       processAndSetImages(props, image);
     }).catch((err) => {
       console.log(err.message);
