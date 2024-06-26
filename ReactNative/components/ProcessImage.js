@@ -179,7 +179,7 @@ async function checkFilePath(path) // Checks for a file path and throws error ot
     };
 }
 
-function numProcessedImages() {  // Counter function
+function numProcessedImages() {  // Counter function for naming images
     if ( typeof numProcessedImages.counter == 'undefined' ) {
         // Initalize the counter if not already initialized
         numProcessedImages.counter = -1;

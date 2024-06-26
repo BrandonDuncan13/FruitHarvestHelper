@@ -2,23 +2,26 @@
 import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import { GestureDetector } from 'react-native-gesture-handler';
 import Animated, { withSpring } from 'react-native-reanimated';
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState } from 'react';
 // ImagePicker is one of the widely used React Native Camera libraries
 import ImagePicker from 'react-native-image-crop-picker';
-//import ProcessImage from './ProcessImage';
-//import ProcessImageFlask from './ProcessImageFlask';
+import ProcessImage from './ProcessImage';
+import { sendDataToServer, fetchProcessedData, numProcessedImages } from './ProcessImageFlask.js';
 
 
 // Intead of destructing properies you can just pass in props
 const BottomSheet = (( props ) => {
 
-  // Timer for image processing
+  // Timer for image processing (flask only)
   const [timerStart, setTimerStart] = useState(null);
   const [timerEnd, setTimerEnd] = useState(null);
-
+  // User's flask algorithm choice
   const algoChoice = 0;
 
-  const processAndSetImages = (props, image) => { // Detects apple clusters in image, sets the original and processed images
+  // Hardcoded boolean for running new or old back end
+  const flaskBackend = false;
+
+  const processAndSetImages = async (props, image) => { // Detects apple clusters in image, sets the original and processed images
     // Log original image and path
     console.log(image);
     console.log(image.path);
@@ -27,83 +30,19 @@ const BottomSheet = (( props ) => {
     props.translateY.value = withSpring(0, { damping: 50 });
     // Set the original image selected and opacity to 0 to make camera icon invisible
     props.setNewImage({ opacity: 0, path: image.path });
+
     // Process the image to detect the apple clusters and set processed image/num apples
-    numProcessedImages();
-    // ProcessImage(image, props.setProcessedImage, props.setNumApples);
-    
-    // Send data over to flask for processing and fetch the data after send is complete
-    sendDataToServer(image, algoChoice);
-  };
-
-  function numProcessedImages() {  // Counter function that can be used for naming images to be saved
-    if ( typeof numProcessedImages.counter == 'undefined' ) {
-        // Initalize the counter if not already initialized
-        numProcessedImages.counter = -1;
+    if (flaskBackend == false) { // Use the OpenCV C++ back end that uses Djinni for iOS and Native Modules for Android
+      ProcessImage(image, props.setProcessedImage, props.setNumApples);
+    } else if (flaskBackend == true) { // Send data over to flask for processing and fetch the data after send is complete
+      try {
+        numProcessedImages();
+        await sendDataToServer(image, algoChoice, setTimerStart);
+        await fetchProcessedData(props, timerStart, setTimerEnd);
+      } catch (error) {
+        console.error('Error processing image:', error);
+      }
     }
-
-    numProcessedImages.counter++;
-  }
-
-  const sendDataToServer = (image, algoChoice) => {
-    console.log('sending data to flask...');
-    setTimerStart(performance.now());
-  
-    // Create FormData instance
-    let formData = new FormData();
-  
-    // Append the image to FormData
-    formData.append('image', {
-      uri: image.path,
-      type: image.mime, // Type of data being sent
-      name: image.filename || image.path.split('/').pop(),
-    });
-
-    // Append the algorithm choice to FormData
-    formData.append('algoChoice', algoChoice); // the bottom sheet text can even be based on the user selection
-  
-    // Send FormData to the Flask server
-    fetch('http://192.168.1.224:5000/sendData', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'multipart/form-data',
-      },
-      body: formData,
-    })
-     .then(resp => resp.json())
-     .then(json => {
-        console.log('Server response:', json);
-        fetchProcessedData();
-      })
-     .catch(error => console.error('Error sending data to server:', error));
-  };
-
-  const fetchProcessedData = () => { // Fetch JSON data from Flask web server asynchronously
-    console.log('fetching from flask...');
-
-    fetch('http://192.168.1.224:5000/getData', {
-      method: 'GET'
-    })
-   .then(resp => resp.json())
-   .then(jsonData => {
-
-        console.log(`Received Promise from flask:`, jsonData);
-        console.log('The processed image:', jsonData.procImage);
-        console.log('Number of apples:', jsonData.numDetections);
-
-        // Convert base64 string (processedImage) to image source
-        const base64String = jsonData.procImage;
-        const imageSource = `data:image/jpeg;base64,${base64String}`;
-
-        // Update UI with processed data
-        props.setProcessedImage({ opacity: 0, path: imageSource });
-        props.setNumApples(jsonData.numDetections);
-        setTimerEnd(performance.now());
-
-        // Log the processing time
-        const executionTime = timerEnd - timerStart;
-        console.log(`Execution time: ${executionTime} ms`);
-    })
-   .catch(error => console.error("Error fetching data:", error));
   };
 
   const takePhotoFromCamera = () => { // Use iOS or Android device camera to take photo and then apply image processing
