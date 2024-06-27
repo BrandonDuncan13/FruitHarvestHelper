@@ -1,3 +1,5 @@
+# Runs with a docker container
+# To get a docker container running create an image file (.tar) by using dockerfile
 from flask import Flask, request, jsonify, session
 from flask_session import Session
 from flask_cors import CORS
@@ -110,4 +112,4 @@ def getProcImageData():
     return jsonify(responseData)
 
 if __name__ == "__main__":
-    app.run(host='192.168.1.224', port=5000, debug=True)
+    app.run(host='0.0.0.0', port=5000)

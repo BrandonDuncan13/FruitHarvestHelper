@@ -1,5 +1,4 @@
-import { useState } from 'react';
-
+// The Flask server uses a docker container to run on a local machine currently -> a container can be hosted on the cloud though
 export const sendDataToServer = (image, algoChoice, setTimerStart) => { // Send data that the Flask server needs to process image
     console.log('sending data to flask...');
     // Start the timer and increment processed images for naming images
@@ -19,7 +18,7 @@ export const sendDataToServer = (image, algoChoice, setTimerStart) => { // Send 
     formData.append('algoChoice', algoChoice); // the bottom sheet text can even be based on the user selection
     
     // Send FormData to the Flask server
-    return fetch('http://192.168.1.224:5000/sendData', {
+    return fetch('http://192.168.1.224:5000/sendData', { // Change to server address once server is hosted on cloud
       method: 'POST',
       headers: {
         'Content-Type': 'multipart/form-data',
@@ -33,7 +32,7 @@ export const sendDataToServer = (image, algoChoice, setTimerStart) => { // Send 
 export const fetchProcessedData = (props, timerStart, setTimerEnd) => { // Fetch JSON data from Flask web server asynchronously
     console.log('fetching from flask...');
 
-    return fetch('http://192.168.1.224:5000/getData', {
+    return fetch('http://192.168.1.224:5000/getData', { // Change to server address once server is hosted on cloud
         method: 'GET'
     })
     .then(resp => resp.json())
