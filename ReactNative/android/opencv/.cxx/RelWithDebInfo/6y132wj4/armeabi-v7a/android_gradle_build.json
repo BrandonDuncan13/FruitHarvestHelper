@@ -1,0 +1,37 @@
+{
+  "buildFiles": [
+    "/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/opencv/libcxx_helper/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/Users/brandonduncan/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+      "-C",
+      "/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/opencv/.cxx/RelWithDebInfo/6y132wj4/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/Users/brandonduncan/Library/Android/sdk/cmake/3.18.1/bin/ninja",
+    "-C",
+    "/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/opencv/.cxx/RelWithDebInfo/6y132wj4/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {
+    "opencv_jni_shared::@6890427a1f51a3e7e1df": {
+      "toolchain": "toolchain",
+      "abi": "armeabi-v7a",
+      "artifactName": "opencv_jni_shared",
+      "output": "/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/opencv/.cxx/RelWithDebInfo/6y132wj4/armeabi-v7a/libopencv_jni_shared.a"
+    }
+  },
+  "toolchains": {
+    "toolchain": {
+      "cCompilerExecutable": "/Users/brandonduncan/Library/Android/sdk/ndk/25.0.8775105/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang.lld",
+      "cppCompilerExecutable": "/Users/brandonduncan/Library/Android/sdk/ndk/25.0.8775105/toolchains/llvm/prebuilt/darwin-x86_64/bin/clang++.lld"
+    }
+  },
+  "cFileExtensions": [],
+  "cppFileExtensions": [
+    "cpp"
+  ]
+}

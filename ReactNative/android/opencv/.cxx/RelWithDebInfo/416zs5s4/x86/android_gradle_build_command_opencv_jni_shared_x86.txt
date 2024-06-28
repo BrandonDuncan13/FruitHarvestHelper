@@ -1,0 +1,7 @@
+Executable : /Users/brandonduncan/Library/Android/sdk/cmake/3.18.1/bin/ninja
+arguments : 
+-C
+/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/opencv/.cxx/RelWithDebInfo/416zs5s4/x86
+opencv_jni_shared
+jvmArgs : 
+

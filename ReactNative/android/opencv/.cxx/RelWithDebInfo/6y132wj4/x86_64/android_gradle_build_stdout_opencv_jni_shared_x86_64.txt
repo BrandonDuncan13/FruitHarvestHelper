@@ -1,0 +1,2 @@
+ninja: Entering directory `/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/opencv/.cxx/RelWithDebInfo/6y132wj4/x86_64'
+ninja: no work to do.
