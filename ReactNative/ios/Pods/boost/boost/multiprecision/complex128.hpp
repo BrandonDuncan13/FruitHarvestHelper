@@ -1,26 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-//  Copyright 2018 John Maddock. Distributed under the Boost
-//  Software License, Version 1.0. (See accompanying file
-//  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_MP_COMPLEX128_HPP
-#define BOOST_MP_COMPLEX128_HPP
-
-#include <boost/multiprecision/float128.hpp>
-#include <boost/multiprecision/complex_adaptor.hpp>
-
-namespace boost {
-namespace multiprecision {
-
-using complex128 = number<complex_adaptor<float128_backend>, et_off>;
-
-template <>
-struct component_type<number<complex_adaptor<float128_backend> > >
-{
-   using type = float128;
-};
-
-}
-} // namespace boost::multiprecision
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:4d70a0f7ca343aa5c402919fb1a1adf833dbb15c6c1d3408f071bbf76e3b221f
+size 707

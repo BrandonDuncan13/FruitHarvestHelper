@@ -1,26 +1,3 @@
-// Boost name_generator_sha1.hpp header file  ------------------------//
-
-// Copyright 2010 Andy Tompkins.
-// Copyright 2017 James E. King III
-
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-//  https://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_UUID_NAME_GENERATOR_SHA1_HPP
-#define BOOST_UUID_NAME_GENERATOR_SHA1_HPP
-
-#include <boost/uuid/basic_name_generator.hpp>
-#include <boost/uuid/detail/sha1.hpp>
-
-namespace boost {
-namespace uuids {
-
-//! \brief SHA1 hashing is the default method defined in RFC 4122 to be
-//!        used when backwards compatibility is not necessary.
-typedef basic_name_generator<detail::sha1> name_generator_sha1;
-
-} // uuids
-} // boost
-
-#endif // BOOST_UUID_NAME_GENERATOR_SHA1_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:f009246b6f43a40c5b6475b969e111f55e1a3e9bc4904d58c79f98b364d26a58
+size 781

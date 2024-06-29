@@ -1,24 +1,3 @@
-/*
- * Copyright 2017 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0.
- * See http://www.boost.org/LICENSE_1_0.txt
- *
- * This header is deprecated, use boost/winapi/process.hpp instead.
- */
-
-#ifndef BOOST_DETAIL_WINAPI_PROCESS_HPP_
-#define BOOST_DETAIL_WINAPI_PROCESS_HPP_
-
-#include <boost/config/header_deprecated.hpp>
-
-BOOST_HEADER_DEPRECATED("<boost/winapi/process.hpp>")
-
-#include <boost/winapi/process.hpp>
-#include <boost/detail/winapi/detail/deprecated_namespace.hpp>
-
-#ifdef BOOST_HAS_PRAGMA_ONCE
-#pragma once
-#endif
-
-#endif // BOOST_DETAIL_WINAPI_PROCESS_HPP_
+version https://git-lfs.github.com/spec/v1
+oid sha256:d72d1af5e1b2b91f0e608c2ebde9c852f80ad2a6d11180a40ad5fbbc5bc45029
+size 600

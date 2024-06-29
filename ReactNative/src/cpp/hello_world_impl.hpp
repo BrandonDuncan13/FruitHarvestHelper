@@ -1,16 +1,3 @@
-#pragma once
-
-#include "hello_world.hpp"
-
-namespace helloworld
-{
-    class HelloWorldImpl : public HelloWorld
-    {
-    public:
-        // Constructor
-        HelloWorldImpl();
-
-        // Our method that returns a string
-        std::string get_hello_world();
-    };
-}
+version https://git-lfs.github.com/spec/v1
+oid sha256:957975f975c52fecdc3c1c3c2e4120097ddfd2035ba8f961307d3e2a352852bd
+size 270

@@ -1,24 +1,3 @@
-/*
- * Copyright 2017 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0.
- * See http://www.boost.org/LICENSE_1_0.txt
- *
- * This header is deprecated, use boost/winapi/waitable_timer.hpp instead.
- */
-
-#ifndef BOOST_DETAIL_WINAPI_WAITABLE_TIMER_HPP
-#define BOOST_DETAIL_WINAPI_WAITABLE_TIMER_HPP
-
-#include <boost/config/header_deprecated.hpp>
-
-BOOST_HEADER_DEPRECATED("<boost/winapi/waitable_timer.hpp>")
-
-#include <boost/winapi/waitable_timer.hpp>
-#include <boost/detail/winapi/detail/deprecated_namespace.hpp>
-
-#ifdef BOOST_HAS_PRAGMA_ONCE
-#pragma once
-#endif
-
-#endif // BOOST_DETAIL_WINAPI_WAITABLE_TIMER_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:9744f01b7e68e8fa1f4b706d275be6d06ee8d233f1c48ea308bc1df559b9a10a
+size 639

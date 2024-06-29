@@ -1,26 +1,3 @@
-#ifndef BOOST_DETAIL_LIGHTWEIGHT_THREAD_HPP_INCLUDED
-#define BOOST_DETAIL_LIGHTWEIGHT_THREAD_HPP_INCLUDED
-
-// MS compatible compilers support #pragma once
-
-#if defined(_MSC_VER) && (_MSC_VER >= 1020)
-# pragma once
-#endif
-
-//  boost/detail/lightweight_thread.hpp
-//
-//  Copyright (c) 2002 Peter Dimov and Multi Media Ltd.
-//  Copyright (c) 2008, 2018 Peter Dimov
-//
-//  Distributed under the Boost Software License, Version 1.0.
-//  See accompanying file LICENSE_1_0.txt or copy at
-//  http://www.boost.org/LICENSE_1_0.txt
-//
-//
-//  typedef /*...*/ lw_thread_t; // as pthread_t
-//  template<class F> int lw_thread_create( lw_thread_t & th, F f );
-//  void lw_thread_join( lw_thread_t th );
-
-#include <boost/smart_ptr/detail/lightweight_thread.hpp>
-
-#endif // #ifndef BOOST_DETAIL_LIGHTWEIGHT_THREAD_HPP_INCLUDED
+version https://git-lfs.github.com/spec/v1
+oid sha256:8c7ae2c436cace2f45c804f7d5a2630b1e2b39010ee503b4a94232e6cc40dac1
+size 811

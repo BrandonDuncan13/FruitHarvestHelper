@@ -1,20 +1,3 @@
-// Copyright 2019 Hans Dembinski
-//
-// Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt
-// or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_HISTOGRAM_ALGORITHM_HPP
-#define BOOST_HISTOGRAM_ALGORITHM_HPP
-
-/**
-  \file boost/histogram/algorithm.hpp
-  Includes all algorithm headers of the Boost.Histogram library.
-*/
-
-#include <boost/histogram/algorithm/empty.hpp>
-#include <boost/histogram/algorithm/project.hpp>
-#include <boost/histogram/algorithm/reduce.hpp>
-#include <boost/histogram/algorithm/sum.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:cb20f5671f3bfd1bd7e0c49d9f85323d253f898e95803aba0b360b556199f3c4
+size 578

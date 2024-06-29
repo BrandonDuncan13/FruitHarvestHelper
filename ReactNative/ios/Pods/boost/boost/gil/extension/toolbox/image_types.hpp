@@ -1,13 +1,3 @@
-//
-// Copyright 2012 Christian Henning
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-#ifndef BOOST_GIL_EXTENSION_TOOLBOX_METAFUNCTIONS_IMAGE_TYPES_HPP
-#define BOOST_GIL_EXTENSION_TOOLBOX_METAFUNCTIONS_IMAGE_TYPES_HPP
-
-#include <boost/gil/extension/toolbox/image_types/indexed_image.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:3046877fd3f26010571adc22ef8ff27ec04a368bc6d9742140279d9d96662333
+size 408

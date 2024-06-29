@@ -1,17 +1,3 @@
-/*
-Copyright 2019 Glen Joseph Fernandes
-(glenjofe@gmail.com)
-
-Distributed under the Boost Software License, Version 1.0.
-(http://www.boost.org/LICENSE_1_0.txt)
-*/
-#ifndef BOOST_CORE_USE_DEFAULT_HPP
-#define BOOST_CORE_USE_DEFAULT_HPP
-
-namespace boost {
-
-struct use_default { };
-
-} /* boost */
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:f5ff4970dc633a30dccc0251c83beb945c4a3d5c87a13cb71018f7baca6ee2d0
+size 300

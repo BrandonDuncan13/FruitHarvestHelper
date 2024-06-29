@@ -1,23 +1,3 @@
-///////////////////////////////////////////////////////////////
-//  Copyright 2012 John Maddock. Distributed under the Boost
-//  Software License, Version 1.0. (See accompanying file
-//  LICENSE_1_0.txt or copy at https://www.boost.org/LICENSE_1_0.txt
-
-#ifndef BOOST_MP_DIGITS_HPP
-#define BOOST_MP_DIGITS_HPP
-
-namespace boost { namespace multiprecision { namespace detail {
-
-inline unsigned long digits10_2_2(unsigned long d10)
-{
-   return (d10 * 1000uL) / 301uL + ((d10 * 1000uL) % 301 ? 2u : 1u);
-}
-
-inline unsigned long digits2_2_10(unsigned long d2)
-{
-   return (d2 * 301uL) / 1000uL;
-}
-
-}}} // namespace boost::multiprecision::detail
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:64c9dc2f09e2c39d5b0bfd4129e4ed9de73461d54e42fec712e89d9d86e55d79
+size 647

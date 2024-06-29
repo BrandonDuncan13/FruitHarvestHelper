@@ -1,12 +1,3 @@
-//  disable_warnings_pop.hpp  ----------------------------------------------------------//
-
-//  Copyright Beman Dawes 2011
-
-//  Distributed under the Boost Software License, Version 1.0.
-//  See http://www.boost.org/LICENSE_1_0.txt
-
-//--------------------------------------------------------------------------------------//
-
-#ifdef  _MSC_VER
-# pragma warning(pop)
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:571d93e8629334cd15551f265e20413518a03523c43ee4d19e008aca7a056a40
+size 371

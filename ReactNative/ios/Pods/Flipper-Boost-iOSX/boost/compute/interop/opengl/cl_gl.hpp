@@ -1,22 +1,3 @@
-//---------------------------------------------------------------------------//
-// Copyright (c) 2013-2014 Kyle Lutz <kyle.r.lutz@gmail.com>
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-// See http://boostorg.github.com/compute for more information.
-//---------------------------------------------------------------------------//
-
-#ifndef BOOST_COMPUTE_INTEROP_OPENGL_CL_GL_HPP
-#define BOOST_COMPUTE_INTEROP_OPENGL_CL_GL_HPP
-
-#include <boost/compute/detail/cl_versions.hpp>
-
-#if defined(__APPLE__)
-#include <OpenCL/cl_gl.h>
-#else
-#include <CL/cl_gl.h>
-#endif
-
-#endif // BOOST_COMPUTE_INTEROP_OPENGL_CL_GL_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:c295286da946f22c9c5bd15615d35bb4875c2bb19f6caef622916c15c0cdbb64
+size 723

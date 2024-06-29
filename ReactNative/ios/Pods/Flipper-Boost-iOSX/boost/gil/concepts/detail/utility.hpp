@@ -1,19 +1,3 @@
-//
-// Copyright 2005-2007 Adobe Systems Incorporated
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-#ifndef BOOST_GIL_CONCEPTS_DETAIL_UTILITY_HPP
-#define BOOST_GIL_CONCEPTS_DETAIL_UTILITY_HPP
-
-namespace boost { namespace gil { namespace detail {
-
-// TODO: Remove, replace with ignore_unised?
-template <typename T>
-void initialize_it(T&) {}
-
-}}} // namespace boost::gil::detail
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:773e19242f14d0fc73f5b64c6a90498699a6dbf297b8fc68a41b27fcb7e52a9e
+size 497

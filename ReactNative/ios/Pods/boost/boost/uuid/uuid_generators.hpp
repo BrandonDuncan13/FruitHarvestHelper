@@ -1,19 +1,3 @@
-// Boost uuid_generators.hpp header file  ----------------------------------------------//
-
-// Copyright 2006 Andy Tompkins.
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-// https://www.boost.org/LICENSE_1_0.txt)
-
-// Revision History
-//  06 Feb 2006 - Initial Revision
-
-#ifndef BOOST_UUID_GENERATORS_HPP
-#define BOOST_UUID_GENERATORS_HPP
-
-#include <boost/uuid/nil_generator.hpp>
-#include <boost/uuid/string_generator.hpp>
-#include <boost/uuid/name_generator.hpp>
-#include <boost/uuid/random_generator.hpp>
-
-#endif //BOOST_UUID_GENERATORS_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:a41cd14af49bd7f40ea1afebe1e774b6635540344c374ecf23084e08553d60ee
+size 611

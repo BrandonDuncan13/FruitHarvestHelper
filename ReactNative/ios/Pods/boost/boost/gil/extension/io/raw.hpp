@@ -1,13 +1,3 @@
-//
-// Copyright 2013 Christian Henning
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-#ifndef BOOST_GIL_EXTENSION_IO_RAW_HPP
-#define BOOST_GIL_EXTENSION_IO_RAW_HPP
-
-#include <boost/gil/extension/io/raw/read.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:3c1bb3d682cc23d0babe8cb54ec9a2d5cd01a92956ebd134b044d7bce8037b7c
+size 332

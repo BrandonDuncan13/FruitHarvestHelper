@@ -1,20 +1,3 @@
-//Copyright (c) 2006-2009 Emil Dotchevski and Reverge Studios, Inc.
-
-//Distributed under the Boost Software License, Version 1.0. (See accompanying
-//file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_EXCEPTION_F79E6EE26C1211DEB26E929155D89593
-#define BOOST_EXCEPTION_F79E6EE26C1211DEB26E929155D89593
-
-#include <stdio.h>
-
-namespace
-boost
-    {
-    template <class> class weak_ptr;
-    template <class Tag,class T> class error_info;
-
-    typedef error_info<struct errinfo_file_handle_,weak_ptr<FILE> > errinfo_file_handle;
-    }
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:f3a10547e1be9c674d4bcdb7a761d69fdbb8470a0b37ac048cf74e5772f21df7
+size 570

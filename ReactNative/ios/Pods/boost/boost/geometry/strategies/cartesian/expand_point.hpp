@@ -1,21 +1,3 @@
-// Boost.Geometry
-
-// Copyright (c) 2020, Oracle and/or its affiliates.
-
-// Contributed and/or modified by Adam Wulkiewicz, on behalf of Oracle
-
-// Licensed under the Boost Software License version 1.0.
-// http://www.boost.org/users/license.html
-
-#ifndef BOOST_GEOMETRY_STRATEGIES_CARTESIAN_EXPAND_POINT_HPP
-#define BOOST_GEOMETRY_STRATEGIES_CARTESIAN_EXPAND_POINT_HPP
-
-
-#include <boost/config/pragma_message.hpp>
-BOOST_PRAGMA_MESSAGE("This include file is deprecated and will be removed in the future.")
-
-
-#include <boost/geometry/strategy/cartesian/expand_point.hpp>
-
-
-#endif // BOOST_GEOMETRY_STRATEGIES_CARTESIAN_EXPAND_POINT_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:1a91da8f02d8a3a66fe3da6e3e520675e3ebc4e7ed6a4a7b71b6521485cf6990
+size 634

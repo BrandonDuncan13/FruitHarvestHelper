@@ -1,21 +1,3 @@
-///////////////////////////////////////////////////////////////////////////////
-//  Copyright 2020 John Maddock. Distributed under the Boost
-//  Software License, Version 1.0. (See accompanying file
-//  LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_MP_TRANS_RED_TYPE_HPP
-#define BOOST_MP_TRANS_RED_TYPE_HPP
-
-namespace boost { namespace multiprecision { namespace detail {
-
-template <class T>
-struct transcendental_reduction_type
-{
-   using type = T;
-};
-
-}
-}
-} // namespace boost::multiprecision::detail
-
-#endif // BOOST_MP_TRANS_RED_TYPE_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:400016dccc911d0505f7fc1cd2fb044f4593643935042c59384fdc5f4d7d25d3
+size 576

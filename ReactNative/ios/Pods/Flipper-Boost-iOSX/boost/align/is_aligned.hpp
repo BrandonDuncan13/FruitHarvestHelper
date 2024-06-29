@@ -1,28 +1,3 @@
-/*
-Copyright 2014 Glen Joseph Fernandes
-(glenjofe@gmail.com)
-
-Distributed under the Boost Software License, Version 1.0.
-(http://www.boost.org/LICENSE_1_0.txt)
-
-*/
-#ifndef BOOST_ALIGN_IS_ALIGNED_HPP
-#define BOOST_ALIGN_IS_ALIGNED_HPP
-
-#include <boost/align/detail/is_aligned.hpp>
-#include <boost/align/detail/not_pointer.hpp>
-
-namespace boost {
-namespace alignment {
-
-template<class T>
-BOOST_CONSTEXPR inline typename detail::not_pointer<T, bool>::type
-is_aligned(T value, std::size_t alignment) BOOST_NOEXCEPT
-{
-    return (value & (T(alignment) - 1)) == 0;
-}
-
-} /* alignment */
-} /* boost */
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:833d61b202b818fb5a95de622c20f462d88179c4c1583deccb86c8f65a878117
+size 602

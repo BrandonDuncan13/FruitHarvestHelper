@@ -1,29 +1,3 @@
-//
-// Copyright 2007-2008 Christian Henning, Andreas Pokorny, Lubomir Bourdev
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-#ifndef BOOST_GIL_IO_ERROR_HPP
-#define BOOST_GIL_IO_ERROR_HPP
-
-#include <ios>
-
-namespace boost { namespace gil {
-
-inline void io_error(const char* descr)
-{
-   throw std::ios_base::failure(descr);
-}
-
-inline void io_error_if(bool expr, const char* descr)
-{
-   if (expr)
-      io_error(descr);
-}
-
-} // namespace gil
-} // namespace boost
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf8c6c94a5610f94f1267d5f6071f0b1df6afd2e51c3f5cdbf63153ae332b6a7
+size 579

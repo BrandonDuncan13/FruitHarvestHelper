@@ -1,17 +1,3 @@
-//
-// Copyright 2012 Christian Henning
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-#ifndef BOOST_GIL_EXTENSION_TOOLBOX_TOOLBOX_HPP
-#define BOOST_GIL_EXTENSION_TOOLBOX_TOOLBOX_HPP
-
-#include <boost/gil/extension/toolbox/color_converters.hpp>
-#include <boost/gil/extension/toolbox/color_spaces.hpp>
-#include <boost/gil/extension/toolbox/dynamic_images.hpp>
-#include <boost/gil/extension/toolbox/image_types.hpp>
-#include <boost/gil/extension/toolbox/metafunctions.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:344536d19d2e20b887879bcd43dab4baad2ad3930d7eb0e1d25e7a3f9cb86b7e
+size 589

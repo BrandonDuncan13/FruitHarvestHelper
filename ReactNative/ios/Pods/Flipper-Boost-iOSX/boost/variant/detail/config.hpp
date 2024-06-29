@@ -1,19 +1,3 @@
-//-----------------------------------------------------------------------------
-// boost variant/detail/config.hpp header file
-// See http://www.boost.org for updates, documentation, and revision history.
-//-----------------------------------------------------------------------------
-//
-// Copyright (c) 2003 Eric Friedman
-// Copyright (c) 2016-2021 Antony Polukhin
-//
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_VARIANT_DETAIL_CONFIG_HPP
-#define BOOST_VARIANT_DETAIL_CONFIG_HPP
-
-#include <boost/config.hpp>
-#include <boost/detail/workaround.hpp>
-
-#endif // BOOST_VARIANT_DETAIL_CONFIG_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:b4ce3c0072cee7420fdbbb6785e1cc65fc82ea832b80e6271c769481fac8b125
+size 718

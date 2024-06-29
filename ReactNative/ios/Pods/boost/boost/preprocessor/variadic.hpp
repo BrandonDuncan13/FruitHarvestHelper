@@ -1,24 +1,3 @@
-# /* **************************************************************************
-#  *                                                                          *
-#  *     (C) Copyright Edward Diener 2011.                                    *
-#  *     (C) Copyright Paul Mensonides 2011.                                  *
-#  *     Distributed under the Boost Software License, Version 1.0. (See      *
-#  *     accompanying file LICENSE_1_0.txt or copy at                         *
-#  *     http://www.boost.org/LICENSE_1_0.txt)                                *
-#  *                                                                          *
-#  ************************************************************************** */
-#
-# /* See http://www.boost.org for most recent version. */
-#
-# ifndef BOOST_PREPROCESSOR_VARIADIC_HPP
-# define BOOST_PREPROCESSOR_VARIADIC_HPP
-#
-# include <boost/preprocessor/variadic/elem.hpp>
-# include <boost/preprocessor/variadic/has_opt.hpp>
-# include <boost/preprocessor/variadic/size.hpp>
-# include <boost/preprocessor/variadic/to_array.hpp>
-# include <boost/preprocessor/variadic/to_list.hpp>
-# include <boost/preprocessor/variadic/to_seq.hpp>
-# include <boost/preprocessor/variadic/to_tuple.hpp>
-#
-# endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:776580ceaf630edaa21c3dcb5de80ebae6749799324a8c611cf00b4044ed2e47
+size 1236

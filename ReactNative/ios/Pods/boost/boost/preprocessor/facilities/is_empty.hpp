@@ -1,19 +1,3 @@
-# /* **************************************************************************
-#  *                                                                          *
-#  *     (C) Copyright Paul Mensonides 2003.
-#  *     (C) Copyright Edward Diener 2014.
-#  *     Distributed under the Boost Software License, Version 1.0. (See
-#  *     accompanying file LICENSE_1_0.txt or copy at
-#  *     http://www.boost.org/LICENSE_1_0.txt)
-#  *                                                                          *
-#  ************************************************************************** */
-#
-# /* See http://www.boost.org for most recent version. */
-#
-# ifndef BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_HPP
-# define BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_HPP
-#
-# include <boost/preprocessor/config/config.hpp>
-# include <boost/preprocessor/facilities/is_empty_variadic.hpp>
-#
-# endif /* BOOST_PREPROCESSOR_FACILITIES_IS_EMPTY_HPP */
+version https://git-lfs.github.com/spec/v1
+oid sha256:4c3757fcba1bb854d9f3b303b551e92220442e01f52d850e20014dc7f3d81035
+size 923

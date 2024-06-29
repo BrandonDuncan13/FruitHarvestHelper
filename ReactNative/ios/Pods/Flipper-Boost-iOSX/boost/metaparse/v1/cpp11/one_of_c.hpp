@@ -1,35 +1,3 @@
-#ifndef BOOST_METAPARSE_V1_CPP11_ONE_OF_C_HPP
-#define BOOST_METAPARSE_V1_CPP11_ONE_OF_C_HPP
-
-// Copyright Abel Sinkovics (abel@sinkovics.hu)  2017.
-// Distributed under the Boost Software License, Version 1.0.
-//    (See accompanying file LICENSE_1_0.txt or copy at
-//          http://www.boost.org/LICENSE_1_0.txt)
-
-#include <boost/metaparse/v1/one_char.hpp>
-#include <boost/metaparse/v1/accept_when.hpp>
-#include <boost/metaparse/v1/error/none_of_the_expected_cases_found.hpp>
-#include <boost/metaparse/v1/cpp11/impl/any_of_c.hpp>
-
-#include <boost/mpl/eval_if.hpp>
-
-namespace boost
-{
-  namespace metaparse
-  {
-    namespace v1
-    {
-      template <char... Cs>
-      struct one_of_c :
-        accept_when<
-          one_char,
-          impl::any_of_c<Cs...>,
-          error::none_of_the_expected_cases_found
-        >
-      {};
-    }
-  }
-}
-
-#endif
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:25ce5027464f4a0dcef04e4e76509412a5ba586f37d0248f9f35fd6b2d453e69
+size 852

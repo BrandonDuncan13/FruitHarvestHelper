@@ -1,21 +1,3 @@
-/*
- * Copyright (c) 2014 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0. (See
- * accompanying file LICENSE_1_0.txt or copy at
- * http://www.boost.org/LICENSE_1_0.txt)
- */
-
-#ifndef BOOST_DETAIL_SCOPED_ENUM_EMULATION_HPP
-#define BOOST_DETAIL_SCOPED_ENUM_EMULATION_HPP
-
-// The header file at this path is deprecated;
-// use boost/core/scoped_enum.hpp instead.
-
-#include <boost/config/header_deprecated.hpp>
-
-BOOST_HEADER_DEPRECATED("<boost/core/scoped_enum.hpp>")
-
-#include <boost/core/scoped_enum.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:549f591a9b76db0d81c49b19fd3f3fb8ca490ef27fb6b6965b5e55540f0f4bf6
+size 541

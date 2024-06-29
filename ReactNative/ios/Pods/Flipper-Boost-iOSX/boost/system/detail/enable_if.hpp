@@ -1,32 +1,3 @@
-#ifndef BOOST_SYSTEM_DETAIL_ENABLE_IF_HPP_INCLUDED
-#define BOOST_SYSTEM_DETAIL_ENABLE_IF_HPP_INCLUDED
-
-// Copyright 2020 Peter Dimov
-// Distributed under the Boost Software License, Version 1.0
-// http://www.boost.org/LICENSE_1_0.txt
-
-namespace boost
-{
-
-namespace system
-{
-
-namespace detail
-{
-
-template<bool C, class T = void> struct enable_if
-{
-    typedef T type;
-};
-
-template<class T> struct enable_if<false, T>
-{
-};
-
-} // namespace detail
-
-} // namespace system
-
-} // namespace boost
-
-#endif // #ifndef BOOST_SYSTEM_DETAIL_ENABLE_IF_HPP_INCLUDED
+version https://git-lfs.github.com/spec/v1
+oid sha256:6a6f1173a7b4dc04a3fa2fd2d5913fc83487d43997964886f0975d0e248d3e15
+size 550

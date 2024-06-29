@@ -1,19 +1,3 @@
-# /* **************************************************************************
-#  *                                                                          *
-#  *     (C) Copyright Edward Diener 2020.                                    *
-#  *     Distributed under the Boost Software License, Version 1.0. (See      *
-#  *     accompanying file LICENSE_1_0.txt or copy at                         *
-#  *     http://www.boost.org/LICENSE_1_0.txt)                                *
-#  *                                                                          *
-#  ************************************************************************** */
-#
-# /* See http://www.boost.org for most recent version. */
-#
-# ifndef BOOST_PREPROCESSOR_ARITHMETIC_DETAIL_MAXIMUM_NUMBER_HPP
-# define BOOST_PREPROCESSOR_ARITHMETIC_DETAIL_MAXIMUM_NUMBER_HPP
-#
-# include <boost/preprocessor/config/limits.hpp>
-#
-# define BOOST_PP_DETAIL_MAXIMUM_NUMBER BOOST_PP_LIMIT_MAG
-#
-# endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:1bb48eecf9a6a5f1255e676a33251591dcb643e289cd99213d80d2766064901b
+size 955

@@ -1,25 +1,3 @@
-/*
-Copyright 2017-2018 Glen Joseph Fernandes
-(glenjofe@gmail.com)
-
-Distributed under the Boost Software License,
-Version 1.0. (See accompanying file LICENSE_1_0.txt
-or copy at http://www.boost.org/LICENSE_1_0.txt)
-*/
-
-#ifndef BOOST_TT_DETECTED_OR_HPP_INCLUDED
-#define BOOST_TT_DETECTED_OR_HPP_INCLUDED
-
-#include <boost/type_traits/detail/detector.hpp>
-
-namespace boost {
-
-template<class Default, template<class...> class Op, class... Args>
-using detected_or = detail::detector<Default, void, Op, Args...>;
-
-template<class Default, template<class...> class Op, class... Args>
-using detected_or_t = typename detected_or<Default, Op, Args...>::type;
-
-} /* boost */
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:d432cb13b2b59769a768f671dfe5f8c128b3f3c4dc64e23ddae3d22261be70fd
+size 670

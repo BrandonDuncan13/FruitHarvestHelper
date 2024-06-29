@@ -1,34 +1,3 @@
-/*
- * Copyright 2010 Vicente J. Botet Escriba
- * Copyright 2015 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0.
- * See http://www.boost.org/LICENSE_1_0.txt
- */
-
-#ifndef BOOST_WINAPI_GET_CURRENT_THREAD_ID_HPP_INCLUDED_
-#define BOOST_WINAPI_GET_CURRENT_THREAD_ID_HPP_INCLUDED_
-
-#include <boost/winapi/basic_types.hpp>
-#include <boost/winapi/detail/header.hpp>
-
-#ifdef BOOST_HAS_PRAGMA_ONCE
-#pragma once
-#endif
-
-// Windows CE define GetCurrentThreadId as an inline function in kfuncs.h
-#if !defined( BOOST_USE_WINDOWS_H ) && !defined( UNDER_CE )
-extern "C" {
-BOOST_WINAPI_IMPORT boost::winapi::DWORD_ BOOST_WINAPI_WINAPI_CC GetCurrentThreadId(BOOST_WINAPI_DETAIL_VOID);
-}
-#endif
-
-namespace boost {
-namespace winapi {
-using ::GetCurrentThreadId;
-}
-}
-
-#include <boost/winapi/detail/footer.hpp>
-
-#endif // BOOST_WINAPI_GET_CURRENT_THREAD_ID_HPP_INCLUDED_
+version https://git-lfs.github.com/spec/v1
+oid sha256:3fa10e11258598eeb5476137db644ab0407b2979e59bdc40e729f135be8b8295
+size 882

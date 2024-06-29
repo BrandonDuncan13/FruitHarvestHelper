@@ -1,27 +1,3 @@
-/*!
-@file
-Defines `boost::hana::detail::variadic::reverse_apply`.
-
-@copyright Louis Dionne 2013-2017
-Distributed under the Boost Software License, Version 1.0.
-(See accompanying file LICENSE.md or copy at http://boost.org/LICENSE_1_0.txt)
- */
-
-#ifndef BOOST_HANA_DETAIL_VARIADIC_REVERSE_APPLY_HPP
-#define BOOST_HANA_DETAIL_VARIADIC_REVERSE_APPLY_HPP
-
-#include <boost/hana/config.hpp>
-#include <boost/hana/detail/variadic/reverse_apply/unrolled.hpp>
-
-
-BOOST_HANA_NAMESPACE_BEGIN namespace detail { namespace variadic {
-    BOOST_HANA_CONSTEXPR_LAMBDA auto reverse_apply =
-        [](auto&& f, auto&& ...x) -> decltype(auto) {
-            return detail::variadic::reverse_apply_unrolled(
-                static_cast<decltype(f)>(f),
-                static_cast<decltype(x)>(x)...
-            );
-        };
-}} BOOST_HANA_NAMESPACE_END
-
-#endif // !BOOST_HANA_DETAIL_VARIADIC_REVERSE_APPLY_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:3f5cf7a385095ebde061da702b1af32e7a396e5f3b5eafefd8516165ac9c213e
+size 889

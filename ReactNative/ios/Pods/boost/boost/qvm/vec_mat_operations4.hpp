@@ -1,6 +1,3 @@
-/// Copyright (c) 2008-2021 Emil Dotchevski and Reverge Studios, Inc.
-
-/// Distributed under the Boost Software License, Version 1.0. (See accompanying
-/// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#include <boost/qvm/gen/vec_mat_operations4.hpp>
+version https://git-lfs.github.com/spec/v1
+oid sha256:a2355c7e44270718350950752b753daa7ab5b8a47e692ec7e0203324160d0524
+size 276

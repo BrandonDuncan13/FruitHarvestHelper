@@ -1,25 +1,3 @@
-//
-//  Copyright (c) 2020 Alexander Grund
-//
-//  Distributed under the Boost Software License, Version 1.0. (See
-//  accompanying file LICENSE or copy at
-//  http://www.boost.org/LICENSE_1_0.txt)
-//
-#ifndef BOOST_NOWIDE_DETAIL_CONVERT_HPP_INCLUDED
-#define BOOST_NOWIDE_DETAIL_CONVERT_HPP_INCLUDED
-
-#include <boost/nowide/utf/convert.hpp>
-
-// Legacy compatibility header only. Include <boost/nowide/utf/convert.hpp> instead
-
-namespace boost {
-namespace nowide {
-    namespace detail {
-        using boost::nowide::utf::convert_buffer;
-        using boost::nowide::utf::convert_string;
-        using boost::nowide::utf::strlen;
-    } // namespace detail
-} // namespace nowide
-} // namespace boost
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:fbaeef2d79852f74c6ef947ef44ba712bad4e420ed2b89ad513cbe26c5939dec
+size 703

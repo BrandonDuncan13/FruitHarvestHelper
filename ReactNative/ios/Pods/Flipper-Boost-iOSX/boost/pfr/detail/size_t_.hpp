@@ -1,18 +1,3 @@
-// Copyright (c) 2016-2021 Antony Polukhin
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_PFR_DETAIL_SIZE_T_HPP
-#define BOOST_PFR_DETAIL_SIZE_T_HPP
-#pragma once
-
-namespace boost { namespace pfr { namespace detail {
-
-///////////////////// General utility stuff
-template <std::size_t Index>
-using size_t_ = std::integral_constant<std::size_t, Index >;
-
-}}} // namespace boost::pfr::detail
-
-#endif // BOOST_PFR_DETAIL_SIZE_T_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:c328ab1f2a7940cc70e4b2e5b1f3a5bc638f4905da79db5d009f1df6343da73b
+size 550

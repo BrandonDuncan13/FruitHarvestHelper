@@ -1,11 +1,3 @@
-//Copyright (c) 2006-2009 Emil Dotchevski and Reverge Studios, Inc.
-
-//Distributed under the Boost Software License, Version 1.0. (See accompanying
-//file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_EXCEPTION_A0F7404AF7CF11E6908227DD14915323
-#define BOOST_EXCEPTION_A0F7404AF7CF11E6908227DD14915323
-
-#include <boost/exception/exception.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:8dbc5575e9b72b31f62239e17bbd8291649585edb8da50028ce35a06de17693d
+size 385

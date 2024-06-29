@@ -1,27 +1,3 @@
-#ifndef BOOST_NUMERIC_CONCEPT_INTEGER_HPP
-#define BOOST_NUMERIC_CONCEPT_INTEGER_HPP
-
-//  Copyright (c) 2012 Robert Ramey
-//
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-
-#include "numeric.hpp"
-
-namespace boost {
-namespace safe_numerics {
-
-template <class T>
-struct Integer : public Numeric<T> {
-    constexpr static bool value =
-        std::numeric_limits<T>::is_integer && Numeric<T>::value ;
-    constexpr operator bool (){
-        return value;
-    }
-};
-
-} // safe_numerics
-} // boost
-
-#endif // BOOST_NUMERIC_CONCEPT_INTEGER_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:3e9294941d2d533f516d0bd13c838d575c750160dafbb68defd3b9bf31095785
+size 645

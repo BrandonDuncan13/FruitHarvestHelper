@@ -1,24 +1,3 @@
-/*
- * Copyright 2017 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0.
- * See http://www.boost.org/LICENSE_1_0.txt
- *
- * This header is deprecated, use boost/winapi/semaphore.hpp instead.
- */
-
-#ifndef BOOST_DETAIL_WINAPI_SEMAPHORE_HPP_
-#define BOOST_DETAIL_WINAPI_SEMAPHORE_HPP_
-
-#include <boost/config/header_deprecated.hpp>
-
-BOOST_HEADER_DEPRECATED("<boost/winapi/semaphore.hpp>")
-
-#include <boost/winapi/semaphore.hpp>
-#include <boost/detail/winapi/detail/deprecated_namespace.hpp>
-
-#ifdef BOOST_HAS_PRAGMA_ONCE
-#pragma once
-#endif
-
-#endif // BOOST_DETAIL_WINAPI_SEMAPHORE_HPP_
+version https://git-lfs.github.com/spec/v1
+oid sha256:39e728e5b3bd3e643890331c78dd27c1ca122d569e2c9ae7f889b9675d563099
+size 612

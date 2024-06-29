@@ -1,17 +1,3 @@
-// Copyright David Abrahams, Daniel Wallin 2003.
-// Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_PARAMETER_AUX_USE_DEFAULT_HPP
-#define BOOST_PARAMETER_AUX_USE_DEFAULT_HPP
-
-namespace boost { namespace parameter { namespace aux {
-
-    struct use_default
-    {
-    };
-}}} // namespace boost::parameter::aux
-
-#endif  // include guard
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:07295b1f36c146549efd6db6f937ea1eba7e064847c1b9a235d7494c8ebdb940
+size 454

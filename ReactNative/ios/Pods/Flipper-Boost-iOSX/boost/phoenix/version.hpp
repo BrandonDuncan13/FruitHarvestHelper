@@ -1,22 +1,3 @@
-/*=============================================================================
-    Copyright (c) 2005-2008 Hartmut Kaiser
-    Copyright (c) 2005-2010 Joel de Guzman
-    Copyright (c) 2014-2015 John Fletcher
-
-    Distributed under the Boost Software License, Version 1.0. (See accompanying
-    file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-==============================================================================*/
-#ifndef BOOST_PHOENIX_VERSION_HPP
-#define BOOST_PHOENIX_VERSION_HPP
-
-///////////////////////////////////////////////////////////////////////////////
-//
-//  This is the version of the library
-//
-///////////////////////////////////////////////////////////////////////////////
-#define BOOST_PHOENIX_VERSION   0x3200    // 3.2.0
-
-#include <boost/predef/version_number.h>
-#define BOOST_PHOENIX_VERSION_NUMBER = BOOST_VERSION_NUMBER(3,2,0)
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:f2402f93fb346015d17a9e00836f5e4d60a0f8a398b0bad5d2032d19a74905ae
+size 887

@@ -1,12 +1,3 @@
-// Copyright Daniel Wallin, David Abrahams 2005.
-// Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_PARAMETER_AUX_PARAMETER_REQUIREMENTS_HPP
-#define BOOST_PARAMETER_AUX_PARAMETER_REQUIREMENTS_HPP
-
-#include <boost/parameter/aux_/pack/parameter_requirements.hpp>
-
-#endif  // include guard
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:82293d7bfa4ccf2a23309ae79b114856ecf7f47d45606cda1123ead9b08c51e8
+size 408

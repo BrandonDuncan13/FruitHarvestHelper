@@ -1,22 +1,3 @@
-// (C) Copyright 2013 Vicente J. Botet Escriba
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-
-
-#ifndef BOOST_THREAD_INTERRUPTION_HPP
-#define BOOST_THREAD_INTERRUPTION_HPP
-
-#include <boost/thread/detail/config.hpp>
-
-namespace boost
-{
-    namespace this_thread
-    {
-        void BOOST_THREAD_DECL interruption_point();
-        bool BOOST_THREAD_DECL interruption_enabled() BOOST_NOEXCEPT;
-        bool BOOST_THREAD_DECL interruption_requested() BOOST_NOEXCEPT;
-    }
-}
-
-#endif // header
+version https://git-lfs.github.com/spec/v1
+oid sha256:cc86bee6696566d69ed05b9a933e731ba2f17d454916644b9f1b95fbcded792a
+size 596

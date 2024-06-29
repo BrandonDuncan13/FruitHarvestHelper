@@ -1,19 +1,3 @@
-//
-// Copyright 2007-2008 Christian Henning
-//
-// Distributed under the Boost Software License, Version 1.0
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-//
-#ifndef BOOST_GIL_EXTENSION_IO_TIFF_WRITE_HPP
-#define BOOST_GIL_EXTENSION_IO_TIFF_WRITE_HPP
-
-#include <boost/gil/extension/io/tiff/tags.hpp>
-#include <boost/gil/extension/io/tiff/detail/supported_types.hpp>
-#include <boost/gil/extension/io/tiff/detail/write.hpp>
-
-#include <boost/gil/io/make_dynamic_image_writer.hpp>
-#include <boost/gil/io/make_writer.hpp>
-#include <boost/gil/io/write_view.hpp>
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:6a408191125b4d734af2b1110ce7fa77e2318565e240ed9bcefd0f7bc9f5c885
+size 608

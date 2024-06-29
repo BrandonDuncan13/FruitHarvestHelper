@@ -46,6 +46,7 @@
 		26F72478286B972000D63D74 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BF52A439285CF7C7008EE401 /* Zocial.ttf */; };
 		3218C4A5787B4AD5B8121D8E /* libPods-BlossomsCam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F31A7AC0A8CC94A5E4C307 /* libPods-BlossomsCam.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		BF98A06B2C2FB19600BF1928 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF98A06A2C2FB19600BF1928 /* Images.xcassets */; };
 		BFF9176A28C1A53400DF4B64 /* Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BFF9176928C1A53400DF4B64 /* Photos.framework */; };
 		BFF9176F28C1AC3900DF4B64 /* AssetsLibrary.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D2474E287F9FF8002F8F2F /* AssetsLibrary.framework */; };
 /* End PBXBuildFile section */
@@ -119,6 +120,7 @@
 		BF52A442285CF7C7008EE401 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		BF52A443285CF7C7008EE401 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		BF52A444285CF7C7008EE401 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		BF98A06A2C2FB19600BF1928 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		BFF9176928C1A53400DF4B64 /* Photos.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Photos.framework; path = System/Library/Frameworks/Photos.framework; sourceTree = SDKROOT; };
 		E99A3D295D2B5231A58311BD /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
@@ -188,6 +190,7 @@
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
+				BF98A06A2C2FB19600BF1928 /* Images.xcassets */,
 			);
 			name = BlossomsCam;
 			sourceTree = "<group>";
@@ -435,6 +438,7 @@
 				26F7246F286B972000D63D74 /* FontAwesome5_Regular.ttf in Resources */,
 				26F72470286B972000D63D74 /* FontAwesome5_Solid.ttf in Resources */,
 				26F72471286B972000D63D74 /* Fontisto.ttf in Resources */,
+				BF98A06B2C2FB19600BF1928 /* Images.xcassets in Resources */,
 				26F72472286B972000D63D74 /* Foundation.ttf in Resources */,
 				26F72473286B972000D63D74 /* Ionicons.ttf in Resources */,
 				26F72474286B972000D63D74 /* MaterialCommunityIcons.ttf in Resources */,
@@ -705,7 +709,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZM843HV2U8;
+				DEVELOPMENT_TEAM = GJ44FX298G;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -724,10 +728,11 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnu.fruitharvesthelper;
 				PRODUCT_NAME = BlossomsCam;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
@@ -741,7 +746,7 @@
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = ZM843HV2U8;
+				DEVELOPMENT_TEAM = GJ44FX298G;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
@@ -759,9 +764,10 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.nnu.fruitharvesthelper;
 				PRODUCT_NAME = BlossomsCam;
 				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;

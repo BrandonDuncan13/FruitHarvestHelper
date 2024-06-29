@@ -1,24 +1,3 @@
-/*
- * Copyright 2017 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0.
- * See http://www.boost.org/LICENSE_1_0.txt
- *
- * This header is deprecated, use boost/winapi/dbghelp.hpp instead.
- */
-
-#ifndef BOOST_DETAIL_WINAPI_DBGHELP_HPP
-#define BOOST_DETAIL_WINAPI_DBGHELP_HPP
-
-#include <boost/config/header_deprecated.hpp>
-
-BOOST_HEADER_DEPRECATED("<boost/winapi/dbghelp.hpp>")
-
-#include <boost/winapi/dbghelp.hpp>
-#include <boost/detail/winapi/detail/deprecated_namespace.hpp>
-
-#ifdef BOOST_HAS_PRAGMA_ONCE
-#pragma once
-#endif
-
-#endif // BOOST_DETAIL_WINAPI_DBGHELP_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:7ddebaea03ea6c9c745c7fc5a29247b461e083d7c4e67266994428f799c67db9
+size 597

@@ -1,21 +1,3 @@
-// Boost.Geometry
-
-// Copyright (c) 2020, Oracle and/or its affiliates.
-
-// Contributed and/or modified by Adam Wulkiewicz, on behalf of Oracle
-
-// Licensed under the Boost Software License version 1.0.
-// http://www.boost.org/users/license.html
-
-#ifndef BOOST_GEOMETRY_STRATEGIES_CARTESIAN_AREA_SURVEYOR_HPP
-#define BOOST_GEOMETRY_STRATEGIES_CARTESIAN_AREA_SURVEYOR_HPP
-
-
-#include <boost/config/pragma_message.hpp>
-BOOST_PRAGMA_MESSAGE("This include file is deprecated and will be removed in the future.")
-
-
-#include <boost/geometry/strategy/cartesian/area.hpp>
-
-
-#endif // BOOST_GEOMETRY_STRATEGIES_CARTESIAN_AREA_SURVEYOR_HPP
+version https://git-lfs.github.com/spec/v1
+oid sha256:a5dbb290e655bb4f87ff8421e2ccfab717bc452efdea8c50656a71997aac1531
+size 629

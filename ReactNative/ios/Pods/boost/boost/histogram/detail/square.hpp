@@ -1,23 +1,3 @@
-// Copyright 2018-2019 Hans Dembinski
-//
-// Distributed under the Boost Software License, Version 1.0.
-// (See accompanying file LICENSE_1_0.txt
-// or copy at http://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_HISTOGRAM_DETAIL_SQUARE_HPP
-#define BOOST_HISTOGRAM_DETAIL_SQUARE_HPP
-
-namespace boost {
-namespace histogram {
-namespace detail {
-
-template <class T>
-T square(T t) {
-  return t * t;
-}
-
-} // namespace detail
-} // namespace histogram
-} // namespace boost
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:f4b6615552908e632b069d9b302f55c685b07892098afc9b4c5e5d8cbb1d490e
+size 473

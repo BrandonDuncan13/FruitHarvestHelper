@@ -1,30 +1,3 @@
-
-#ifndef BOOST_MPL_AUX_CONFIG_CTPS_HPP_INCLUDED
-#define BOOST_MPL_AUX_CONFIG_CTPS_HPP_INCLUDED
-
-// Copyright Aleksey Gurtovoy 2000-2004
-//
-// Distributed under the Boost Software License, Version 1.0. 
-// (See accompanying file LICENSE_1_0.txt or copy at 
-// http://www.boost.org/LICENSE_1_0.txt)
-//
-// See http://www.boost.org/libs/mpl for documentation.
-
-// $Id$
-// $Date$
-// $Revision$
-
-#include <boost/mpl/aux_/config/workaround.hpp>
-#include <boost/config.hpp>
-
-#if    !defined(BOOST_MPL_CFG_NO_NONTYPE_TEMPLATE_PARTIAL_SPEC) \
-    && !defined(BOOST_MPL_PREPROCESSING_MODE) \
-    && BOOST_WORKAROUND(BOOST_BORLANDC, < 0x582)
-
-#   define BOOST_MPL_CFG_NO_NONTYPE_TEMPLATE_PARTIAL_SPEC
-
-#endif
-
-// BOOST_NO_TEMPLATE_PARTIAL_SPECIALIZATION is defined in <boost/config.hpp>
-
-#endif // BOOST_MPL_AUX_CONFIG_CTPS_HPP_INCLUDED
+version https://git-lfs.github.com/spec/v1
+oid sha256:2626b1e44e9ec076fbf5f437e123c471a76de21f1ba817cef6c03db88c62e531
+size 825

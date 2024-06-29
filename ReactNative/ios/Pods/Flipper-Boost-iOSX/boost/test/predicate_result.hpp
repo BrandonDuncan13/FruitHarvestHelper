@@ -1,18 +1,3 @@
-//  (C) Copyright Gennadiy Rozental 2001.
-//  Distributed under the Boost Software License, Version 1.0.
-//  (See accompanying file LICENSE_1_0.txt or copy at
-//  http://www.boost.org/LICENSE_1_0.txt)
-
-//  See http://www.boost.org/libs/test for the library home page.
-//
-/// @file
-/// @brief Deprecated header
-/// @deprecated Use boost/test/tools/assertion_result.hpp instead
-// ***************************************************************************
-
-#include <boost/config/header_deprecated.hpp>
-BOOST_HEADER_DEPRECATED( "<boost/test/tools/assertion_result.hpp>" )
-
-
-// Boost.Test
-#include <boost/test/tools/assertion_result.hpp>
+version https://git-lfs.github.com/spec/v1
+oid sha256:5adf841043bae38d42bd4f25fecf6b52f801e690b69c4d6967c31be55ba47005
+size 636

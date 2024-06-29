@@ -1,24 +1,3 @@
-/*
- * Copyright 2017 Andrey Semashev
- *
- * Distributed under the Boost Software License, Version 1.0.
- * See http://www.boost.org/LICENSE_1_0.txt
- *
- * This header is deprecated, use boost/winapi/event.hpp instead.
- */
-
-#ifndef BOOST_DETAIL_WINAPI_EVENT_HPP_
-#define BOOST_DETAIL_WINAPI_EVENT_HPP_
-
-#include <boost/config/header_deprecated.hpp>
-
-BOOST_HEADER_DEPRECATED("<boost/winapi/event.hpp>")
-
-#include <boost/winapi/event.hpp>
-#include <boost/detail/winapi/detail/deprecated_namespace.hpp>
-
-#ifdef BOOST_HAS_PRAGMA_ONCE
-#pragma once
-#endif
-
-#endif // BOOST_DETAIL_WINAPI_EVENT_HPP_
+version https://git-lfs.github.com/spec/v1
+oid sha256:66852986e4efac9c8913a3a6d319ff1589627ff3bd89058b7d17649f573a1368
+size 588

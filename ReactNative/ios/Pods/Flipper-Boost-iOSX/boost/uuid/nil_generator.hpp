@@ -1,34 +1,3 @@
-// Boost nil_generator.hpp header file  ----------------------------------------------//
-
-// Copyright 2010 Andy Tompkins.
-// Distributed under the Boost Software License, Version 1.0. (See
-// accompanying file LICENSE_1_0.txt or copy at
-// https://www.boost.org/LICENSE_1_0.txt)
-
-#ifndef BOOST_UUID_NIL_GENERATOR_HPP
-#define BOOST_UUID_NIL_GENERATOR_HPP
-
-#include <boost/uuid/uuid.hpp>
-
-namespace boost {
-namespace uuids {
-
-// generate a nil uuid
-struct nil_generator {
-    typedef uuid result_type;
-    
-    uuid operator()() const {
-        // initialize to all zeros
-        uuid u = {{0}};
-        return u;
-    }
-};
-
-inline uuid nil_uuid() {
-    return nil_generator()();
-}
-
-}} // namespace boost::uuids
-
-#endif // BOOST_UUID_NIL_GENERATOR_HPP
-
+version https://git-lfs.github.com/spec/v1
+oid sha256:5c03ffe30de481e65eea44ce0fd8316b22f8108856197956b35107c5f7aa39c3
+size 751

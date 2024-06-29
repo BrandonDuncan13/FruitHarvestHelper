@@ -1,27 +1,3 @@
-#ifndef BOOST_SMART_PTR_OWNER_HASH_HPP_INCLUDED
-#define BOOST_SMART_PTR_OWNER_HASH_HPP_INCLUDED
-
-// Copyright 2020 Peter Dimov
-// Distributed under the Boost Software License, Version 1.0.
-// https://www.boost.org/LICENSE_1_0.txt
-
-#include <boost/config.hpp>
-#include <cstddef>
-
-namespace boost
-{
-
-template<class T> struct owner_hash
-{
-    typedef std::size_t result_type;
-    typedef T argument_type;
-
-    std::size_t operator()( T const & t ) const BOOST_NOEXCEPT
-    {
-        return t.owner_hash_value();
-    }
-};
-
-} // namespace boost
-
-#endif  // #ifndef BOOST_SMART_PTR_OWNER_HASH_HPP_INCLUDED
+version https://git-lfs.github.com/spec/v1
+oid sha256:e7952fc2555e63e51f0816f00ea690b6cb7b4d5753d0b79662e9ff5ad6fd5d6d
+size 600

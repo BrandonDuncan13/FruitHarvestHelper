@@ -1,26 +1,3 @@
-// Copyright 2002 The Trustees of Indiana University.
-
-// Use, modification and distribution is subject to the Boost Software 
-// License, Version 1.0. (See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt)
-
-//  Boost.MultiArray Library
-//  Authors: Ronald Garcia
-//           Jeremy Siek
-//           Andrew Lumsdaine
-//  See http://www.boost.org/libs/multi_array for documentation.
-
-#ifndef BOOST_MULTI_ARRAY_COLLECTION_CONCEPT_HPP
-#define BOOST_MULTI_ARRAY_COLLECTION_CONCEPT_HPP
-
-#include "boost/concept_check.hpp"
-
-namespace boost {
-namespace detail {
-namespace multi_array { // Old location for this
-  using boost::CollectionConcept;
-}
-}
-
-}
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:ef9eca6c8051fd1bb4473f8f5678713906e2c677b09c1db3aa9a7023dab0acd9
+size 690

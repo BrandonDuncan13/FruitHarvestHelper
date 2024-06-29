@@ -1,16 +1,3 @@
-#ifndef BOOST_MP11_VERSION_HPP_INCLUDED
-#define BOOST_MP11_VERSION_HPP_INCLUDED
-
-//  Copyright 2019 Peter Dimov
-//
-//  Distributed under the Boost Software License, Version 1.0.
-//
-//  See accompanying file LICENSE_1_0.txt or copy at
-//  http://www.boost.org/LICENSE_1_0.txt
-
-// Same format as BOOST_VERSION:
-//   major * 100000 + minor * 100 + patch
-
-#define BOOST_MP11_VERSION 107600
-
-#endif // #ifndef BOOST_MP11_VERSION_HPP_INCLUDED
+version https://git-lfs.github.com/spec/v1
+oid sha256:e839c4ed50096877a35ca5242ed43f823c8cd1d20d774ef1d8a044ece06f3865
+size 437

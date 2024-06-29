@@ -1,21 +1,3 @@
-//
-// unyield.hpp
-// ~~~~~~~~~~~
-//
-// Copyright (c) 2003-2021 Christopher M. Kohlhoff (chris at kohlhoff dot com)
-//
-// Distributed under the Boost Software License, Version 1.0. (See accompanying
-// file LICENSE_1_0.txt or copy at http://www.boost.org/LICENSE_1_0.txt)
-//
-
-#ifdef reenter
-# undef reenter
-#endif
-
-#ifdef yield
-# undef yield
-#endif
-
-#ifdef fork
-# undef fork
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:43db52ac7b3b479fef58a2c1906a8f6574da8bb5d62037a50d34accbc89dc36b
+size 381

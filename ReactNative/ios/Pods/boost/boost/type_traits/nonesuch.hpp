@@ -1,35 +1,3 @@
-/*
-Copyright 2017 Glen Joseph Fernandes
-(glenjofe@gmail.com)
-
-Distributed under the Boost Software License,
-Version 1.0. (See accompanying file LICENSE_1_0.txt
-or copy at http://www.boost.org/LICENSE_1_0.txt)
-*/
-
-#ifndef BOOST_TT_NONESUCH_HPP_INCLUDED
-#define BOOST_TT_NONESUCH_HPP_INCLUDED
-
-#include <boost/config.hpp>
-
-namespace boost {
-
-#if !defined(BOOST_NO_CXX11_DELETED_FUNCTIONS)
-struct nonesuch {
-    nonesuch() = delete;
-    ~nonesuch() = delete;
-    nonesuch(const nonesuch&) = delete;
-    void operator=(const nonesuch&) = delete;
-};
-#else
-class nonesuch {
-    nonesuch();
-    ~nonesuch();
-    nonesuch(const nonesuch&);
-    void operator=(const nonesuch&);
-};
-#endif
-
-} /* boost */
-
-#endif
+version https://git-lfs.github.com/spec/v1
+oid sha256:cf7d52873bfa3925c2aaf7f330338163f3842e579ebd6e1284187376cac43f17
+size 702

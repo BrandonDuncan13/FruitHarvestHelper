@@ -1,14 +1,3 @@
-#ifndef BOOST_MP11_MPL_HPP_INCLUDED
-#define BOOST_MP11_MPL_HPP_INCLUDED
-
-// Copyright 2017, 2019 Peter Dimov.
-//
-// Distributed under the Boost Software License, Version 1.0.
-//
-// See accompanying file LICENSE_1_0.txt or copy at
-// http://www.boost.org/LICENSE_1_0.txt
-
-#include <boost/mp11/mpl_list.hpp>
-#include <boost/mp11/mpl_tuple.hpp>
-
-#endif // #ifndef BOOST_MP11_MPL_HPP_INCLUDED
+version https://git-lfs.github.com/spec/v1
+oid sha256:8f2630d155f454d499d9332d902ffaab4f0a6e871e41d0a7a231bb8f10067bc2
+size 389
