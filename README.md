@@ -21,7 +21,8 @@ attention on creating cool image processing algorithms that could help farmers e
 ## Running The App
   To run the app from the command line, you can use the commands 'npx react-native run-ios' and 'npx react-native run-android'. The app uses React Native cli instead of 
 React Native expo since Native modules were used. The app has a true/false value that's hardcoded, which changes the back-end you're running. Currently, the Flask back-end is 
-set to off. If you want to run the Flask back-end, change this value in the BottomSheet.js component and run the Docker container manually since it's not set up to run automatically when the app starts. If you use that back-end, I  recommend getting Flask to run when the app starts.
+set to off. If you want to run the Flask back-end, change this value in the BottomSheet.js component and run the Docker container manually since it's not set up to run automatically when the app starts. If you use that back-end, I  recommend getting Flask to run when the app starts. Here's the command that will run the docker container 
+right now: 'docker run -d -p 5000:5000 fruitharvesthelper-python'. Note that it has to use port 5000 because that's the port the app.py file is looking for.
 
 ## NPM & Yarn, Updates
   During development, npm commands stopped working for this project for unknown reasons. Due to this, the Fruit Harvest Helper project only uses the yarn package manager for 
