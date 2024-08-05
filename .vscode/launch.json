@@ -6,8 +6,8 @@
       "type": "lldb",
       "request": "launch",
       "args": [],
-      "cwd": "/Users/brandonduncan/BlossomCam/android/app/src/main/jni",
-      "program": "/Users/brandonduncan/BlossomCam/android/app/src/main/jni/build/Debug/outDebug"
+      "cwd": "/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/app/src/main/jni",
+      "program": "/Users/brandonduncan/FruitHarvestHelper/ReactNative/android/app/src/main/jni/build/Debug/outDebug"
     }
   ]
 }
