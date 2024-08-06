@@ -15,9 +15,9 @@ const BottomSheet = (( props ) => {
   // Timer for image processing (flask only)
   const [timerStart, setTimerStart] = useState(null);
   const [timerEnd, setTimerEnd] = useState(null);
+
   // User's flask algorithm choice
   const algoChoice = 0;
-
   // Hardcoded boolean for running new or old back end
   const flaskBackend = true;
 
@@ -70,7 +70,6 @@ const BottomSheet = (( props ) => {
       console.log(err.message);
     });
   };
-
 
   return (
     <GestureDetector

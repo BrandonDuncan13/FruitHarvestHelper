@@ -4,7 +4,7 @@ https://www.youtube.com/watch?v=Xp0q8ZDOeyE&t=2s
 on June 19th, 2022 */
 
 import React, { useState } from 'react';
-import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text, DeviceEventEmitter } from 'react-native';
+import { Dimensions, View, StyleSheet, TouchableWithoutFeedback, Text } from 'react-native';
 import { GestureHandlerRootView, Gesture } from 'react-native-gesture-handler';
 import Animated, { useSharedValue, useAnimatedStyle, withSpring } from 'react-native-reanimated';
 import BottomSheet from '../components/BottomSheet';
@@ -23,15 +23,13 @@ export default function DetectApples() { // Almost all BottomSheet code is here 
   const buttonText = 'Go Detect Apples';
 
   // Doesn't do anything currently
-  let fall = new Animated.Value(1);
+  //let fall = new useSharedValue(1);
 
   const { height: SCREEN_HEIGHT } = Dimensions.get('window');
   // Allowed to move up to 75 units below top of device's screen
   const MAX_TRANSLATE_Y = (-SCREEN_HEIGHT + 75);
   // Stores current y value of BottomSheet
   const translateY = useSharedValue(0);
-  // Will store initial top value of BottomSheet (snap back point)
-  const context = useSharedValue({ y: 0 });
 
   // Used in ImageHolder component
   const pressHandler = () => {
@@ -48,23 +46,16 @@ export default function DetectApples() { // Almost all BottomSheet code is here 
   };
 
   // Handles the user's gestures (touch commands)
-  const gesture = Gesture.Pan()
-
-  .onStart(() => { // At the start of a user gesture (dragging sheet up/down) store top of the sheet
-      context.value = { y: translateY.value };
-  })
-  .onUpdate((event) => { // The amount the user moved the sheet is added to the context to get new screen height
-    translateY.value = event.translationY + context.value.y;
-    translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y); // Don't exceed max height screen can go to
-  })
-  .onEnd(() => { // At the end of a gesture move the BottomSheet to display position or down
-      // Below default display position -> move sheet down
-      if (translateY.value > -SCREEN_HEIGHT / 1.75) {
-        translateY.value = withSpring(0, { damping: 50 });
-      // Above default display posiiton -> move sheet to default display position
-      } else if (translateY.value < -SCREEN_HEIGHT / 1.75) {
-        translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 });
-      }
+  const gesture = Gesture.Pan().onUpdate((event) => {
+    translateY.value += event.translationY;
+    translateY.value = Math.max(translateY.value, MAX_TRANSLATE_Y);
+  }).onEnd(() => {
+    // Move the BottomSheet to display position or down
+    if (translateY.value > -SCREEN_HEIGHT / 1.75) {
+      translateY.value = withSpring(0, { damping: 50 });
+    } else if (translateY.value < -SCREEN_HEIGHT / 1.75) {
+      translateY.value = withSpring(-SCREEN_HEIGHT / 1.75, { damping: 50 });
+    }
   });
 
   // Animated style for translations in the y direction
@@ -100,7 +91,7 @@ export default function DetectApples() { // Almost all BottomSheet code is here 
           </View>
         </Animated.View>
       </TouchableWithoutFeedback>
-      <Animated.View style={[styles.subContent, { opacity: Animated.add(0.4, Animated.multiply(fall, 1.0)) }]}>
+      <Animated.View style={[styles.subContent, { opacity: 1 }]}>
         <CustomButton
           pressHandler={pressHandler}
           buttonText={buttonText}
