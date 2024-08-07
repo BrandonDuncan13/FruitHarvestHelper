@@ -19,7 +19,7 @@ const BottomSheet = (( props ) => {
   // User's flask algorithm choice
   const algoChoice = 0;
   // Hardcoded boolean for running new or old back end
-  const flaskBackend = true;
+  const flaskBackend = false;
 
   const processAndSetImages = async (props, image) => { // Detects apple clusters in image, sets the original and processed images
     // Log original image and path

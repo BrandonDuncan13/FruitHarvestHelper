@@ -75,7 +75,7 @@ def enableProguardInReleaseBuilds = false
 def jscFlavor = 'org.webkit:android-jsc:+'
 
 android {
-    //ndkVersion rootProject.ext.ndkVersion
+    ndkVersion rootProject.ext.ndkVersion
 
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
@@ -94,6 +94,31 @@ android {
         versionName "1.0.0"
         vectorDrawables.useSupportLibrary = true // added this line for camera library
 
+        externalNativeBuild {
+            ndkBuild {
+                //path file("$projectDir/src/main/jni/Android.mk")
+                arguments "APP_PLATFORM=android-23",
+                    "APP_STL=c++_static",
+                    "NDK_TOOLCHAIN_VERSION=clang",
+                    "GENERATED_SRC_DIR=$buildDir/generated/source",
+                    "PROJECT_BUILD_DIR=$buildDir",
+                    "REACT_ANDROID_DIR=$rootDir/../node_modules/react-native/ReactAndroid",
+                    "REACT_ANDROID_BUILD_DIR=$rootDir/../node_modules/react-native/ReactAndroid/build",
+                    "OPENCV_INSTALL_MODULES=on",
+                    "OPENCV_CONFIG_FILE=../opencv/native/jni/OpenCV.mk"
+                    //"-DOpenCV_DIR=" + opencvsdk + "/native" // Add this line for OpenCV
+                cFlags "-Wall", "-Werror", "-fexceptions", "-frtti"
+                cppFlags "-std=c++17", "-DWITH_INSPECTOR=1", "-DOpenCV_DIR=" + opencvsdk + "/native"
+                // Make sure this target name is the same you specify inside the
+                // src/main/jni/Android.mk file for the `LOCAL_MODULE` variable.
+                targets "processAndroid"
+                // Fix for windows limit on number of character in file paths and in command lines
+                if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+                    arguments "NDK_APP_SHORT_COMMANDS=true"
+                }
+            }
+        }
+
         // the following configures ndk-build to build a "helloworld" module
         // ndk {
         //     // For some reason this line breaks it.
@@ -109,6 +134,13 @@ android {
         main {
             java.srcDirs = ["src/main/java/com/blossomscam", "../../djinni/java"]
             jni.srcDirs = ["src/main/jni", "../../djinni/jni"]
+        }
+    }
+
+    externalNativeBuild {
+        // This points ndk-build at our Android.mk file
+        ndkBuild {
+            path file('src/main/jni/Android.mk')
         }
     }
 

@@ -1,5 +1,6 @@
 package com.blossomscam
 
+import com.blossomscam.ImageProcessingModulePackage
 import com.blossomscam.BuildConfig  
 import android.app.Application
 import com.facebook.react.PackageList
@@ -16,11 +17,13 @@ class MainApplication : Application(), ReactApplication {
  
   override val reactNativeHost: ReactNativeHost =
       object : DefaultReactNativeHost(this) {
-        override fun getPackages(): List<ReactPackage> =
-            PackageList(this).packages.apply {
-              // Packages that cannot be autolinked yet can be added manually here, for example:
-              // add(MyReactNativePackage())
-            }
+        override fun getPackages(): List<ReactPackage> {
+            // Automatically discover packages
+            val packages = PackageList(this).packages
+            // Manually add your custom package
+            packages.add(ImageProcessingModulePackage())
+            return packages
+          }
  
         override fun getJSMainModuleName(): String = "index"
  
