@@ -2,47 +2,53 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
-	<key>CFBundleDevelopmentRegion</key>
-	<string>en</string>
-	<key>CFBundleDisplayName</key>
-	<string>Fruit Harvest Helper </string>
-	<key>CFBundleExecutable</key>
-	<string>$(EXECUTABLE_NAME)</string>
-	<key>CFBundleIdentifier</key>
-	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
-	<key>CFBundleInfoDictionaryVersion</key>
-	<string>6.0</string>
-	<key>CFBundleName</key>
-	<string>$(PRODUCT_NAME)</string>
-	<key>CFBundlePackageType</key>
-	<string>APPL</string>
-	<key>CFBundleShortVersionString</key>
-	<string>$(MARKETING_VERSION)</string>
-	<key>CFBundleSignature</key>
-	<string>????</string>
-	<key>CFBundleVersion</key>
-	<string>$(CURRENT_PROJECT_VERSION)</string>
-	<key>LSRequiresIPhoneOS</key>
-	<true/>
-	<key>NSAppTransportSecurity</key>
+	<key>0</key>
 	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-			<true/>
-			<!-- Do not change NSAllowsArbitraryLoads to true, or you will risk app rejection! -->
-				<key>NSAllowsArbitraryLoads</key>
-				<false/>
-				<key>NSAllowsLocalNetworking</key>
-				<true/>
-			</dict>
+		<key>CFBundleDevelopmentRegion</key>
+		<string>en</string>
+		<key>CFBundleDisplayName</key>
+		<string>Fruit Harvest Helper </string>
+		<key>CFBundleExecutable</key>
+		<string>$(EXECUTABLE_NAME)</string>
+		<key>CFBundleIdentifier</key>
+		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+		<key>CFBundleInfoDictionaryVersion</key>
+		<string>6.0</string>
+		<key>CFBundleName</key>
+		<string>$(PRODUCT_NAME)</string>
+		<key>CFBundlePackageType</key>
+		<string>APPL</string>
+		<key>CFBundleShortVersionString</key>
+		<string>$(MARKETING_VERSION)</string>
+		<key>CFBundleSignature</key>
+		<string>????</string>
+		<key>CFBundleVersion</key>
+		<string>$(CURRENT_PROJECT_VERSION)</string>
+		<key>LSRequiresIPhoneOS</key>
+		<true />
+		<key>NSAppTransportSecurity</key>
+		<dict>
+			<key>NSAllowsArbitraryLoads</key>
+			<false />
+			<key>NSAllowsLocalNetworking</key>
+			<true />
 		</dict>
 	</dict>
-	<key>NSCameraUsageDescription</key>
+	<key>1</key>
+	<string>NSCameraUsageDescription</string>
+	<key>2</key>
 	<string>Blossom Cam app requires camera access to take photo.</string>
-	<key>NSLocationWhenInUseUsageDescription</key>
+	<key>3</key>
+	<string>NSLocationWhenInUseUsageDescription</string>
+	<key>4</key>
 	<string>Location access is required to run the app.</string>
-	<key>NSPhotoLibraryUsageDescription</key>
+	<key>5</key>
+	<string>NSPhotoLibraryUsageDescription</string>
+	<key>6</key>
 	<string>Blossom Cam app requires photo library access.</string>
-	<key>UIAppFonts</key>
+	<key>7</key>
+	<string>UIAppFonts</string>
+	<key>8</key>
 	<array>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
@@ -60,17 +66,29 @@
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
-	<key>UILaunchStoryboardName</key>
+	<key>9</key>
+	<string>UILaunchStoryboardName</string>
+	<key>10</key>
 	<string>LaunchScreen</string>
-	<key>UIRequiredDeviceCapabilities</key>
+	<key>11</key>
+	<string>UIRequiredDeviceCapabilities</string>
+	<key>12</key>
 	<array>
 		<string>arm64</string>
 	</array>
-	<key>UISupportedInterfaceOrientations</key>
+	<key>13</key>
+	<string>UISupportedInterfaceOrientations</string>
+	<key>14</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>UIViewControllerBasedStatusBarAppearance</key>
-	<false/>
+	<key>15</key>
+	<string>UIViewControllerBasedStatusBarAppearance</string>
+	<key>16</key>
+	<false />
+	<key>CFBundleShortVersionString</key>
+	<string>1.0.1</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
 </dict>
 </plist>
