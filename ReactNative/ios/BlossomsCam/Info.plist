@@ -2,53 +2,67 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+
+	<key>CFBundleName</key>
+	<string>$(PRODUCT_NAME)</string>
+
+	<key>CFBundleShortVersionString</key>
+	<string>$(MARKETING_VERSION)</string>
+
 	<key>0</key>
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
 		<string>en</string>
 		<key>CFBundleDisplayName</key>
 		<string>Fruit Harvest Helper </string>
-		<key>CFBundleExecutable</key>
-		<string>$(EXECUTABLE_NAME)</string>
-		<key>CFBundleIdentifier</key>
-		<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
 		<key>CFBundleInfoDictionaryVersion</key>
 		<string>6.0</string>
-		<key>CFBundleName</key>
-		<string>$(PRODUCT_NAME)</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
-		<key>CFBundleShortVersionString</key>
-		<string>$(MARKETING_VERSION)</string>
 		<key>CFBundleSignature</key>
 		<string>????</string>
 		<key>CFBundleVersion</key>
 		<string>$(CURRENT_PROJECT_VERSION)</string>
 		<key>LSRequiresIPhoneOS</key>
-		<true />
+		<true/>
 		<key>NSAppTransportSecurity</key>
 		<dict>
 			<key>NSAllowsArbitraryLoads</key>
-			<false />
+			<false/>
 			<key>NSAllowsLocalNetworking</key>
-			<true />
+			<true/>
 		</dict>
 	</dict>
-	<key>1</key>
-	<string>NSCameraUsageDescription</string>
-	<key>2</key>
-	<string>Blossom Cam app requires camera access to take photo.</string>
-	<key>3</key>
-	<string>NSLocationWhenInUseUsageDescription</string>
-	<key>4</key>
-	<string>Location access is required to run the app.</string>
-	<key>5</key>
-	<string>NSPhotoLibraryUsageDescription</string>
-	<key>6</key>
+
+	<key>NSCameraUsageDescription</key>
+	<string>Blossom Cam app requires camera access to take photos.</string>
+
+	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Blossom Cam app requires photo library access.</string>
-	<key>7</key>
-	<string>UIAppFonts</string>
-	<key>8</key>
+
+	<!-- <key>NSLocationWhenInUseUsageDescription</key>
+	<string>Location access is required to run the app.</string> -->
+
+	<!-- Modified launch screen configuration -->
+    <key>UILaunchStoryboardName</key>
+    <string>LaunchScreen</string>
+
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>arm64</string>
+	</array>
+
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+	</array>
+
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
+
+	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
 		<string>Entypo.ttf</string>
@@ -66,28 +80,10 @@
 		<string>Octicons.ttf</string>
 		<string>Zocial.ttf</string>
 	</array>
-	<key>9</key>
-	<string>UILaunchStoryboardName</string>
-	<key>10</key>
-	<string>LaunchScreen</string>
-	<key>11</key>
-	<string>UIRequiredDeviceCapabilities</string>
-	<key>12</key>
-	<array>
-		<string>arm64</string>
-	</array>
-	<key>13</key>
-	<string>UISupportedInterfaceOrientations</string>
-	<key>14</key>
-	<array>
-		<string>UIInterfaceOrientationPortrait</string>
-	</array>
-	<key>15</key>
-	<string>UIViewControllerBasedStatusBarAppearance</string>
-	<key>16</key>
-	<false />
-	<key>CFBundleShortVersionString</key>
-	<string>1.0.1</string>
+
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+
 	<key>CFBundleVersion</key>
 	<string>1</string>
 </dict>

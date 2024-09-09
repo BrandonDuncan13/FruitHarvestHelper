@@ -8,12 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* blossomscamTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* blossomscamTests.m */; };
-		0C80B921A6F3F58F76C31292 /* libPods-blossomscam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-blossomscam.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
-		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		7699B88040F8A987B510C191 /* libPods-blossomscam-blossomscamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-blossomscam-blossomscamTests.a */; };
+		40845B642C8F75E6000D6F02 /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B542C8F75E6000D6F02 /* Foundation.ttf */; };
+		40845B652C8F75E6000D6F02 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B552C8F75E6000D6F02 /* Feather.ttf */; };
+		40845B662C8F75E6000D6F02 /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B562C8F75E6000D6F02 /* FontAwesome5_Brands.ttf */; };
+		40845B672C8F75E6000D6F02 /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B572C8F75E6000D6F02 /* MaterialCommunityIcons.ttf */; };
+		40845B682C8F75E6000D6F02 /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B582C8F75E6000D6F02 /* Ionicons.ttf */; };
+		40845B692C8F75E6000D6F02 /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B592C8F75E6000D6F02 /* MaterialIcons.ttf */; };
+		40845B6A2C8F75E6000D6F02 /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B5A2C8F75E6000D6F02 /* FontAwesome.ttf */; };
+		40845B6B2C8F75E6000D6F02 /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B5B2C8F75E6000D6F02 /* Octicons.ttf */; };
+		40845B6C2C8F75E6000D6F02 /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B5C2C8F75E6000D6F02 /* SimpleLineIcons.ttf */; };
+		40845B6D2C8F75E6000D6F02 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B5D2C8F75E6000D6F02 /* Entypo.ttf */; };
+		40845B6E2C8F75E6000D6F02 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B5E2C8F75E6000D6F02 /* EvilIcons.ttf */; };
+		40845B6F2C8F75E6000D6F02 /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B5F2C8F75E6000D6F02 /* FontAwesome5_Solid.ttf */; };
+		40845B702C8F75E6000D6F02 /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B602C8F75E6000D6F02 /* Zocial.ttf */; };
+		40845B712C8F75E6000D6F02 /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B612C8F75E6000D6F02 /* Fontisto.ttf */; };
+		40845B722C8F75E6000D6F02 /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B622C8F75E6000D6F02 /* FontAwesome5_Regular.ttf */; };
+		40845B732C8F75E6000D6F02 /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 40845B632C8F75E6000D6F02 /* AntDesign.ttf */; };
+		62D175AB42184B28E1FA78B1 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = A42410F9E2566D812A08BA44 /* PrivacyInfo.xcprivacy */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
+		926AAA1516BEC761DA5DF3A6 /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8FDBED91F3F93FCEE463686C /* libPods-BlossomsCam-BlossomsCamTests.a */; };
+		DE925CB06837AD74EC394735 /* libPods-BlossomsCam.a in Frameworks */ = {isa = PBXBuildFile; fileRef = EBF6777E48B8AF8F61443F63 /* libPods-BlossomsCam.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -27,23 +43,43 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		00E356EE1AD99517003FC87E /* blossomscamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = blossomscamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356EE1AD99517003FC87E /* BlossomsCamTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BlossomsCamTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* blossomscamTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = blossomscamTests.m; sourceTree = "<group>"; };
+		01C463F06EBA3A200DDAC7FB /* Pods-BlossomsCam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.release.xcconfig"; sourceTree = "<group>"; };
+		02DA8385D7592905AE660070 /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.release.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.release.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* blossomscam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = blossomscam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = blossomscam/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = blossomscam/AppDelegate.mm; sourceTree = "<group>"; };
-		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = blossomscam/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = blossomscam/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = blossomscam/main.m; sourceTree = "<group>"; };
-	    13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = blossomscam/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
-		19F6CBCC0A4E27FBF8BF4A61 /* libPods-blossomscam-blossomscamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-blossomscam-blossomscamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = blossomscam/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		1BA3FA8D78C3F365A1F5ED17 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig"; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-blossomscam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blossomscam.debug.xcconfig"; path = "Target Support Files/Pods-blossomscam/Pods-blossomscam.debug.xcconfig"; sourceTree = "<group>"; };
+		40845B542C8F75E6000D6F02 /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		40845B552C8F75E6000D6F02 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		40845B562C8F75E6000D6F02 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		40845B572C8F75E6000D6F02 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		40845B582C8F75E6000D6F02 /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		40845B592C8F75E6000D6F02 /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		40845B5A2C8F75E6000D6F02 /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		40845B5B2C8F75E6000D6F02 /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		40845B5C2C8F75E6000D6F02 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		40845B5D2C8F75E6000D6F02 /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		40845B5E2C8F75E6000D6F02 /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		40845B5F2C8F75E6000D6F02 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		40845B602C8F75E6000D6F02 /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		40845B612C8F75E6000D6F02 /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		40845B622C8F75E6000D6F02 /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		40845B632C8F75E6000D6F02 /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-blossomscam.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blossomscam.release.xcconfig"; path = "Target Support Files/Pods-blossomscam/Pods-blossomscam.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-blossomscam-blossomscamTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blossomscam-blossomscamTests.debug.xcconfig"; path = "Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests.debug.xcconfig"; sourceTree = "<group>"; };
-		5DCACB8F33CDC322A6C60F78 /* libPods-blossomscam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-blossomscam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = blossomscam/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-blossomscam-blossomscamTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-blossomscam-blossomscamTests.release.xcconfig"; path = "Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests.release.xcconfig"; sourceTree = "<group>"; };
+		8FDBED91F3F93FCEE463686C /* libPods-BlossomsCam-BlossomsCamTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam-BlossomsCamTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		A42410F9E2566D812A08BA44 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = blossomscam/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		E89404742B833E22724D14D4 /* Pods-BlossomsCam.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlossomsCam.debug.xcconfig"; path = "Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam.debug.xcconfig"; sourceTree = "<group>"; };
+		EBF6777E48B8AF8F61443F63 /* libPods-BlossomsCam.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlossomsCam.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -52,7 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7699B88040F8A987B510C191 /* libPods-blossomscam-blossomscamTests.a in Frameworks */,
+				926AAA1516BEC761DA5DF3A6 /* libPods-BlossomsCam-BlossomsCamTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -60,7 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0C80B921A6F3F58F76C31292 /* libPods-blossomscam.a in Frameworks */,
+				DE925CB06837AD74EC394735 /* libPods-BlossomsCam.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -87,9 +123,9 @@
 		13B07FAE1A68108700A75B9A /* blossomscam */ = {
 			isa = PBXGroup;
 			children = (
+				40845B742C8F75F4000D6F02 /* Fonts */,
 				13B07FAF1A68108700A75B9A /* AppDelegate.h */,
 				13B07FB01A68108700A75B9A /* AppDelegate.mm */,
-				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */,
 				13B07FB71A68108700A75B9A /* main.m */,
@@ -102,10 +138,33 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				5DCACB8F33CDC322A6C60F78 /* libPods-blossomscam.a */,
-				19F6CBCC0A4E27FBF8BF4A61 /* libPods-blossomscam-blossomscamTests.a */,
+				EBF6777E48B8AF8F61443F63 /* libPods-BlossomsCam.a */,
+				8FDBED91F3F93FCEE463686C /* libPods-BlossomsCam-BlossomsCamTests.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40845B742C8F75F4000D6F02 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				40845B632C8F75E6000D6F02 /* AntDesign.ttf */,
+				40845B5D2C8F75E6000D6F02 /* Entypo.ttf */,
+				40845B5E2C8F75E6000D6F02 /* EvilIcons.ttf */,
+				40845B552C8F75E6000D6F02 /* Feather.ttf */,
+				40845B5A2C8F75E6000D6F02 /* FontAwesome.ttf */,
+				40845B562C8F75E6000D6F02 /* FontAwesome5_Brands.ttf */,
+				40845B622C8F75E6000D6F02 /* FontAwesome5_Regular.ttf */,
+				40845B5F2C8F75E6000D6F02 /* FontAwesome5_Solid.ttf */,
+				40845B612C8F75E6000D6F02 /* Fontisto.ttf */,
+				40845B542C8F75E6000D6F02 /* Foundation.ttf */,
+				40845B582C8F75E6000D6F02 /* Ionicons.ttf */,
+				40845B572C8F75E6000D6F02 /* MaterialCommunityIcons.ttf */,
+				40845B592C8F75E6000D6F02 /* MaterialIcons.ttf */,
+				40845B5B2C8F75E6000D6F02 /* Octicons.ttf */,
+				40845B5C2C8F75E6000D6F02 /* SimpleLineIcons.ttf */,
+				40845B602C8F75E6000D6F02 /* Zocial.ttf */,
+			);
+			name = Fonts;
 			sourceTree = "<group>";
 		};
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
@@ -124,6 +183,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				BBD78D7AC51CEA395F1C20DB /* Pods */,
+				A42410F9E2566D812A08BA44 /* PrivacyInfo.xcprivacy */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -134,7 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				13B07F961A680F5B00A75B9A /* blossomscam.app */,
-				00E356EE1AD99517003FC87E /* blossomscamTests.xctest */,
+				00E356EE1AD99517003FC87E /* BlossomsCamTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -146,6 +206,10 @@
 				5709B34CF0A7D63546082F79 /* Pods-blossomscam.release.xcconfig */,
 				5B7EB9410499542E8C5724F5 /* Pods-blossomscam-blossomscamTests.debug.xcconfig */,
 				89C6BE57DB24E9ADA2F236DE /* Pods-blossomscam-blossomscamTests.release.xcconfig */,
+				E89404742B833E22724D14D4 /* Pods-BlossomsCam.debug.xcconfig */,
+				01C463F06EBA3A200DDAC7FB /* Pods-BlossomsCam.release.xcconfig */,
+				1BA3FA8D78C3F365A1F5ED17 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */,
+				02DA8385D7592905AE660070 /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -153,9 +217,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		00E356ED1AD99517003FC87E /* blossomscamTests */ = {
+		00E356ED1AD99517003FC87E /* BlossomsCamTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "blossomscamTests" */;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BlossomsCamTests" */;
 			buildPhases = (
 				A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
@@ -169,14 +233,14 @@
 			dependencies = (
 				00E356F51AD99517003FC87E /* PBXTargetDependency */,
 			);
-			name = blossomscamTests;
+			name = BlossomsCamTests;
 			productName = blossomscamTests;
-			productReference = 00E356EE1AD99517003FC87E /* blossomscamTests.xctest */;
+			productReference = 00E356EE1AD99517003FC87E /* BlossomsCamTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		13B07F861A680F5B00A75B9A /* blossomscam */ = {
+		13B07F861A680F5B00A75B9A /* BlossomsCam */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "blossomscam" */;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BlossomsCam" */;
 			buildPhases = (
 				C38B50BA6285516D6DCD4F65 /* [CP] Check Pods Manifest.lock */,
 				13B07F871A680F5B00A75B9A /* Sources */,
@@ -190,7 +254,7 @@
 			);
 			dependencies = (
 			);
-			name = blossomscam;
+			name = BlossomsCam;
 			productName = blossomscam;
 			productReference = 13B07F961A680F5B00A75B9A /* blossomscam.app */;
 			productType = "com.apple.product-type.application";
@@ -212,7 +276,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "blossomscam" */;
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BlossomsCam" */;
 			compatibilityVersion = "Xcode 12.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -225,8 +289,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				13B07F861A680F5B00A75B9A /* blossomscam */,
-				00E356ED1AD99517003FC87E /* blossomscamTests */,
+				13B07F861A680F5B00A75B9A /* BlossomsCam */,
+				00E356ED1AD99517003FC87E /* BlossomsCamTests */,
 			);
 		};
 /* End PBXProject section */
@@ -243,8 +307,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				40845B642C8F75E6000D6F02 /* Foundation.ttf in Resources */,
+				40845B652C8F75E6000D6F02 /* Feather.ttf in Resources */,
+				40845B662C8F75E6000D6F02 /* FontAwesome5_Brands.ttf in Resources */,
+				40845B672C8F75E6000D6F02 /* MaterialCommunityIcons.ttf in Resources */,
+				40845B682C8F75E6000D6F02 /* Ionicons.ttf in Resources */,
+				40845B692C8F75E6000D6F02 /* MaterialIcons.ttf in Resources */,
+				40845B6A2C8F75E6000D6F02 /* FontAwesome.ttf in Resources */,
+				40845B6B2C8F75E6000D6F02 /* Octicons.ttf in Resources */,
+				40845B6C2C8F75E6000D6F02 /* SimpleLineIcons.ttf in Resources */,
+				40845B6D2C8F75E6000D6F02 /* Entypo.ttf in Resources */,
+				40845B6E2C8F75E6000D6F02 /* EvilIcons.ttf in Resources */,
+				40845B6F2C8F75E6000D6F02 /* FontAwesome5_Solid.ttf in Resources */,
+				40845B702C8F75E6000D6F02 /* Zocial.ttf in Resources */,
+				40845B712C8F75E6000D6F02 /* Fontisto.ttf in Resources */,
+				40845B722C8F75E6000D6F02 /* FontAwesome5_Regular.ttf in Resources */,
+				40845B732C8F75E6000D6F02 /* AntDesign.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
-				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
+				62D175AB42184B28E1FA78B1 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,15 +353,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam/Pods-blossomscam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam/Pods-blossomscam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-blossomscam/Pods-blossomscam-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A55EABD7B0C7F3A422A6CC61 /* [CP] Check Pods Manifest.lock */ = {
@@ -299,7 +379,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-blossomscam-blossomscamTests-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BlossomsCam-BlossomsCamTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -321,7 +401,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-blossomscam-checkManifestLockResult.txt",
+				"$(DERIVED_FILE_DIR)/Pods-BlossomsCam-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -334,15 +414,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		E235C05ADACE081382539298 /* [CP] Copy Pods Resources */ = {
@@ -351,15 +431,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam/Pods-blossomscam-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam/Pods-blossomscam-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-blossomscam/Pods-blossomscam-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam/Pods-BlossomsCam-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F6A41C54EA430FDDC6A6ED99 /* [CP] Copy Pods Resources */ = {
@@ -368,15 +448,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-blossomscam-blossomscamTests/Pods-blossomscam-blossomscamTests-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-BlossomsCam-BlossomsCamTests/Pods-BlossomsCam-BlossomsCamTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -404,7 +484,7 @@
 /* Begin PBXTargetDependency section */
 		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 13B07F861A680F5B00A75B9A /* blossomscam */;
+			target = 13B07F861A680F5B00A75B9A /* BlossomsCam */;
 			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -412,9 +492,10 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B7EB9410499542E8C5724F5 /* Pods-blossomscam-blossomscamTests.debug.xcconfig */;
+			baseConfigurationReference = 1BA3FA8D78C3F365A1F5ED17 /* Pods-BlossomsCam-BlossomsCamTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GJ44FX298G;
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -431,7 +512,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blossomscam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/blossomscam.app/blossomscam";
 			};
@@ -439,10 +520,11 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 89C6BE57DB24E9ADA2F236DE /* Pods-blossomscam-blossomscamTests.release.xcconfig */;
+			baseConfigurationReference = 02DA8385D7592905AE660070 /* Pods-BlossomsCam-BlossomsCamTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GJ44FX298G;
 				INFOPLIST_FILE = blossomscamTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -455,7 +537,7 @@
 					"-lc++",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blossomscam;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/blossomscam.app/blossomscam";
 			};
@@ -463,11 +545,12 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 3B4392A12AC88292D35C810B /* Pods-blossomscam.debug.xcconfig */;
+			baseConfigurationReference = E89404742B833E22724D14D4 /* Pods-BlossomsCam.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = GJ44FX298G;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = blossomscam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -480,7 +563,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blossomscam;
 				PRODUCT_NAME = blossomscam;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -490,11 +573,12 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5709B34CF0A7D63546082F79 /* Pods-blossomscam.release.xcconfig */;
+			baseConfigurationReference = 01C463F06EBA3A200DDAC7FB /* Pods-BlossomsCam.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 2;
+				DEVELOPMENT_TEAM = GJ44FX298G;
 				INFOPLIST_FILE = blossomscam/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -506,7 +590,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.blossomscam;
 				PRODUCT_NAME = blossomscam;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -517,6 +601,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -544,6 +629,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
+				CXX = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -563,6 +649,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -582,7 +670,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = "$(inherited)  ";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 			};
 			name = Debug;
 		};
@@ -590,6 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CC = "";
 				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -617,6 +709,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
+				CXX = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
@@ -629,6 +722,8 @@
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD = "";
+				LDPLUSPLUS = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -647,7 +742,10 @@
 					"-DFOLLY_CFG_NO_COROUTINES=1",
 					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
 				);
+				OTHER_LDFLAGS = "$(inherited)  ";
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
 				SDKROOT = iphoneos;
+				USE_HERMES = true;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -655,7 +753,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "blossomscamTests" */ = {
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "BlossomsCamTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				00E356F61AD99517003FC87E /* Debug */,
@@ -664,7 +762,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "blossomscam" */ = {
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "BlossomsCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				13B07F941A680F5B00A75B9A /* Debug */,
@@ -673,7 +771,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "blossomscam" */ = {
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "BlossomsCam" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				83CBBA201A601CBA00E9B192 /* Debug */,
