@@ -11,6 +11,12 @@
 	<key>CFBundleShortVersionString</key>
 	<string>$(MARKETING_VERSION)</string>
 
+	<key>CFBundleSignature</key>
+	<string>com.blossomscam</string>
+
+	<key>CFBundleIconName</key>
+	<string>AppIcon</string>
+
 	<key>0</key>
 	<dict>
 		<key>CFBundleDevelopmentRegion</key>
@@ -21,8 +27,6 @@
 		<string>6.0</string>
 		<key>CFBundlePackageType</key>
 		<string>APPL</string>
-		<key>CFBundleSignature</key>
-		<string>????</string>
 		<key>CFBundleVersion</key>
 		<string>$(CURRENT_PROJECT_VERSION)</string>
 		<key>LSRequiresIPhoneOS</key>
