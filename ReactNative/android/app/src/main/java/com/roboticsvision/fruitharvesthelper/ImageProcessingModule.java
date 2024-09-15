@@ -1,4 +1,4 @@
-package com.blossomscam;
+package com.roboticsvision.fruitharvesthelper;
 
 import androidx.annotation.NonNull;
 

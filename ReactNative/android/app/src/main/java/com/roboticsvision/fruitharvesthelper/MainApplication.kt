@@ -1,7 +1,7 @@
-package com.blossomscam
+package com.roboticsvision.fruitharvesthelper
 
-import com.blossomscam.ImageProcessingModulePackage
-import com.blossomscam.BuildConfig  
+import com.roboticsvision.fruitharvesthelper.ImageProcessingModulePackage
+import com.roboticsvision.fruitharvesthelper.BuildConfig  
 import android.app.Application
 import com.facebook.react.PackageList
 import com.facebook.react.ReactApplication

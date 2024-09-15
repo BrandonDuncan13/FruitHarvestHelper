@@ -9,7 +9,7 @@
 #include <opencv2/core.hpp>
 
 // JNI wrapper for the (Java -> C++ -> Java) function
-extern "C" JNIEXPORT jobjectArray JNICALL Java_com_blossomscam_ImageProcessingModule_detect(
+extern "C" JNIEXPORT jobjectArray JNICALL Java_com_roboticsvision_fruitharvesthelper_ImageProcessingModule_detect(
     JNIEnv *env, jclass ImageProcessingModule, jbyteArray orgImage)
 {
     // Convert byte array to Mat to get the image to be processed

@@ -1,4 +1,4 @@
-rootProject.name = 'BlossomsCam'
+rootProject.name = 'FruitHarvestHelper'
 apply from: file("../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesSettingsGradle(settings)
 include ':app', ':opencv'
 include ':react-native-vector-icons'

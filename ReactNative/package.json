@@ -1,5 +1,5 @@
 {
-  "name": "blossomscam",
+  "name": "fruitharvesthelper",
   "version": "1.0.1",
   "private": true,
   "scripts": {
@@ -45,6 +45,6 @@
     "typescript": "5.0.4"
   },
   "engines": {
-    "node": ">=18"
+    "node": "22.7.0"
   }
 }

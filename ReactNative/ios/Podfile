@@ -14,7 +14,7 @@ require Pod::Executable.execute_command('node', ['-p',
     use_frameworks! :linkage => linkage.to_sym
   end
 
-target 'BlossomsCam' do
+target 'FruitHarvestHelper' do
   config = use_native_modules!
 
   use_react_native!(
@@ -23,7 +23,7 @@ target 'BlossomsCam' do
     :app_path => "#{Pod::Config.instance.installation_root}/.."
   )
 
-  target 'BlossomsCamTests' do
+  target 'FruitHarvestHelperTests' do
     inherit! :complete
     # Pods for testing
   end
@@ -31,7 +31,7 @@ target 'BlossomsCam' do
   post_install do |installer|
     installer.pods_project.targets.each do |target|
       target.build_configurations.each do |config|
-        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '13.0' # or whichever version you want
+        config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '14.0' # or whichever version you want
       end
     end
     installer.pods_project.build_configurations.each do |config| config.build_settings["EXCLUDED_ARCHS[sdk=iphonesimulator*]"] =  "arm64"

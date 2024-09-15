@@ -1,0 +1,953 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		00E356F31AD99517003FC87E /* FruitHarvestHelperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* FruitHarvestHelperTests.m */; };
+		4039B4602C8F8DC800B2EC08 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4039B45F2C8F8DC800B2EC08 /* Images.xcassets */; };
+		4051E7FA2C8FC18700D6BD4B /* FruitHarvestHelperTests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 00E356EE1AD99517003FC87E /* FruitHarvestHelperTests.xctest */; };
+		4051E7FE2C90E38B00D6BD4B /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 4051E7FD2C90E38B00D6BD4B /* PrivacyInfo.xcprivacy */; };
+		4051E8012C90E48700D6BD4B /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4051E8002C90E48700D6BD4B /* AppDelegate.mm */; };
+		4051E8132C90E7D100D6BD4B /* Foundation.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8032C90E7D100D6BD4B /* Foundation.ttf */; };
+		4051E8142C90E7D100D6BD4B /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8042C90E7D100D6BD4B /* FontAwesome.ttf */; };
+		4051E8152C90E7D100D6BD4B /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8052C90E7D100D6BD4B /* Entypo.ttf */; };
+		4051E8162C90E7D100D6BD4B /* Octicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8062C90E7D100D6BD4B /* Octicons.ttf */; };
+		4051E8172C90E7D100D6BD4B /* FontAwesome5_Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8072C90E7D100D6BD4B /* FontAwesome5_Regular.ttf */; };
+		4051E8182C90E7D100D6BD4B /* AntDesign.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8082C90E7D100D6BD4B /* AntDesign.ttf */; };
+		4051E8192C90E7D100D6BD4B /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8092C90E7D100D6BD4B /* Fontisto.ttf */; };
+		4051E81A2C90E7D100D6BD4B /* FontAwesome5_Brands.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E80A2C90E7D100D6BD4B /* FontAwesome5_Brands.ttf */; };
+		4051E81B2C90E7D100D6BD4B /* MaterialIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E80B2C90E7D100D6BD4B /* MaterialIcons.ttf */; };
+		4051E81C2C90E7D100D6BD4B /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E80C2C90E7D100D6BD4B /* MaterialCommunityIcons.ttf */; };
+		4051E81D2C90E7D100D6BD4B /* Zocial.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E80D2C90E7D100D6BD4B /* Zocial.ttf */; };
+		4051E81E2C90E7D100D6BD4B /* FontAwesome5_Solid.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E80E2C90E7D100D6BD4B /* FontAwesome5_Solid.ttf */; };
+		4051E81F2C90E7D100D6BD4B /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E80F2C90E7D100D6BD4B /* Feather.ttf */; };
+		4051E8202C90E7D100D6BD4B /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8102C90E7D100D6BD4B /* Ionicons.ttf */; };
+		4051E8212C90E7D100D6BD4B /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8112C90E7D100D6BD4B /* EvilIcons.ttf */; };
+		4051E8222C90E7D100D6BD4B /* SimpleLineIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4051E8122C90E7D100D6BD4B /* SimpleLineIcons.ttf */; };
+		4051E8252C90E7DF00D6BD4B /* RCTHeloWorld.m in Sources */ = {isa = PBXBuildFile; fileRef = 4051E8232C90E7DF00D6BD4B /* RCTHeloWorld.m */; };
+		4051E8292C90E96900D6BD4B /* HWHelloWorld+Private.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4051E8272C90E96900D6BD4B /* HWHelloWorld+Private.mm */; };
+		4051E8312C90E9AF00D6BD4B /* DJIProxyCaches.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4051E82D2C90E9AE00D6BD4B /* DJIProxyCaches.mm */; };
+		4051E8322C90E9AF00D6BD4B /* DJIError.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4051E82E2C90E9AE00D6BD4B /* DJIError.mm */; };
+		4051E8392C90E9C200D6BD4B /* hello_world_impl.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4051E8342C90E9C200D6BD4B /* hello_world_impl.cpp */; };
+		4051E83A2C90E9C200D6BD4B /* processImage.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 4051E8382C90E9C200D6BD4B /* processImage.cpp */; };
+		4051E83C2C921A2200D6BD4B /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 409930F32C8F9A4F00AACA70 /* main.m */; };
+		4051E83E2C921BDE00D6BD4B /* opencv2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4051E83D2C921BDD00D6BD4B /* opencv2.framework */; };
+		4065C9622C8FA8950084A14E /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4065C9612C8FA8950084A14E /* Info.plist */; };
+		69666E92924EA684E8E1D292 /* libPods-FruitHarvestHelper.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3891B0B823C5D809407831FE /* libPods-FruitHarvestHelper.a */; };
+		6F6A9BF3DD3373B589BA4BB9 /* libPods-FruitHarvestHelper-FruitHarvestHelperTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E3604B229ED901AA16F991A4 /* libPods-FruitHarvestHelper-FruitHarvestHelperTests.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		00E356F41AD99517003FC87E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 83CBB9F71A601CBA00E9B192 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 13B07F861A680F5B00A75B9A;
+			remoteInfo = FruitHarvestHelper;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		4051E7F82C8FB9A600D6BD4B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		00E356EE1AD99517003FC87E /* FruitHarvestHelperTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FruitHarvestHelperTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		00E356F21AD99517003FC87E /* FruitHarvestHelperTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FruitHarvestHelperTests.m; sourceTree = "<group>"; };
+		13B07F961A680F5B00A75B9A /* FruitHarvestHelper.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FruitHarvestHelper.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3891B0B823C5D809407831FE /* libPods-FruitHarvestHelper.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FruitHarvestHelper.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4039B45F2C8F8DC800B2EC08 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = FruitHarvestHelper/Images.xcassets; sourceTree = "<group>"; };
+		4051E7FD2C90E38B00D6BD4B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = FruitHarvestHelper/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		4051E8002C90E48700D6BD4B /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = FruitHarvestHelper/AppDelegate.mm; sourceTree = "<group>"; };
+		4051E8032C90E7D100D6BD4B /* Foundation.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
+		4051E8042C90E7D100D6BD4B /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
+		4051E8052C90E7D100D6BD4B /* Entypo.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		4051E8062C90E7D100D6BD4B /* Octicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
+		4051E8072C90E7D100D6BD4B /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
+		4051E8082C90E7D100D6BD4B /* AntDesign.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
+		4051E8092C90E7D100D6BD4B /* Fontisto.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
+		4051E80A2C90E7D100D6BD4B /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
+		4051E80B2C90E7D100D6BD4B /* MaterialIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
+		4051E80C2C90E7D100D6BD4B /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
+		4051E80D2C90E7D100D6BD4B /* Zocial.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
+		4051E80E2C90E7D100D6BD4B /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
+		4051E80F2C90E7D100D6BD4B /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
+		4051E8102C90E7D100D6BD4B /* Ionicons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
+		4051E8112C90E7D100D6BD4B /* EvilIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
+		4051E8122C90E7D100D6BD4B /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
+		4051E8232C90E7DF00D6BD4B /* RCTHeloWorld.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RCTHeloWorld.m; path = ReactBridge/RCTHeloWorld.m; sourceTree = "<group>"; };
+		4051E8242C90E7DF00D6BD4B /* RCTHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RCTHelloWorld.h; path = ReactBridge/RCTHelloWorld.h; sourceTree = "<group>"; };
+		4051E8262C90E96800D6BD4B /* HWHelloWorld+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "HWHelloWorld+Private.h"; path = "../djinni/objc/HWHelloWorld+Private.h"; sourceTree = "<group>"; };
+		4051E8272C90E96900D6BD4B /* HWHelloWorld+Private.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = "HWHelloWorld+Private.mm"; path = "../djinni/objc/HWHelloWorld+Private.mm"; sourceTree = "<group>"; };
+		4051E8282C90E96900D6BD4B /* HWHelloWorld.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWHelloWorld.h; path = ../djinni/objc/HWHelloWorld.h; sourceTree = "<group>"; };
+		4051E82A2C90E97D00D6BD4B /* hello_world.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hello_world.hpp; path = ../djinni/cpp/hello_world.hpp; sourceTree = "<group>"; };
+		4051E82B2C90E9AE00D6BD4B /* DJIError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = DJIError.h; path = "../node_modules/djinni/support-lib/objc/DJIError.h"; sourceTree = "<group>"; };
+		4051E82C2C90E9AE00D6BD4B /* DJIObjcWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJIObjcWrapperCache+Private.h"; path = "../node_modules/djinni/support-lib/objc/DJIObjcWrapperCache+Private.h"; sourceTree = "<group>"; };
+		4051E82D2C90E9AE00D6BD4B /* DJIProxyCaches.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DJIProxyCaches.mm; path = "../node_modules/djinni/support-lib/objc/DJIProxyCaches.mm"; sourceTree = "<group>"; };
+		4051E82E2C90E9AE00D6BD4B /* DJIError.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = DJIError.mm; path = "../node_modules/djinni/support-lib/objc/DJIError.mm"; sourceTree = "<group>"; };
+		4051E82F2C90E9AE00D6BD4B /* DJIMarshal+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJIMarshal+Private.h"; path = "../node_modules/djinni/support-lib/objc/DJIMarshal+Private.h"; sourceTree = "<group>"; };
+		4051E8302C90E9AF00D6BD4B /* DJICppWrapperCache+Private.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DJICppWrapperCache+Private.h"; path = "../node_modules/djinni/support-lib/objc/DJICppWrapperCache+Private.h"; sourceTree = "<group>"; };
+		4051E8332C90E9C200D6BD4B /* processImage.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = processImage.hpp; path = ../src/cpp/processImage.hpp; sourceTree = "<group>"; };
+		4051E8342C90E9C200D6BD4B /* hello_world_impl.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = hello_world_impl.cpp; path = ../src/cpp/hello_world_impl.cpp; sourceTree = "<group>"; };
+		4051E8352C90E9C200D6BD4B /* filesystem.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = filesystem.hpp; path = ../src/cpp/filesystem.hpp; sourceTree = "<group>"; };
+		4051E8362C90E9C200D6BD4B /* detect.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = detect.hpp; path = ../src/cpp/detect.hpp; sourceTree = "<group>"; };
+		4051E8372C90E9C200D6BD4B /* hello_world_impl.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = hello_world_impl.hpp; path = ../src/cpp/hello_world_impl.hpp; sourceTree = "<group>"; };
+		4051E8382C90E9C200D6BD4B /* processImage.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = processImage.cpp; path = ../src/cpp/processImage.cpp; sourceTree = "<group>"; };
+		4051E83B2C920F8800D6BD4B /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = FruitHarvestHelper/AppDelegate.h; sourceTree = "<group>"; };
+		4051E83D2C921BDD00D6BD4B /* opencv2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = opencv2.framework; sourceTree = "<group>"; };
+		4051E83F2C921BF300D6BD4B /* PrefixHeader.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
+		4065C9612C8FA8950084A14E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4065C9632C8FAB670084A14E /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = FruitHarvestHelper/Info.plist; sourceTree = "<group>"; };
+		409930F32C8F9A4F00AACA70 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = main.m; path = FruitHarvestHelper/main.m; sourceTree = "<group>"; };
+		409930F42C8F9A4F00AACA70 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = FruitHarvestHelper/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7D17F743E6919FAA56CE3F9D /* Pods-FruitHarvestHelper.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FruitHarvestHelper.release.xcconfig"; path = "Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper.release.xcconfig"; sourceTree = "<group>"; };
+		A6C85FB9C2C98BAE50381F43 /* Pods-FruitHarvestHelper-FruitHarvestHelperTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FruitHarvestHelper-FruitHarvestHelperTests.release.xcconfig"; path = "Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests.release.xcconfig"; sourceTree = "<group>"; };
+		B664BCC84114FADF80FCF671 /* Pods-FruitHarvestHelper.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FruitHarvestHelper.debug.xcconfig"; path = "Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper.debug.xcconfig"; sourceTree = "<group>"; };
+		D48F714E6DE072A0510B63D3 /* Pods-FruitHarvestHelper-FruitHarvestHelperTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FruitHarvestHelper-FruitHarvestHelperTests.debug.xcconfig"; path = "Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests.debug.xcconfig"; sourceTree = "<group>"; };
+		E3604B229ED901AA16F991A4 /* libPods-FruitHarvestHelper-FruitHarvestHelperTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-FruitHarvestHelper-FruitHarvestHelperTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		00E356EB1AD99517003FC87E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				6F6A9BF3DD3373B589BA4BB9 /* libPods-FruitHarvestHelper-FruitHarvestHelperTests.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8C1A680F5B00A75B9A /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4051E83E2C921BDE00D6BD4B /* opencv2.framework in Frameworks */,
+				69666E92924EA684E8E1D292 /* libPods-FruitHarvestHelper.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		00E356EF1AD99517003FC87E /* FruitHarvestHelperTests */ = {
+			isa = PBXGroup;
+			children = (
+				00E356F21AD99517003FC87E /* FruitHarvestHelperTests.m */,
+				00E356F01AD99517003FC87E /* Supporting Files */,
+			);
+			path = FruitHarvestHelperTests;
+			sourceTree = "<group>";
+		};
+		00E356F01AD99517003FC87E /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4065C9612C8FA8950084A14E /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		13B07FAE1A68108700A75B9A /* FruitHarvestHelper */ = {
+			isa = PBXGroup;
+			children = (
+				4051E83F2C921BF300D6BD4B /* PrefixHeader.pch */,
+				4051E83D2C921BDD00D6BD4B /* opencv2.framework */,
+				4051E83B2C920F8800D6BD4B /* AppDelegate.h */,
+				4051E8002C90E48700D6BD4B /* AppDelegate.mm */,
+				4051E7FD2C90E38B00D6BD4B /* PrivacyInfo.xcprivacy */,
+				4065C9632C8FAB670084A14E /* Info.plist */,
+				409930F42C8F9A4F00AACA70 /* LaunchScreen.storyboard */,
+				409930F32C8F9A4F00AACA70 /* main.m */,
+				4039B45F2C8F8DC800B2EC08 /* Images.xcassets */,
+				40845B7B2C8F7911000D6F02 /* CppSrc */,
+				40845B7A2C8F790B000D6F02 /* Djinni */,
+				40845B792C8F7903000D6F02 /* ObjCBridge */,
+				40845B752C8F788A000D6F02 /* ReactBridge */,
+				40845B742C8F75F4000D6F02 /* Fonts */,
+			);
+			name = FruitHarvestHelper;
+			sourceTree = "<group>";
+		};
+		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
+				3891B0B823C5D809407831FE /* libPods-FruitHarvestHelper.a */,
+				E3604B229ED901AA16F991A4 /* libPods-FruitHarvestHelper-FruitHarvestHelperTests.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		40845B742C8F75F4000D6F02 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				4051E8082C90E7D100D6BD4B /* AntDesign.ttf */,
+				4051E8052C90E7D100D6BD4B /* Entypo.ttf */,
+				4051E8112C90E7D100D6BD4B /* EvilIcons.ttf */,
+				4051E80F2C90E7D100D6BD4B /* Feather.ttf */,
+				4051E8042C90E7D100D6BD4B /* FontAwesome.ttf */,
+				4051E80A2C90E7D100D6BD4B /* FontAwesome5_Brands.ttf */,
+				4051E8072C90E7D100D6BD4B /* FontAwesome5_Regular.ttf */,
+				4051E80E2C90E7D100D6BD4B /* FontAwesome5_Solid.ttf */,
+				4051E8092C90E7D100D6BD4B /* Fontisto.ttf */,
+				4051E8032C90E7D100D6BD4B /* Foundation.ttf */,
+				4051E8102C90E7D100D6BD4B /* Ionicons.ttf */,
+				4051E80C2C90E7D100D6BD4B /* MaterialCommunityIcons.ttf */,
+				4051E80B2C90E7D100D6BD4B /* MaterialIcons.ttf */,
+				4051E8062C90E7D100D6BD4B /* Octicons.ttf */,
+				4051E8122C90E7D100D6BD4B /* SimpleLineIcons.ttf */,
+				4051E80D2C90E7D100D6BD4B /* Zocial.ttf */,
+			);
+			name = Fonts;
+			sourceTree = "<group>";
+		};
+		40845B752C8F788A000D6F02 /* ReactBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4051E8242C90E7DF00D6BD4B /* RCTHelloWorld.h */,
+				4051E8232C90E7DF00D6BD4B /* RCTHeloWorld.m */,
+			);
+			name = ReactBridge;
+			sourceTree = "<group>";
+		};
+		40845B792C8F7903000D6F02 /* ObjCBridge */ = {
+			isa = PBXGroup;
+			children = (
+				4051E82A2C90E97D00D6BD4B /* hello_world.hpp */,
+				4051E8282C90E96900D6BD4B /* HWHelloWorld.h */,
+				4051E8262C90E96800D6BD4B /* HWHelloWorld+Private.h */,
+				4051E8272C90E96900D6BD4B /* HWHelloWorld+Private.mm */,
+			);
+			name = ObjCBridge;
+			sourceTree = "<group>";
+		};
+		40845B7A2C8F790B000D6F02 /* Djinni */ = {
+			isa = PBXGroup;
+			children = (
+				4051E8302C90E9AF00D6BD4B /* DJICppWrapperCache+Private.h */,
+				4051E82B2C90E9AE00D6BD4B /* DJIError.h */,
+				4051E82E2C90E9AE00D6BD4B /* DJIError.mm */,
+				4051E82F2C90E9AE00D6BD4B /* DJIMarshal+Private.h */,
+				4051E82C2C90E9AE00D6BD4B /* DJIObjcWrapperCache+Private.h */,
+				4051E82D2C90E9AE00D6BD4B /* DJIProxyCaches.mm */,
+			);
+			name = Djinni;
+			sourceTree = "<group>";
+		};
+		40845B7B2C8F7911000D6F02 /* CppSrc */ = {
+			isa = PBXGroup;
+			children = (
+				4051E8362C90E9C200D6BD4B /* detect.hpp */,
+				4051E8352C90E9C200D6BD4B /* filesystem.hpp */,
+				4051E8342C90E9C200D6BD4B /* hello_world_impl.cpp */,
+				4051E8372C90E9C200D6BD4B /* hello_world_impl.hpp */,
+				4051E8382C90E9C200D6BD4B /* processImage.cpp */,
+				4051E8332C90E9C200D6BD4B /* processImage.hpp */,
+			);
+			name = CppSrc;
+			sourceTree = "<group>";
+		};
+		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Libraries;
+			sourceTree = "<group>";
+		};
+		83CBB9F61A601CBA00E9B192 = {
+			isa = PBXGroup;
+			children = (
+				13B07FAE1A68108700A75B9A /* FruitHarvestHelper */,
+				832341AE1AAA6A7D00B99B32 /* Libraries */,
+				00E356EF1AD99517003FC87E /* FruitHarvestHelperTests */,
+				83CBBA001A601CBA00E9B192 /* Products */,
+				2D16E6871FA4F8E400B85C8A /* Frameworks */,
+				BBD78D7AC51CEA395F1C20DB /* Pods */,
+			);
+			indentWidth = 2;
+			sourceTree = "<group>";
+			tabWidth = 2;
+			usesTabs = 0;
+		};
+		83CBBA001A601CBA00E9B192 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				13B07F961A680F5B00A75B9A /* FruitHarvestHelper.app */,
+				00E356EE1AD99517003FC87E /* FruitHarvestHelperTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B664BCC84114FADF80FCF671 /* Pods-FruitHarvestHelper.debug.xcconfig */,
+				7D17F743E6919FAA56CE3F9D /* Pods-FruitHarvestHelper.release.xcconfig */,
+				D48F714E6DE072A0510B63D3 /* Pods-FruitHarvestHelper-FruitHarvestHelperTests.debug.xcconfig */,
+				A6C85FB9C2C98BAE50381F43 /* Pods-FruitHarvestHelper-FruitHarvestHelperTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		00E356ED1AD99517003FC87E /* FruitHarvestHelperTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FruitHarvestHelperTests" */;
+			buildPhases = (
+				607DE427E032DCA13E167212 /* [CP] Check Pods Manifest.lock */,
+				00E356EA1AD99517003FC87E /* Sources */,
+				00E356EB1AD99517003FC87E /* Frameworks */,
+				00E356EC1AD99517003FC87E /* Resources */,
+				9597D33CCB5C60EB4854F69D /* [CP] Embed Pods Frameworks */,
+				3BCB7D44A12F456706A4606F /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				00E356F51AD99517003FC87E /* PBXTargetDependency */,
+			);
+			name = FruitHarvestHelperTests;
+			productName = FruitHarvestHelperTests;
+			productReference = 00E356EE1AD99517003FC87E /* FruitHarvestHelperTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		13B07F861A680F5B00A75B9A /* FruitHarvestHelper */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FruitHarvestHelper" */;
+			buildPhases = (
+				E211AA69AB9069DE6C8E1D9D /* [CP] Check Pods Manifest.lock */,
+				13B07F871A680F5B00A75B9A /* Sources */,
+				13B07F8C1A680F5B00A75B9A /* Frameworks */,
+				13B07F8E1A680F5B00A75B9A /* Resources */,
+				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
+				4051E7F82C8FB9A600D6BD4B /* Embed Frameworks */,
+				6ED622B657C7A844B3662E79 /* [CP] Embed Pods Frameworks */,
+				CABDABB1B9A5FC327E4A8E81 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = FruitHarvestHelper;
+			productName = FruitHarvestHelper;
+			productReference = 13B07F961A680F5B00A75B9A /* FruitHarvestHelper.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		83CBB9F71A601CBA00E9B192 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 1210;
+				TargetAttributes = {
+					00E356ED1AD99517003FC87E = {
+						CreatedOnToolsVersion = 6.2;
+						TestTargetID = 13B07F861A680F5B00A75B9A;
+					};
+					13B07F861A680F5B00A75B9A = {
+						LastSwiftMigration = 1120;
+					};
+				};
+			};
+			buildConfigurationList = 83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FruitHarvestHelper" */;
+			compatibilityVersion = "Xcode 12.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 83CBB9F61A601CBA00E9B192;
+			productRefGroup = 83CBBA001A601CBA00E9B192 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				13B07F861A680F5B00A75B9A /* FruitHarvestHelper */,
+				00E356ED1AD99517003FC87E /* FruitHarvestHelperTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		00E356EC1AD99517003FC87E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4065C9622C8FA8950084A14E /* Info.plist in Resources */,
+				4051E7FA2C8FC18700D6BD4B /* FruitHarvestHelperTests.xctest in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F8E1A680F5B00A75B9A /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4051E8192C90E7D100D6BD4B /* Fontisto.ttf in Resources */,
+				4051E8172C90E7D100D6BD4B /* FontAwesome5_Regular.ttf in Resources */,
+				4051E81F2C90E7D100D6BD4B /* Feather.ttf in Resources */,
+				4051E8132C90E7D100D6BD4B /* Foundation.ttf in Resources */,
+				4039B4602C8F8DC800B2EC08 /* Images.xcassets in Resources */,
+				4051E8222C90E7D100D6BD4B /* SimpleLineIcons.ttf in Resources */,
+				4051E81D2C90E7D100D6BD4B /* Zocial.ttf in Resources */,
+				4051E7FE2C90E38B00D6BD4B /* PrivacyInfo.xcprivacy in Resources */,
+				4051E8152C90E7D100D6BD4B /* Entypo.ttf in Resources */,
+				4051E81E2C90E7D100D6BD4B /* FontAwesome5_Solid.ttf in Resources */,
+				4051E81B2C90E7D100D6BD4B /* MaterialIcons.ttf in Resources */,
+				4051E8202C90E7D100D6BD4B /* Ionicons.ttf in Resources */,
+				4051E8212C90E7D100D6BD4B /* EvilIcons.ttf in Resources */,
+				4051E8162C90E7D100D6BD4B /* Octicons.ttf in Resources */,
+				4051E8182C90E7D100D6BD4B /* AntDesign.ttf in Resources */,
+				4051E8142C90E7D100D6BD4B /* FontAwesome.ttf in Resources */,
+				4051E81C2C90E7D100D6BD4B /* MaterialCommunityIcons.ttf in Resources */,
+				4051E81A2C90E7D100D6BD4B /* FontAwesome5_Brands.ttf in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/.xcode.env.local",
+				"$(SRCROOT)/.xcode.env",
+			);
+			name = "Bundle React Native code and images";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"$REACT_NATIVE_PATH/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"$REACT_NATIVE_PATH/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
+		};
+		3BCB7D44A12F456706A4606F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		607DE427E032DCA13E167212 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FruitHarvestHelper-FruitHarvestHelperTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6ED622B657C7A844B3662E79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9597D33CCB5C60EB4854F69D /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper-FruitHarvestHelperTests/Pods-FruitHarvestHelper-FruitHarvestHelperTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CABDABB1B9A5FC327E4A8E81 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FruitHarvestHelper/Pods-FruitHarvestHelper-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E211AA69AB9069DE6C8E1D9D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FruitHarvestHelper-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		00E356EA1AD99517003FC87E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				00E356F31AD99517003FC87E /* FruitHarvestHelperTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		13B07F871A680F5B00A75B9A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4051E8392C90E9C200D6BD4B /* hello_world_impl.cpp in Sources */,
+				4051E8312C90E9AF00D6BD4B /* DJIProxyCaches.mm in Sources */,
+				4051E8292C90E96900D6BD4B /* HWHelloWorld+Private.mm in Sources */,
+				4051E83A2C90E9C200D6BD4B /* processImage.cpp in Sources */,
+				4051E8322C90E9AF00D6BD4B /* DJIError.mm in Sources */,
+				4051E8252C90E7DF00D6BD4B /* RCTHeloWorld.m in Sources */,
+				4051E83C2C921A2200D6BD4B /* main.m in Sources */,
+				4051E8012C90E48700D6BD4B /* AppDelegate.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		00E356F51AD99517003FC87E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 13B07F861A680F5B00A75B9A /* FruitHarvestHelper */;
+			targetProxy = 00E356F41AD99517003FC87E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		00E356F61AD99517003FC87E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D48F714E6DE072A0510B63D3 /* Pods-FruitHarvestHelper-FruitHarvestHelperTests.debug.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = GJ44FX298G;
+				EXCLUDED_ARCHS = arm64;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = FruitHarvestHelperTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.roboticsvision.fruitharvesthelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FruitHarvestHelper.app/FruitHarvestHelper";
+			};
+			name = Debug;
+		};
+		00E356F71AD99517003FC87E /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6C85FB9C2C98BAE50381F43 /* Pods-FruitHarvestHelper-FruitHarvestHelperTests.release.xcconfig */;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				DEVELOPMENT_TEAM = GJ44FX298G;
+				EXCLUDED_ARCHS = arm64;
+				INFOPLIST_FILE = FruitHarvestHelperTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-lc++",
+					"$(inherited)",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.roboticsvision.fruitharvesthelper;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FruitHarvestHelper.app/FruitHarvestHelper";
+			};
+			name = Release;
+		};
+		13B07F941A680F5B00A75B9A /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B664BCC84114FADF80FCF671 /* Pods-FruitHarvestHelper.debug.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GJ44FX298G;
+				ENABLE_BITCODE = NO;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/FruitHarvestHelper/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Fruit Harvest Helper";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_NO_PIE = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.roboticsvision.fruitharvesthelper;
+				PRODUCT_NAME = FruitHarvestHelper;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		13B07F951A680F5B00A75B9A /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D17F743E6919FAA56CE3F9D /* Pods-FruitHarvestHelper.release.xcconfig */;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD)";
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = GJ44FX298G;
+				EXCLUDED_ARCHS = "";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SRCROOT)/PrefixHeader.pch";
+				INFOPLIST_FILE = "$(SRCROOT)/FruitHarvestHelper/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Fruit Harvest Helper";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.entertainment";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_NO_PIE = NO;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0.0;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-ObjC",
+					"-lc++",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.roboticsvision.fruitharvesthelper;
+				PRODUCT_NAME = FruitHarvestHelper;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
+		83CBBA201A601CBA00E9B192 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CC = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CXX = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD = "";
+				LDPLUSPLUS = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				USE_HERMES = true;
+			};
+			name = Debug;
+		};
+		83CBBA211A601CBA00E9B192 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				CC = "";
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++20";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				CXX = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
+				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = "";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon/ReactCommon.framework/Headers/react/nativemodule/core",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/ReactCommon-Samples/ReactCommon_Samples.framework/Headers/platform/ios",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-Fabric/React_Fabric.framework/Headers/react/renderer/components/view/platform/cxx",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-NativeModulesApple/React_NativeModulesApple.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers",
+					"${PODS_CONFIGURATION_BUILD_DIR}/React-graphics/React_graphics.framework/Headers/react/renderer/graphics/platform/ios",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD = "";
+				LDPLUSPLUS = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					/usr/lib/swift,
+					"$(inherited)",
+				);
+				LIBRARY_SEARCH_PATHS = (
+					"\"$(SDKROOT)/usr/lib/swift\"",
+					"\"$(TOOLCHAIN_DIR)/usr/lib/swift/$(PLATFORM_NAME)\"",
+					"\"$(inherited)\"",
+				);
+				MTL_ENABLE_DEBUG_INFO = NO;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_CPLUSPLUSFLAGS = (
+					"$(OTHER_CFLAGS)",
+					"-DFOLLY_NO_CONFIG",
+					"-DFOLLY_MOBILE=1",
+					"-DFOLLY_USE_LIBCPP=1",
+					"-DFOLLY_CFG_NO_COROUTINES=1",
+					"-DFOLLY_HAVE_CLOCK_GETTIME=1",
+				);
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					" ",
+				);
+				REACT_NATIVE_PATH = "${PODS_ROOT}/../../node_modules/react-native";
+				SDKROOT = iphoneos;
+				USE_HERMES = true;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "FruitHarvestHelperTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				00E356F61AD99517003FC87E /* Debug */,
+				00E356F71AD99517003FC87E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "FruitHarvestHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				13B07F941A680F5B00A75B9A /* Debug */,
+				13B07F951A680F5B00A75B9A /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		83CBB9FA1A601CBA00E9B192 /* Build configuration list for PBXProject "FruitHarvestHelper" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				83CBBA201A601CBA00E9B192 /* Debug */,
+				83CBBA211A601CBA00E9B192 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 83CBB9F71A601CBA00E9B192 /* Project object */;
+}

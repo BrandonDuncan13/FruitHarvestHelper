@@ -80,14 +80,14 @@ android {
     buildToolsVersion rootProject.ext.buildToolsVersion
     compileSdk rootProject.ext.compileSdkVersion
 
-    namespace "com.blossomscam"
+    namespace "com.roboticsvision.fruitharvesthelper"
 
     packagingOptions {
            pickFirst '**/libc++_shared.so'
         }
     
     defaultConfig {
-        applicationId "com.blossomscam"
+        applicationId "com.roboticsvision.fruitharvesthelper"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 3
@@ -132,7 +132,7 @@ android {
     // Here we can add source code to our project
     sourceSets {
         main {
-            java.srcDirs = ["src/main/java/com/blossomscam", "../../djinni/java"]
+            java.srcDirs = ["src/main/java/com.roboticsvision.fruitharvesthelper", "../../djinni/java"]
             jni.srcDirs = ["src/main/jni", "../../djinni/jni"]
         }
     }
