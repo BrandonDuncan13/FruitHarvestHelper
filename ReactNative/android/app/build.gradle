@@ -90,8 +90,8 @@ android {
         applicationId "com.roboticsvision.fruitharvesthelper"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 3
-        versionName "1.0.1"
+        versionCode 6
+        versionName "1.0.2"
         vectorDrawables.useSupportLibrary = true // added this line for camera library
 
         externalNativeBuild {
@@ -132,7 +132,7 @@ android {
     // Here we can add source code to our project
     sourceSets {
         main {
-            java.srcDirs = ["src/main/java/com.roboticsvision.fruitharvesthelper", "../../djinni/java"]
+            java.srcDirs = ["src/main/java/com/roboticsvision/fruitharvesthelper", "../../djinni/java"]
             jni.srcDirs = ["src/main/jni", "../../djinni/jni"]
         }
     }

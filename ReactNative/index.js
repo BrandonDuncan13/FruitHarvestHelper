@@ -4,7 +4,7 @@
 
 import 'react-native-gesture-handler';
 import {AppRegistry} from 'react-native';
-import BlossomCounter from './App';
+import FruitCounter from './App';
 import {name as appName} from './app.json';
 
-AppRegistry.registerComponent(appName, () => BlossomCounter);
+AppRegistry.registerComponent(appName, () => FruitCounter);

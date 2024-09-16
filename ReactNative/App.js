@@ -7,7 +7,7 @@ import HomeStack from './navigate/homeStack.js';
 
 
 // App uses stack navigation instead called HomeStack
-export default function BlossomCounter() {
+export default function FruitCounter() {
   return (
       <HomeStack />
     );
