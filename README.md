@@ -1,8 +1,7 @@
 # Fruit Harvest Helper Mobile App
 ## Overview/Contents
-  A Northwest Nazarene University (NNU) research project run by the Robotics Vision Lab to create a mobile application for helping farmers get a fruit yield estimation for their orchards via image processing. This mobile app is cross-platform compatible across iOS and Android
-through React Native, a popular JavaScript framework. While the front-end is all React Native and JavaScript, the back-end of the Fruit Harvest Helper is more complex 
-since there are currently two different back-ends, and there is no easy way to get React Native apps to have a shared back-end. 
+  A research project at Northwest Nazarene University (NNU) hosted by the Robotics Vision Lab. The goal of this research is to create a mobile application that helps farmers easily get a fruit yield estimation for their orchard by taking a photo and using image processing to obtain actionable information. This mobile app is cross-platform compatible across iOS and Android through React Native, a popular JavaScript framework. While the front-end is all React Native and JavaScript, the back-end of the Fruit Harvest Helper is more complex 
+since there are currently two different back-ends, and there is no easy way to get React Native apps to have a shared back-end.
 
   The first back-end created is the back-end that 
 uses an OpenCV C++ apple detection algorithm, which has separate code for iOS and Android. For iOS, a library called Djinni is used in order to create an environment where the React
@@ -18,15 +17,18 @@ cloud to get a working server running all the time to handle the image processin
 libraries like TensorFlow, Scikit-image, etc., could be used instead of just OpenCV. Whichever back-end someone chooses to use, the app is already complete enough so they can focus their 
 attention on creating cool image processing algorithms that could help farmers estimate fruit yield for orchards that have apples, peaches, etc.
 
+## Repository Setup
+  The Android app is pretty easy to setup after cloning the repo because all that you'll likely need to do is setup Android Studio with Android API/SDK 34 and create a simulated device that uses this API version. You might also need to run a Djinni command, which will soon be mentioned for iOS. For the iOS app setup, this is more involved since configurations in Xcode must be added for Djinni and OpenCV. To get Djinni working, follow this series of Medium articles: https://medium.com/p/f245e5d919dd and to get OpenCV working, drag and drop the OpenCV framework within the iOS directory of the project into the 'FruitHarvestHelper' directory in Xcode. Also, a PrefixHeader.pch file is required to get the C++ files to recognize OpenCV. You'll need to search in Xcode's Build Settings for 'Prefix Header' and change the 'Precompiled Prefix Header' to 'yes' for all targets you have and you'll need to also change the 'Prefix Header' path to '$(SRCROOT)/PrefixHeader.pch', assuming your precompiled header file is in directly in the iOS directory. You might find it easier to comment out the OpenCV C++ code to get Djinni working first, and then working on getting OpenCV working afterwards.
+
 ## Running The App
   To run the app from the command line, you can use the commands 'npx react-native run-ios' and 'npx react-native run-android'. The app uses React Native cli instead of 
 React Native expo since Native modules were used. The app has a true/false value that's hardcoded, which changes the back-end you're running. Currently, the Flask back-end is 
-set to off. If you want to run the Flask back-end, change this value in the BottomSheet.js component and run the Docker container manually since it's not set up to run automatically when the app starts. If you use that back-end, I  recommend getting Flask to run when the app starts. Here's the command that will run the docker container 
-right now: 'docker run -d -p 5000:5000 fruitharvesthelper-python'. Note that it has to use port 5000 because that's the port the app.py file is looking for.
+set to off. If you want to run the Flask back-end, change this value in the BottomSheet.js component and run the Docker container manually since it's not set up to run automatically when the app starts. If you use that back-end, I recommend getting Flask to run automatically when the app starts. Here's the command that will run the docker container 
+right now: 'docker run -d -p 5000:5000 fruitharvesthelper-python'. It has to use port 5000 because that's the port the app.py file is looking for.
 
 ## NPM & Yarn, Updates
-  During development, npm commands stopped working for this project for unknown reasons. Due to this, the Fruit Harvest Helper project only uses the yarn package manager for 
-everything. This issue with npm might make things like updating the React Native version more difficult, but that's how the project works right now. There's no need to update anything, but you'll likely need to work with the project's dependencies at some point.
+  During development, npm commands stopped working for this project for unknown reasons. This is why the Fruit Harvest Helper project only uses the yarn package manager for 
+everything. Any npm command should have a yarn substitute though. Currently, the app uses a really new version of react native and is compatible with up to iOS 17 and Android API/SDK 34, which are the versions that were required for publishing to the App Store and Google Play Store at the time. If you want to update the app on the Google Play store, you're going to need the app's Signing Key which is in an email on this account: nnutablet@gmail.com. Also, using the react-native-version module really helps when upgrading the app's version and react-native-rename is super helpful for updating the name of the app.
 
 ## Front-End
   The front-end of the mobile application was created for an iOS blossom detection app and was adapted for this cross-platform app. It was created to be farmer-friendly as 
