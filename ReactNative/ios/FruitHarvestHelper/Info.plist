@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>en</string>
 	<key>CFBundleDisplayName</key>
-	<string>FruitHarvestHelper</string>
+	<string>Fruit Harvest Helper</string>
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundlePackageType</key>
@@ -38,9 +38,9 @@
 	<key>CFBundleVersion</key>
 	<string>$(CURRENT_PROJECT_VERSION)</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Fruit Harvest Helper app requires camera access to take photos.</string>
+	<string>The Fruit Harvest Helper app needs to access your device's camera to take and process photos of apple trees.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Fruit Harvest Helper app requires photo library access.</string>
+	<string>The Fruit Harvest Helper app needs to access your device's photo library to select and process photos of apple trees.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
